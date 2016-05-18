@@ -2,7 +2,7 @@ git branch                  : ver branchs
 git status                  : comprueba de cambios pendientes
 git pull                    : bajarse los cambios
 git checkout -b [branch]    : crea un nuevo branch
-git add [file-name]         : Añade el fichero
+git add [file-name | .]     : Añade el/los fichero/s
 git commit -m [desc]        : Sube los cambios al repositorio [-m: mensage]
 git push                    : Sube los cambios al branch
 git pull && git push        : Se baja los cambios antes de subirlos
