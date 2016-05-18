@@ -1,5 +1,0 @@
-texto de prueba
-
-*vemos el formateado*
-
-**etc**
