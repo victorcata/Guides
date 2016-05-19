@@ -38,6 +38,7 @@
 
     // Function
     typeof
+
     function() {};
     typeof class C {}; // ES6
 
@@ -898,4 +899,94 @@
      */
     JSON.stringify(true);
     JSON.stringify([1, "false", false]);
+
+    /**
+     * ----------------------------------------------------------------------------------------- @summary Promesas
+     */
+
+    /**
+     * Promesas en EcmaScript 6
+     */
+    var promise = new Promise(function(resolve, reject) {
+        if (false) { // Error
+            reject();
+        }
+        else {
+            resolve()
+        }
+    });
+    promise.then(function() {})
+        .catch(function() {});
+
+    /**
+     * Promise.race
+     */
+    var p1 = new Promise(),
+        p2 = new Promise();
+    Promise.race([p1, p2]).then(function() {});
+
+    /**
+     * Promise.all 
+     */
+    Promise.all([p1, p2]).then(function(value) {});
+
+    /**
+     * ----------------------------------------------------------------------------------------- Namespace
+     */
+
+    /**
+     * Namespace funcion anonima
+     */
+    var myApp = (function() {
+        var metodoPrivado = function() {};
+        var propiedadPrivada = '';
+        return {
+            metodoPublico: metodoPrivado,
+            propiedadesPublicas: {
+                propiedad1: propiedadPrivada,
+                otro: 'otro'
+            },
+            mas: {
+                metodoPublico2: metodoPrivado
+            }
+        }
+    })();
+
+    /**
+     * Namespace Extension
+     */
+    var app = myApp || {};
+    (function(namespace) {
+        namespace.propiedad1 = "";
+        namespace.metodo1 = function() {};
+    })(app);
+    
+    /**
+     * ----------------------------------------------------------------------------------------- Console
+     */
+    
+    /**
+     * console.assert
+     */
+    console.assert(true, 'No me muestro');
+    console.assert(false, 'Me muestro');
+    
+    /**
+     * console.time y console.timeEnd
+     * 
+     * @param {string} Identificador
+     */
+    console.time('contador');
+    // Code
+    console.timeEnd('contador');
+    
+    /**
+     * console.log
+     */
+    console.log("Tenemos %d usuarios conectados", 10);
+    console.log("Tenemos %s usuarios conectados", "muchos");
+    console.log("Tenemos %j", {alumnos: {total: 15, estado: "conectados"}});
+    
+    
+    
 });
