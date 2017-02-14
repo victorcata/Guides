@@ -1,0 +1,46 @@
+/**
+* Version
+*/
+git --version : Installed version
+
+/**
+* Configuration
+*/
+git config > Project
+git config --system > All users
+git config --global > Local user
+  git config --global user.name "nombre" > Setter Name
+  git config --global user.name > Getter Name
+  git config --global user.email "email" > Setter Email
+  git config --global color.ui true > Enable colors
+  git config --global --list > See users
+
+/**
+* Help
+*/
+git help <command>
+  git help push > Shows push help
+
+/**
+* Initialize
+*/
+cd <folder>/<Project_Folder>
+git init
+
+/**
+* Project status
+*/
+cd <folder>/<Project_Folder>
+git status
+
+
+
+
+git branch                  : ver branchs
+git status                  : comprueba de cambios pendientes
+git pull                    : bajarse los cambios
+git checkout -b [branch]    : crea un nuevo branch
+git add [file-name | .]     : Añade el/los fichero/s
+git commit -m [desc]        : Sube los cambios al repositorio [-m: mensage]
+git push                    : Sube los cambios al branch
+git pull && git push        : Se baja los cambios antes de subirlos
