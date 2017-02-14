@@ -1,7 +1,7 @@
 /**
-* Version
+* Git version
 */
-git --version : Installed version
+git --version
 
 /**
 * Configuration
@@ -18,29 +18,50 @@ git config --global > Local user
 /**
 * Help
 */
-git help <command>
+git help <COMMAND>
   git help push > Shows push help
 
 /**
 * Initialize
 */
-cd <folder>/<Project_Folder>
+cd <FOLDER>/<PROJECT_FOLDER>
 git init
 
 /**
 * Project status
 */
-cd <folder>/<Project_Folder>
+cd <FOLDER>/<PROJECT_FOLDER>
 git status
 
+/**
+* Add, prepare for commit
+*/
+git add -A > Add everything
+git add . > Like -A but leaving files out of track
+git add <FILE> > Add a specific file
 
+/**
+* Commit
+*/
+git commit -m "COMMENT"
+
+/**
+* Commit status
+*/
+git log
+git log > <FILE_NAME.txt> > Backup of commits
+
+/**
+* Project reset
+*/
+git reset --soft <COMMIT_NUMBER>  > No Working area or Staging Area
+git reset --mixed <COMMIT_NUMBER> > No Working area
+git reset --hard <COMMIT_NUMBER>  > All levels
+git reset HEAD <FILE_NAME>  > A file come back from Staging to Working area
 
 
 git branch                  : ver branchs
-git status                  : comprueba de cambios pendientes
 git pull                    : bajarse los cambios
 git checkout -b [branch]    : crea un nuevo branch
-git add [file-name | .]     : Añade el/los fichero/s
-git commit -m [desc]        : Sube los cambios al repositorio [-m: mensage]
 git push                    : Sube los cambios al branch
 git pull && git push        : Se baja los cambios antes de subirlos
