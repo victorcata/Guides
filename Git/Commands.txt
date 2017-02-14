@@ -14,6 +14,7 @@ git config --global > Local user
   git config --global user.email "email" > Setter Email
   git config --global color.ui true > Enable colors
   git config --global --list > See users
+  git config --global credential-helper 'cache --timeout=9999999' > Cache credentials
 
 /**
 * Help
@@ -34,6 +35,11 @@ cd <FOLDER>/<PROJECT_FOLDER>
 git status
 
 /**
+* Download last version
+*/
+git pull  > Fetch + merge
+
+/**
 * Add, prepare for commit
 */
 git add -A > Add everything
@@ -41,15 +47,29 @@ git add . > Like -A but leaving files out of track
 git add <FILE> > Add a specific file
 
 /**
+* Push changes
+*/
+git push
+git pull && git push  > Download last version first
+
+/**
 * Commit
 */
-git commit -m "COMMENT"
+git commit -m <COMMENT>
+git commit -am <COMMENT>  > Add + commit
 
 /**
 * Commit status
 */
 git log
 git log > <FILE_NAME.txt> > Backup of commits
+git log --oneline --graph --all > See changes on branches
+
+/**
+* See differences
+*/
+git diff
+git diff --cached > Changes in the next confirmation
 
 /**
 * Project reset
@@ -59,9 +79,82 @@ git reset --mixed <COMMIT_NUMBER> > No Working area
 git reset --hard <COMMIT_NUMBER>  > All levels
 git reset HEAD <FILE_NAME>  > A file come back from Staging to Working area
 
+/**
+* Checkout
+*/
+git checkout <COMMIT_NUMBER>
+git checkout master > Come back to master branch
+git checkout <BRANCH_NAME>  > Changes to another branch
+git checkout -b <BRANCH_NAME> > Create and change to another branch
 
-git branch                  : ver branchs
-git pull                    : bajarse los cambios
-git checkout -b [branch]    : crea un nuevo branch
-git push                    : Sube los cambios al branch
-git pull && git push        : Se baja los cambios antes de subirlos
+/**
+* Branches
+*/
+git branch  > See branches
+git branch <BRANCH_NAME>  > Create a new branch
+git branch -d <BRANCH_NAME> > Delete a branch
+git branch -m <BRANCH_NAME> <BRANCH_NEW_NAME> > Rename a branch
+git branch -a > Show all branches even mirrors
+
+/**
+* Clone project
+*/
+git clone <URL>
+
+/**
+* Workflow: Joining branches
+*/
+git checkout <MAIN_BRANCH>
+git merge <SECOND_BRANCH>
+git branch
+git branch -d <BRANCH_NAME>
+
+/**
+* Workflow: Resolve conflicts
+*/
+git checkout <MAIN_BRANCH>
+git merge <SECOND_BRANCH>
+<CONSOLE OR EDITOR>
+git status
+git commit -am <COMMENT>
+git branch -d <BRANCH_NAME> > Optional
+
+/**
+* Workflow: Creating a project
+*/
+git init  > Monitorize files
+git commit -am <COMMENTS> > Add all files
+git remote add origin <URL> > Link with Github
+git remote -v > Check details
+git push origin master  > Upload changes
+
+/**
+* Workflow: Team project
+*/
+git fetch origin  > Update origin/master
+git merge origin/master > Join master with origin/master
+git commit -am <COMMENT>  > Prepare an uploading
+git push origin master  > Upload the change
+
+/**
+* Workflow: Third-party projects
+*/
+git remote add origin <URL> > Connect to the fork
+git remote -v > Verify the connection
+git remote add upstream <URL> > Connect to remote
+git remove -v > Verify the link
+git fetch origin  > Check changes in origin
+git fetch upstream  > Check changes in upstream
+git merge upstream/master > Keep us update with the merging
+git push origin master  > Upload changes in master
+
+/**
+* Workflow: Github Pages Manual
+*/
+git rclone <URL_GIT>
+git checkout --orphan gh-pages  > Crete an orphan branch
+git rm --rf > Delete all directory files
+echo <COMMENT> > index.html > Create index.html
+git add index.html
+git commit -am <COMMENT>
+git push origin gh-pages
