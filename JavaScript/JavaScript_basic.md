@@ -4,15 +4,21 @@
 
 ```
 console.assert(boolean, "Message")
-console.clear()
+```
+```
 console.dir(document.body)
 console.dirxml(document.body)
+```
+```
 console.group("Group");
   for (var i = 0; i < 20; i++) { console.info("Iteration " + i); }
 console.groupEnd();
+
 console.groupCollapsed("Group");
   for (var i = 0; i < 20; i++) { console.info("Iteration " + i); }
 console.groupEnd();
+```
+```
 var table = [
   { name: 'row1', value: 1},
   { name: 'row2', value: 2},
@@ -20,13 +26,18 @@ var table = [
 ];
 console.table(table);
 console.table(table, 'value');
+```
+```
 console.time('Time measure');
   for (var i = 0; i < 20; i++) { console.info("Iteration " + i); }
 console.timeEnd('Time measure');
+```
+```
 console.log('Message');
 console.info('Informative Message');
 console.warn('Warning Message');
 console.error('Error Message');
+console.clear()
 ```
 
 #### Console Formating
