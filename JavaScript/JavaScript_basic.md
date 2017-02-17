@@ -64,3 +64,11 @@ console.log("Object: %O", object);
 ```
 console.log('%c Message with style!!', 'background: #2980B9; color: #ECF0F1; font-size: 4em;')
 ```
+
+### Special characters
+
+- \t: Tabulator
+- \': Single quotation mark
+- \": Double quotation mark
+- \\: \
+- \n: Line break
