@@ -4,14 +4,8 @@
 
 ```
 console.assert(boolean, "Message")
-```
-```
 console.clear()
-```
-```
 console.dir(document.body)
-```
-```
 console.dirxml(document.body)
 ```
 ```
