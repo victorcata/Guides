@@ -1,6 +1,6 @@
 # Javascript
 
-## Console
+### Console
 
 ```
 console.assert(boolean, "Message")
@@ -45,7 +45,7 @@ console.warn('Warning Message');
 console.error('Error Message');
 ```
 
-### Console Formating
+#### Console Formating
 
 - %s : String
 - %d, %i: Number
@@ -65,7 +65,7 @@ console.log("Object: %O", object);
 console.log('%c Message with style!!', 'background: #2980B9; color: #ECF0F1; font-size: 4em;')
 ```
 
-### Special characters
+#### Special characters
 
 - \t: Tabulator
 - \': Single quotation mark
