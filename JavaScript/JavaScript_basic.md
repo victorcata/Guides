@@ -71,17 +71,8 @@ console.log('%c Message with style!!', 'background: #2980B9; color: #ECF0F1; fon
 ### Data Types
 
 - undefined
-```
-typeof undefined
-```
 - Object
-```
-typeof null
-```
 - boolean
-```
-typeof true
-```
 - Number
 - String
 - Function
