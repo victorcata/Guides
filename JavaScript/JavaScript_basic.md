@@ -222,3 +222,31 @@ a.filter() - fn(element)
 a.reduce(fn) - fn(prev, actual, index, array)
 a.reduceRight(fn) - fn(prev, actual, index, array)
 ```
+
+### Objects
+
+```
+var obj = {
+  prop: value,
+  method: function(){ }
+}
+obj.prop;
+obj.method();
+```
+```
+Object.defineProperties(obj, { 'prop': { value: true, writable: true }})
+Object.getOwnPropertyDescriptor(obj, 'prop')
+Object.getOwnPropertyNames(obj)
+Object.seal(obj)
+Object.freeze(obj)
+Object.isExtensible(obj)
+Object.preventExtensions(obj)
+```
+```
+obj.hasOwnProperty('prop')
+obj.propertyIsEnumerable('prop')
+obj.toLocaleString()
+```
+```
+for (var i obj) { obj[i] } // The order is arbitrary
+```
