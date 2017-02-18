@@ -191,4 +191,4 @@ str.toLocaleLowerCase()
 str.toUpperCase()
 str.toLocaleUpperCase()
 str.trim()
-```
+``` 
