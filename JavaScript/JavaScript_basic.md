@@ -107,8 +107,13 @@ num.toFixed([decimals])
 num.toLocaleString('en-US')
 num.toPrecision()
 num.toString([base])
+num.valueOf()
+Number.isNaN(num)
 Number.parseFloat([string])
 Number.parseInt([string])
+Number.isFinite()
+Number.isInteger()
+Number.isSafeInteger()
 ```
 
 ### Maths
@@ -164,18 +169,56 @@ date.toLocaleString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', 
 ```
 str.length()
 str.fromCharCode()
-str.charAt()
-str.charCodeAt()
+str.charAt() | str.charCodeAt()
 str.concat([args...])
-str.indexOf(substr)
-str.lastIndexOf(substr)
+str.indexOf(substr) | str.lastIndexOf(substr)
 str.split(separator)
 str.slice(from, [to]) // [to] is not inclusive. Slice accepts negative values
 str.substring(from, [to]) // [to] is not inclusive. Slice doesn't accept negative values
 str.substr(from, length)
-str.toLowerCase()
-str.toLocaleLowerCase()
-str.toUpperCase()
-str.toLocaleUpperCase()
-str.trim()
+str.toLowerCase() | str.toLocaleLowerCase()
+str.toUpperCase() | str.toLocaleUpperCase()
+str.localeCompare(substr)
+str.starsWith(substr) | str.endsWith(substr)
+str.trim() | str.trimLeft() | str.trimRight()
+str.match(regEx)
+str.search(regEx)
+str.normalize('NFC' | 'NFD' | 'NFKC' | 'NFKD')
+str.repeat(count)
+str.replace(regEx, substr)
+```
+
+### Arrays
+
+```
+var array = []
+var array = [1, 2, 3]
+array[2] = 4
+delete array[2] | array[2] = undefined
+```
+```
+array.length
+```
+```
+Array.isArray([obj])
+a.toLocaleString()
+a.toString()
+a.push()
+a.pop()
+a.shift()
+a.unshift()
+a.splice(position, length)
+a.slice(from, [to])
+a.concat(args)
+a.join(string)
+a.indexOf(item) | a.lastIndexOf(item)
+a.sort()
+a.reverse()
+a.forEach(fn) - fn(element, index, array)
+a.map(fn) - fn(element)
+a.some(fn) - fn(element, index, array)
+a.every(fn) - fn(element, index, array)
+a.filter() - fn(element)
+a.reduce(fn) - fn(prev, actual, index, array)
+a.reduceRight(fn) - fn(prev, actual, index, array)
 ```
