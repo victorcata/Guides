@@ -3,38 +3,25 @@
 ### Console
 
 ```
-console.log('Message');
-console.info('Informative Message');
-console.warn('Warning Message');
-console.error('Error Message');
-console.assert(boolean, "Message")
+console.assert(condition, message)
+console.log(message);
+console.info(message);
+console.warn(message);
+console.error(message);
 console.clear()
-```
-```
-console.dir(document.body)
-console.dirxml(document.body)
-```
-```
-console.group("Group");
-console.groupCollapsed("Group");
-console.groupEnd();
-```
-```
-var table = [
-  { name: 'row1', value: 1},
-  { name: 'row2', value: 2}
-];
-console.table(table);
-console.table(table, 'value');
-```
-```
-console.time('Time measure');
-console.timeEnd('Time measure');
+console.dir(HTML)
+console.dirxml(HTML)
+console.group([name]) | console.groupEnd()
+console.groupCollapsed([name]) | console.groupEnd()
+console.profile([name]) | console.profileEnd([name])
+console.table([JSON], [column]);
+console.time([name]) | console.timeEnd([name]);
+console.count()
+console.trace()
 ```
 
 #### Console Formating
 - %s : String
-
 - %d, %i: Number
 - %f: Decimal
 - %o: DOM
@@ -191,4 +178,4 @@ str.toLocaleLowerCase()
 str.toUpperCase()
 str.toLocaleUpperCase()
 str.trim()
-``` 
+```
