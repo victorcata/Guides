@@ -201,8 +201,7 @@ array.length
 ```
 ```
 Array.isArray([obj])
-a.toLocaleString()
-a.toString()
+a.toString() | a.toLocaleString()
 a.push()
 a.pop()
 a.shift()
@@ -235,18 +234,98 @@ obj.method();
 ```
 ```
 Object.defineProperties(obj, { 'prop': { value: true, writable: true }})
+Object.defineProperty(obj, prop, { enumerable: false, configurable: false, writable: flase, value: 'static'})
+Object.getPrototypeOf(obj)
 Object.getOwnPropertyDescriptor(obj, 'prop')
 Object.getOwnPropertyNames(obj)
-Object.seal(obj)
-Object.freeze(obj)
+Object.seal(obj) | Object.isSealed(obj)
+Object.freeze(obj) | Object.isFrozen(obj)
 Object.isExtensible(obj)
 Object.preventExtensions(obj)
+Object.keys(obj)
 ```
 ```
 obj.hasOwnProperty('prop')
 obj.propertyIsEnumerable('prop')
-obj.toLocaleString()
+obj.toString() | obj.toLocaleString()
+obj.prototype.isPrototypeOf(obj)
+obj.valueOf()
 ```
 ```
 for (var i obj) { obj[i] } // The order is arbitrary
+```
+
+### Functions
+
+```
+fn.caller
+fn.length
+fn.name
+fn.displayName
+fn.arguments
+fn.prototype.constructor
+```
+```
+fn.prototype.apply()
+fn.prototype.bind()
+fn.prototype.call()
+fn.prototype.isGenerator()
+fn.prototype.toSource()
+fn.prototype.toString()
+```
+
+#### Function constructor VS Function declarator
+
+Function constructor do not create closures to their creation contexts; they always are created in the global scope.
+They will only be able to access their own local variables and global ones, not the ones from the scope in which the Function constructor was called.
+
+```
+function constructor (){ }
+var declarator = function () { }
+```
+
+#### Callbacks
+
+```
+var fn = function(param, callback) {
+  if ((callback) && (typeof callback === 'function') {
+    callback();
+  }
+}
+```
+
+#### Prototypes
+
+In this example we have to create the method everytime the constructor is called
+```
+function Obj(value) {
+  this.prop = value;
+  this.method = function() {
+    return this.prop;
+  };
+}
+```
+It's better to define the methods in the constructor, so the creation will be done once
+```
+function Obj(value) {
+  this.prop = value;
+}
+Obj.prototype.method = function() {
+  return this.prop;
+};
+```
+
+#### Auto-executing anonymous functions
+
+```
+(function(){
+  ...
+})();
+```
+If we are going to reference an element from the outside will have a better performance if we pass it as parameter
+```
+var app = app || {};
+(function(w, doc, ns){
+  ...
+})(window, document, app);
 ```
