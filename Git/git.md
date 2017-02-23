@@ -93,3 +93,32 @@ git diff
 git diff --staged > What you've staged that will go into your next commit
 git diff --cached
 ```
+
+### Commiting changes
+
+```
+git commit
+git commit -v > You can see exactly what changes you're commiting, like with git diff
+git commit -m <MESSAGE>
+git commit -a  > Skip the staging area
+```
+
+### Removing a file
+
+```
+git rm <FILE>
+git rm -f <FILE>    If you modified the file and added it to the index already, you must force the removal with the -f
+git rm --cached <FILE>  Keep the file in the working tree but remove it from the staging area
+```
+
+### Moving a file
+
+```
+git mv <FILE_FROM> <FILE_TO>
+```
+Equivalent to
+```
+mv <FILE_FROM> <FILE_TO>
+git rm <FILE_FROM>
+git add <FILE_TO>
+```
