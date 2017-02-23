@@ -83,10 +83,13 @@ doc/*.txt       # ignore doc/notes.txt, but not doc/server/arch.txt
 
 ### View staged and unstaged changes
 
+Show changes made since the last commit, only changes that are still unstaged
+
 - What have you changed but not yet staged
 - What have you staged that you are about to commit
 
 ```
 git diff
 git diff --staged > What you've staged that will go into your next commit
+git diff --cached
 ```
