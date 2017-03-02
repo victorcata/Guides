@@ -15,6 +15,7 @@ git config --global > Local user
   git config --global color.ui true > Enable colors
   git config --global --list > See users
   git config --global credential-helper 'cache --timeout=9999999' > Cache credentials
+git config core.longpaths true
 
 /**
 * Help
