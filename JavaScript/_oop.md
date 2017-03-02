@@ -1,4 +1,4 @@
-# JavaScript OPP
+# Object oriented programming
 
 
 - Constructor
@@ -128,6 +128,7 @@ var obj = {
         anotherFunction();
     }
 }
+
 // Correct
 var obj = {
     value: 0;
@@ -170,9 +171,4 @@ var obj = {
 };
 
 var clone = Object.create(obj);
-```
-- Prototype Properties
-```javascript
-obj.isPrototypeOf(anotherObj)
-obj.constructor
 ```

@@ -2,6 +2,6 @@
 Guide helpers in differents technologies
 
 - [Git](Git/git.md)
-- javascript
+- JavaScript
     - [Language](JavaScript/_basic.md)
     - [OPP](JavaScript/_oop.md)
