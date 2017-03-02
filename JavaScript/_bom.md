@@ -47,7 +47,7 @@ screen.height
 screen.top
 screen.left
 ```
-## window.location and document.location
+## window.location / document.location
 - Properties
 ```javascript
 location.href
