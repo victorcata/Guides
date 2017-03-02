@@ -5,3 +5,4 @@ Guide helpers in differents technologies
 - JavaScript
     - [Language](JavaScript/_basic.md)
     - [OPP](JavaScript/_oop.md)
+    - [BOM](JavaScript/_bom.md)
