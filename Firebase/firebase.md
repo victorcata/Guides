@@ -15,13 +15,80 @@ var config = {
 firebase.initializeApp(config);
 var ref = firebase.database().ref();
 ```
-## Saving data
+## Set
 ```javascript
-ref.child('users').set({
+ref.child('id').set({
     id1: { prop: value },
     id2: { prop: value }
 });
 ```
 ```javascript
-ref.child('users').child('id1').set({ prop: value });
+ref.child('id').child('id1').set({ prop: value }, [onComplete]);
+```
+## Update
+```javascript
+ref.child('id').child('id1').update({ prop: value }, [onComplete]);
+```
+## Push
+```javascript
+ref.child('id').push('Saving data...', [onComplete]);
+```
+## Events
+- 'value'
+- 'child_changed'
+- 'child-removed'
+```javascript
+ref.on('event', successCallback, [errorCallback])
+ref.once('event', successCallback, [errorCallback])
+ref.off('event')
+ref.off()
+```
+## Queries
+- orderByChild()
+```javascript
+ref.orderByChild('prop').on('event', fn)
+```
+- orderByKey()
+```javascript
+ref.orderByKey().on('event', fn)
+```
+- orderByValue()
+```javascript
+ref.orderByValue().on('event', fn)
+```
+- orderByPriority()
+- limitToFirst()
+```javascript
+ref.orderByChild('prop').limitToFirst(2).on('event', fn)
+```
+- limitToLast()
+```javascript
+ref.orderByChild('prop').limitToLast(2).on('event', fn)
+```
+- startAt()
+```javascript
+ref.orderByChild('prop').startAt(3).on('event', fn)
+```
+- endAt()
+```javascript
+ref.orderByKey().startAt('b').endAt('b~').on('event', fn)
+```
+- equalTo()
+```javascript
+ref.orderByChild('prop').equalTo(value).on('event', fn)
+```
+## Working offline
+```javascript
+ref.onDisconnect().set('I disconnected!')
+```
+## Authentication
+Providers
+- TwitterAuthProvider
+- GoogleAuthProvider
+```javascript
+var auth = firebase.auth();
+var provider = new firebase.auth.TwitterAuthProvider();
+var provider
+auth.signInWithPopup(provider).then(onComplete).catch(onError)
+auth.onAuthStateChanged(fn)
 ```
