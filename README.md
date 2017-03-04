@@ -1,5 +1,4 @@
 # Guides
-Guide helpers in differents technologies
 
 - [Git](Git/git.md)
 - JavaScript
