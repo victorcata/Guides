@@ -35,8 +35,9 @@ ref.child('id').push('Saving data...', [onComplete]);
 ```
 ## Events
 - 'value'
+- 'child_added'
 - 'child_changed'
-- 'child-removed'
+- 'child_removed'
 ```javascript
 ref.on('event', successCallback, [errorCallback])
 ref.once('event', successCallback, [errorCallback])
@@ -57,6 +58,9 @@ ref.orderByKey().on('event', fn)
 ref.orderByValue().on('event', fn)
 ```
 - orderByPriority()
+```javascript
+ref.orderByPriority().limitToFirst(2).on('event', fn)
+```
 - limitToFirst()
 ```javascript
 ref.orderByChild('prop').limitToFirst(2).on('event', fn)
