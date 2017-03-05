@@ -68,6 +68,7 @@
     - 510 Not extended
     - 511 Network authentication required
     - 512 Not updated
+
 ## Ajax JavaScript
 ```javascript
 var xhr = new XMLHttpRequest();
@@ -75,7 +76,8 @@ xhr.onreadystatechange = processAjax;
 xhr.open('GET', url, true);
 xhr.send();
 ```
-## Ajax return
+
+## Ajax output
 ```JavaScript
 function processAjax() {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -83,12 +85,14 @@ function processAjax() {
     }
 }
 ```
+
 ## readyState
 - 0 uninitialized
 - 1 loading
 - 2 loaded
 - 3 interactive
 - 4 complete
+
 ## .setRequestHeader()
 - req.setRequestHeader(header, value)
 ```javascript
@@ -99,9 +103,11 @@ xhr.setRequestHeader('content-type', 'image/png');
 xhr.onload = onLoad;
 xhr.send(img);
 ```
+
 ## JSON
 - JSON.parse(): string -> JSON
 - JSON.stringify(): JSON -> string
+
 ## JSONP
 - Client
 ```javascript
@@ -114,5 +120,104 @@ mycallback = function(data){
 ```javascript
 mycallback({ foo: 'bar' })
 ```
+
 ## CORS
-- Allow **access-control-allow-origin: *** on the server
+- Allow **access-control-allow-origin** on the server
+
+# Fetch
+```javascript
+fetch('<URL>').then(onResponse).catch(onError);
+```
+
+## Headers
+```javascript
+var headers = new Headers() | new headers({ header: value, header: value })
+headers.append(header, value)
+headers.has(header)
+headers.get(header)
+headers.set(header, value)
+headers.delete(header)
+```
+
+## Request
+- method: GET | POST | PUT | DELETE | HEAD
+- url
+- headers
+- referrer
+- mode: cors | no-cors | same-origin
+- credentials
+- redirect: follow | error | manual
+- integrity
+- cache: default | reload | no-cache
+```javascript
+var req = new Request('<URL>', {
+    method: 'POST',
+    mode: 'cors',
+    redirect: 'follow',
+    headers: new Headers({ header: value })
+});
+```
+
+## Response
+- type: basic | cors
+- url
+- useFinalURL
+- status
+- ok
+- statusText
+- headers
+Methods:
+- clone()
+- error()
+- redirect()
+- arrayBuffer()
+- blob()
+- formData()
+- json()
+- text()
+```javascript
+var response = new Response('<RESPONSE>', {
+    ok: false,
+    status: 404,
+    url: '/'
+});
+```
+
+## Handling output
+- JSON
+```javascript
+fetch('<URL>').then(function(response) {
+    return response.json();
+}).then(function(output) {
+    console.log(output);
+});
+```
+- Text/HTML
+```javascript
+fetch('<URL>').then(function(response) {
+    if (response.status === 200) {
+        return response.text();
+    }
+}).then(function(output) {
+    console.log(output);
+});
+```
+- Blob
+```javascript
+fetch('<URL>').then(function(response) {
+    return response.blob();
+}).then(function(output) {
+    img.src = URL.createObjectURL(output);
+});
+
+```
+## POST
+```javascript
+fetch('<URL>', {
+    method: 'post',
+    body: JSON.stringify({
+        prop: value,
+        prop: value
+    })
+});
+```
