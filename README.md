@@ -6,4 +6,5 @@
     - [OPP (Object-Oriented Programming)](JavaScript/_oop.md)
     - [DOM (Document Object Model)](JavaScript/_dom.md)
     - [BOM (Browser Object Model)](JavaScript/_bom.md)
+    - [AJAX](JavaScript/_ajax.md)
 - [Firebase](Firebase/firebase.md)
