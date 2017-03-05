@@ -1,12 +1,11 @@
 # AJAX
-
 ## HTTP Codes
-- 1xx Informative
+- **1xx Informative**
     - 100 Continue
     - 101 Switching Protocols
     - 102 Processing
     - 103 Checkpoint
-- 2xx Success
+- **2xx Success**
     - 200 Ok
     - 201 Created
     - 202 Accepted
@@ -16,7 +15,7 @@
     - 206 Partial content
     - 207 Multi-status
     - 208 Already reported
-- 3xx Redirections
+- **3xx Redirections**
     - 300 Multiple choices
     - 301 Moved permanently
     - 302 Found
@@ -26,7 +25,7 @@
     - 306 Switch proxy
     - 307 Temporary Redirect
     - 308 Permanent redirect
-- 4xx Client error
+- **4xx Client error**
     - 400 Bad request
     - 401 Unauthorized
     - 402 Payment Required
@@ -55,7 +54,7 @@
     - 429 Too many requests
     - 431 Request header fields too large
     - 451 Unavailable for legal reasons
-- 5xx Server error
+- **5xx Server error**
     - 500 Internal server error
     - 501 Not implemented
     - 502 Bad gateway
@@ -69,3 +68,51 @@
     - 510 Not extended
     - 511 Network authentication required
     - 512 Not updated
+## Ajax JavaScript
+```javascript
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = processAjax;
+xhr.open('GET', url, true);
+xhr.send();
+```
+## Ajax return
+```JavaScript
+function processAjax() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        return JSON.parse(xhr.responseText);
+    }
+}
+```
+## readyState
+- 0 uninitialized
+- 1 loading
+- 2 loaded
+- 3 interactive
+- 4 complete
+## .setRequestHeader()
+- req.setRequestHeader(header, value)
+```javascript
+var img = <IMG>;
+var xhr = new XMLHttpRequest();
+xhr.open('POST', url);
+xhr.setRequestHeader('content-type', 'image/png');
+xhr.onload = onLoad;
+xhr.send(img);
+```
+## JSON
+- JSON.parse(): string -> JSON
+- JSON.stringify(): JSON -> string
+## JSONP
+- Client
+```javascript
+var url = '<URL>?callback=mycallback'
+mycallback = function(data){
+    alert(data.foo);
+}
+```
+- Response
+```javascript
+mycallback({ foo: 'bar' })
+```
+## CORS
+- Allow **access-control-allow-origin: *** on the server
