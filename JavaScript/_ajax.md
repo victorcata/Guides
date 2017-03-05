@@ -166,6 +166,7 @@ var req = new Request('<URL>', {
 - ok
 - statusText
 - headers
+
 Methods:
 - clone()
 - error()
