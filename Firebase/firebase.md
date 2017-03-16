@@ -15,6 +15,19 @@ var config = {
 firebase.initializeApp(config);
 var ref = firebase.database().ref();
 ```
+## Child
+```javascript
+var config = {
+    databaseURL: '<URL>/web/data'
+};
+```
+Equivalent to
+```javascript
+var config = {
+    databaseURL: '<URL>'
+};
+ref.child('/web/data')
+```
 ## Set
 ```javascript
 ref.child('id').set({
@@ -27,11 +40,24 @@ ref.child('id').child('id1').set({ prop: value }, [onComplete]);
 ```
 ## Update
 ```javascript
+var child = ref.child('item');
+child.update({
+    'id/prop': 'value',
+    'id/prop': 'value'
+});
+```
+```javascript
 ref.child('id').child('id1').update({ prop: value }, [onComplete]);
 ```
 ## Push
 ```javascript
 ref.child('id').push('Saving data...', [onComplete]);
+```
+## Transaction
+```javascript
+ref.transaction(function(current){
+    return current;
+});
 ```
 ## Events
 - 'value'
@@ -95,4 +121,11 @@ var provider = new firebase.auth.TwitterAuthProvider();
 var provider
 auth.signInWithPopup(provider).then(onComplete).catch(onError)
 auth.onAuthStateChanged(fn)
+```
+## Arrays
+```javascript
+// we send this
+['a', 'b', 'c', 'd', 'e']
+// Firebase databases store this
+{0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e'}
 ```
