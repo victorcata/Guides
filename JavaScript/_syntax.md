@@ -1,49 +1,61 @@
 # Console
-- assert
-If the assertion is false the message is written to the console
+- assert: If the assertion is false the message is written to the console
 ```javascript
 console.assert(condition, message)
 ```
-- log
+- log: outputs a message to the console
 ```javascript
 console.log(message);
 ```
+- info: outpus an informational message to the console
 ```javascript
 console.info(message);
 ```
+- warn: outputs a warning message to the console
 ```javascript
 console.warn(message);
 ```
+- error: outputs an error message to the console
 ```javascript
 console.error(message);
 ```
+- clear: clears the console
 ```javascript
 console.clear()
 ```
+- dir: displays a list of the properties of a JavaScript object
 ```javascript
 console.dir(HTML)
 ```
+- dirxml: displays a tree of the descendants elements of the specified HTML element
 ```javascript
 console.dirxml(HTML)
 ```
+- group/groupEnd: creates a new group of messages in the console
 ```javascript
 console.group([name]) | console.groupEnd()
 ```
+- groupCollapsed/groupEnd: like console.group but the group is created collapsed
 ```javascript
 console.groupCollapsed([name]) | console.groupEnd()
 ```
+- profile/profileEnd: starts recording a performance profile
 ```javascript
 console.profile([name]) | console.profileEnd([name])
 ```
+- table: Display an object as a table in the console
 ```javascript
 console.table([JSON], [column]);
 ```
+- time: starts a timer to track how long an operation takes
 ```javascript
 console.time([name]) | console.timeEnd([name]);
 ```
+- count: logs the number of times that count() has been called
 ```javascript
 console.count()
 ```
+- trace: shows a track trace in the console
 ```javascript
 console.trace()
 ```
