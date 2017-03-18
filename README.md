@@ -2,7 +2,7 @@
 
 - [Git](Git/git.md)
 - JavaScript
-    - [Language sintax](JavaScript/_basic.md)
+    - [Language sintax](JavaScript/_syntax.md)
     - [DOM (Document Object Model)](JavaScript/_dom.md)
     - [BOM (Browser Object Model)](JavaScript/_bom.md)
     - [AJAX](JavaScript/_ajax.md)
