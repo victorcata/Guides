@@ -1,5 +1,5 @@
 # Console
-- assert: If the assertion is false the message is written to the console
+- **assert:** If the assertion is false the message is written to the console
 ```javascript
 console.assert(condition, message)
 ```
