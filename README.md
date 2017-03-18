@@ -29,7 +29,10 @@
         - Observer
         - Chain of responsability
         - MVC
-    - [Async patterns] --TODO
+    - Async patterns --TODO FEM
+        - Callbacks
+        - Promises
+        - Asynquence
 - [Firebase](Firebase/firebase.md)
 - HTML
 - CSS
