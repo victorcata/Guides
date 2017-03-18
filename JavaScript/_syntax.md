@@ -60,7 +60,7 @@ console.count()
 ```javascript
 console.trace()
 ```
-##Console Formating
+### Console Formating
 - %s : String
 - %d, %i: Number
 - %f: Decimal
@@ -72,7 +72,7 @@ console.log("DOM: %o", document.body)
 console.log("Object: %O", { name: 'name1', value: 1 });
 console.log('%c Message with style!!', 'background: #2980B9; color: #ECF0F1; font-size: 4em;')
 ```
-##Special characters
+### Special characters
 - \t: Tabulator
 - \': Single quotation mark
 - \": Double quotation mark
@@ -80,15 +80,15 @@ console.log('%c Message with style!!', 'background: #2980B9; color: #ECF0F1; fon
 - \n: Line break
 
 # User interaction
-- alert: displays an alert dialog with the content and a OK button
+- **alert:** displays an alert dialog with the content and a OK button
 ```javascript
 alert([content]])
 ```
-- confirm: a confirmation prompt asks the user to confirm an action
+- **confirm:** a confirmation prompt asks the user to confirm an action
 ```javascript
 var output = confirm('Are you sure?')
 ```
-- prompt: dialog with an input to let the user introduce some text
+- **prompt:** dialog with an input to let the user introduce some text
 ```javascript
 var output = prompt('What\'s your name?')
 ```
@@ -101,6 +101,9 @@ var output = prompt('What\'s your name?')
 ```
 # Data Types
 - undefined
+- String
+- Function
+- Symbol
 - Object
 ```javascript
 typeof null
@@ -127,9 +130,6 @@ typeof 3.14
 typeof NaN
 typeof Inifinity
 ```
-- String
-- Function
-- Symbol
 
 # Numbers
 - Properties
