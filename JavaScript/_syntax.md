@@ -1,87 +1,95 @@
 # Console
+## Methods
 - **assert:** If the assertion is false the message is written to the console
 ```javascript
 console.assert(condition, message)
 ```
-- log: outputs a message to the console
+- **log:** outputs a message to the console
 ```javascript
 console.log(message);
 ```
-- info: outpus an informational message to the console
+- **info:** outpus an informational message to the console
 ```javascript
 console.info(message);
 ```
-- warn: outputs a warning message to the console
+- **warn:** outputs a warning message to the console
 ```javascript
 console.warn(message);
 ```
-- error: outputs an error message to the console
+- **error:** outputs an error message to the console
 ```javascript
 console.error(message);
 ```
-- clear: clears the console
+- **clear:** clears the console
 ```javascript
 console.clear()
 ```
-- dir: displays a list of the properties of a JavaScript object
+- **dir:** displays a list of the properties of a JavaScript object
 ```javascript
 console.dir(HTML)
 ```
-- dirxml: displays a tree of the descendants elements of the specified HTML element
+- **dirxml:** displays a tree of the descendants elements of the specified HTML element
 ```javascript
 console.dirxml(HTML)
 ```
-- group/groupEnd: creates a new group of messages in the console
+- **group/groupEnd:** creates a new group of messages in the console
 ```javascript
 console.group([name]) | console.groupEnd()
 ```
-- groupCollapsed/groupEnd: like console.group but the group is created collapsed
+- **groupCollapsed/groupEnd:** like console.group but the group is created collapsed
 ```javascript
 console.groupCollapsed([name]) | console.groupEnd()
 ```
-- profile/profileEnd: starts recording a performance profile
+- **profile/profileEnd:** starts recording a performance profile
 ```javascript
 console.profile([name]) | console.profileEnd([name])
 ```
-- table: Display an object as a table in the console
+- **table:** Display an object as a table in the console
 ```javascript
 console.table([JSON], [column]);
 ```
-- time: starts a timer to track how long an operation takes
+- **time:** starts a timer to track how long an operation takes
 ```javascript
 console.time([name]) | console.timeEnd([name]);
 ```
-- count: logs the number of times that count() has been called
+- **count:** logs the number of times that count() has been called
 ```javascript
 console.count()
 ```
-- trace: shows a track trace in the console
+- **trace:** shows a track trace in the console
 ```javascript
 console.trace()
 ```
-- Console Formating
-    - %s : String
-    - %d, %i: Number
-    - %f: Decimal
-    - %o: DOM
-    - %O: Object
-    - %c: CSS
+##Console Formating
+- %s : String
+- %d, %i: Number
+- %f: Decimal
+- %o: DOM
+- %O: Object
+- %c: CSS
 ```javascript
 console.log("DOM: %o", document.body)
 console.log("Object: %O", { name: 'name1', value: 1 });
 console.log('%c Message with style!!', 'background: #2980B9; color: #ECF0F1; font-size: 4em;')
 ```
-- Special characters
-    - \t: Tabulator
-    - \': Single quotation mark
-    - \": Double quotation mark
-    - \\: \
-    - \n: Line break
+##Special characters
+- \t: Tabulator
+- \': Single quotation mark
+- \": Double quotation mark
+- \\: \
+- \n: Line break
 
 # User interaction
+- alert: displays an alert dialog with the content and a OK button
 ```javascript
-alert('Welcome')
+alert([content]])
+```
+- confirm: a confirmation prompt asks the user to confirm an action
+```javascript
 var output = confirm('Are you sure?')
+```
+- prompt: dialog with an input to let the user introduce some text
+```javascript
 var output = prompt('What\'s your name?')
 ```
 # Strict Mode
