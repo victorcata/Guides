@@ -1,6 +1,9 @@
 # Console
+If the assertion is false the message is written to the console
 ```javascript
 console.assert(condition, message)
+```
+```javascript
 console.log(message);
 console.info(message);
 console.warn(message);
