@@ -1,22 +1,50 @@
 # Console
+- assert
 If the assertion is false the message is written to the console
 ```javascript
 console.assert(condition, message)
 ```
+- log
 ```javascript
 console.log(message);
+```
+```javascript
 console.info(message);
+```
+```javascript
 console.warn(message);
+```
+```javascript
 console.error(message);
+```
+```javascript
 console.clear()
+```
+```javascript
 console.dir(HTML)
+```
+```javascript
 console.dirxml(HTML)
+```
+```javascript
 console.group([name]) | console.groupEnd()
+```
+```javascript
 console.groupCollapsed([name]) | console.groupEnd()
+```
+```javascript
 console.profile([name]) | console.profileEnd([name])
+```
+```javascript
 console.table([JSON], [column]);
+```
+```javascript
 console.time([name]) | console.timeEnd([name]);
+```
+```javascript
 console.count()
+```
+```javascript
 console.trace()
 ```
 - Console Formating
