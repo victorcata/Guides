@@ -101,6 +101,7 @@ var output = prompt([content])
 ```
 # Data Types
 - undefined
+- Number
 - String
 - Function
 - Symbol
@@ -123,15 +124,13 @@ Boolean(null) === false
 Boolean(undefined) === false
 Boolean(NaN) === false
 ```
-- Number
+# Numbers
 ```javascript
 typeof 1
 typeof 3.14
 typeof NaN
 typeof Inifinity
 ```
-
-# Numbers
 ### Properties
 ```javascript
 Number.MAX_VALUE
@@ -188,6 +187,93 @@ Number.isInteger()
 - **isSafeInteger:** determines if the value is a safe integer (can be exactly represented as an IEEE-754 and cannot be the result of rounding any other integer to fit the IEEE-754 representation)
 ```javascript
 Number.isSafeInteger()
+```
+# Strings
+### Properties
+- **length:** returns the length of the string
+```javascript
+str.length
+```
+### Methods
+- **fromCharCode:** returns a string created using unicode values
+```javascript
+str.fromCharCode([number, ...])
+```
+- **charAt/charCodeAt:** returns the character or their unicode value at the specified index
+```javascript
+str.charAt([index]) | str.charCodeAt([index])
+```
+- **concat:** returns a new string that combines the text of one or more strings
+```javascript
+str.concat([string, ...])
+```
+- **includes:** determines whether a string cam be found within another string
+```javascript
+str.include([string])
+```
+- **indexOf/lastIndexOf:** returns the index of the first ocurrence of the specified valued
+```javascript
+str.indexOf([string]) | str.lastIndexOf([string])
+```
+- **split:** splits a string into an array of strings by a separator string
+```javascript
+str.split([separator])
+```
+- **slice:** extracts a section of a string and returns a new string. Slice accepts negative values. *[toIndex] is not inclusive*
+```javascript
+str.slice([fromIndex], [toIndex])
+```
+- **substring:** returns a subset of a string between one index and another. Substring does not accept negative values *[toIndex] is not inclusive*
+```javascript
+str.substring([fromIndex], [toIndex])
+```
+- **substr:** returns the characters in a string beginning at the specified location through a number of characters
+```javascript
+str.substr([fromIndex], [length])
+```
+- **toLowerCase/toLocaleLowerCase:** returns the string converted to lower case or returns it according to any local specific
+```javascript
+str.toLowerCase() | str.toLocaleLowerCase()
+```
+- **toUpperCase/toLocalUpperCase:** returns the string converted to upper case or returns it according to any local specific
+```javascript
+str.toUpperCase() | str.toLocaleUpperCase()
+```
+- **localeCompare:** returns a number indicating whether a reference string comes before or after or is the same in sort order
+```javascript
+str.localeCompare([substring])
+```
+- **starsWith/endsWith:** determines whether a string begins/ends with the characters of another string
+```javascript
+str.starsWith(substr) | str.endsWith(substr)
+```
+- **trim/trimLeft/trimRight:** trims whitespace from the beginning and end, or left or right side, of the string
+```javascript
+str.trim() | str.trimLeft() | str.trimRight()
+```
+- **padEnd/padStart:** pad the current string from the end/start with a given string to create a new string
+```javascript
+str.padStart([string]) | str.padEnd([string])
+```
+- **match:** match a regular expression against a string
+```javascript
+str.match([regEx])
+```
+- **search:** executes a search for a match between a regular expression and the string
+```javascript
+str.search([regEx])
+```
+- **normalize:** returns the unicode normalization form of the string
+```javascript
+str.normalize([form: 'NFC' | 'NFD' | 'NFKC' | 'NFKD'])
+```
+- **repeat:** returns a string which contains the number of copies of the strings concatenated
+```javascript
+str.repeat([count])
+```
+- **replace:** returns a string with all matches of a pattern replaced by a replacement
+```javascript
+str.replace([regEx], [string])
 ```
 # Math
 - **abs:** returns the absolute value of a number
@@ -270,28 +356,6 @@ date.toTimeString()
 date.toISOString()
 date.toUTCString()
 date.toLocaleString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-```
-# String
-```javascript
-str.length()
-str.fromCharCode()
-str.charAt() | str.charCodeAt()
-str.concat([args...])
-str.indexOf(substr) | str.lastIndexOf(substr)
-str.split(separator)
-str.slice(from, [to]) // [to] is not inclusive. Slice accepts negative values
-str.substring(from, [to]) // [to] is not inclusive. Slice doesn't accept negative values
-str.substr(from, length)
-str.toLowerCase() | str.toLocaleLowerCase()
-str.toUpperCase() | str.toLocaleUpperCase()
-str.localeCompare(substr)
-str.starsWith(substr) | str.endsWith(substr)
-str.trim() | str.trimLeft() | str.trimRight()
-str.match(regEx)
-str.search(regEx)
-str.normalize('NFC' | 'NFD' | 'NFKC' | 'NFKD')
-str.repeat(count)
-str.replace(regEx, substr)
 ```
 # Arrays
 - Creation and delete
