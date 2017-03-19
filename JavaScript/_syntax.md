@@ -86,11 +86,11 @@ alert([content]])
 ```
 - **confirm:** a confirmation prompt asks the user to confirm an action
 ```javascript
-var output = confirm('Are you sure?')
+var output = confirm([content])
 ```
 - **prompt:** dialog with an input to let the user introduce some text
 ```javascript
-var output = prompt('What\'s your name?')
+var output = prompt([content])
 ```
 # Strict Mode
 - Remove some potential errors
@@ -151,7 +151,7 @@ num.toFixed([decimals])
 ```
 - **toLocaleString:** returns a string with a language sensitive representation of the number
 ```javascript
-num.toLocaleString('en-US')
+num.toLocaleString([locale])
 ```
 - **toPrecision:** returns a string representing the number to the specified precision
 ```javascript
@@ -167,7 +167,7 @@ num.valueOf()
 ```
 - **isNan:** determines whether a value is NaN or not
 ```javascript
-Number.isNaN(num)
+Number.isNaN([number])
 ```
 - **parseFloat:** parses a string and returns a floating point number
 ```javascript
@@ -190,20 +190,47 @@ Number.isInteger()
 Number.isSafeInteger()
 ```
 # Math
+- **abs:** returns the absolute value of a number
+```javascript
+Math.abs([number])
+```
+- **acos/cos/asin/sin/atan/tan:** return the respective geometrical operation of a number
+```javascript
+Math.cos([number])
+Math.sin([number])
+Math.tan([number])
+```
+- **ceil:** returns the smallest integer greater than or equal to the number
+```javascript
+Math.ceil([number])
+```
+- **floor:** returns the larges integer less than or equal to a number
+```javascript
+Math.floor([number])
+```
+- **sqrt:** returns the positive square root of the number
+```javascript
+Math.sqrt([number])
+```
+- **random:** returns a pseudo-random number between 0 and 1
 ```javascript
 Math.random() * (max - min) + min;
 ```
+- **round:** returns the nearest integer of the number
 ```javascript
-Math.round()
+Math.round([number])
 ```
+- **min:** returns the smallest of zero or more numbers
 ```javascript
-Math.floor()
+Math.min([number, ...])
 ```
+- **max:** returns the largest of zero or more numbers
 ```javascript
-Math.max()
+Math.max([number, ...])
 ```
+- **trunc:** returns the integral part of the number
 ```javascript
-Math.min()
+Math.trunc([number])
 ```
 # Dates
 - Constructor
