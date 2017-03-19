@@ -1,6 +1,8 @@
 # Guides
 
 - [Git](Git/git.md)
+- HTML
+- CSS
 - JavaScript
     - [Language syntax](JavaScript/_syntax.md)
     - [DOM (Document Object Model)](JavaScript/_dom.md)
@@ -35,5 +37,3 @@
         - Promises
         - Asynquence
 - [Firebase](Firebase/firebase.md)
-- HTML
-- CSS
