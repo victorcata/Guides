@@ -1,3 +1,42 @@
+<!-- TOC -->
+
+- [Console](#console)
+        - [Methods](#methods)
+        - [Console Formating](#console-formating)
+        - [Special characters](#special-characters)
+- [User interaction](#user-interaction)
+- [Strict Mode](#strict-mode)
+- [Data Types](#data-types)
+- [Numbers](#numbers)
+        - [Properties](#properties)
+        - [Methods](#methods-1)
+- [Strings](#strings)
+        - [Properties](#properties-1)
+        - [Methods](#methods-2)
+- [Objects](#objects)
+        - [Creating an object](#creating-an-object)
+        - [Deleting a property](#deleting-a-property)
+        - [Properties](#properties-2)
+        - [Methods](#methods-3)
+        - [Object instance Properties](#object-instance-properties)
+        - [Object instance Methods](#object-instance-methods)
+- [Functions](#functions)
+        - [Declaration](#declaration)
+        - [Methods](#methods-4)
+- [Arrays](#arrays)
+        - [Creating an array](#creating-an-array)
+        - [Deleting an element](#deleting-an-element)
+        - [Properties](#properties-3)
+        - [Methods](#methods-5)
+        - [Array instance Methods](#array-instance-methods)
+- [Math](#math)
+- [Dates](#dates)
+        - [Constructor](#constructor)
+        - [Getters](#getters)
+        - [Setters](#setters)
+        - [Formatting](#formatting)
+
+<!-- /TOC -->
 # Console
 ### Methods
 - **assert:** If the assertion is false the message is written to the console
@@ -276,11 +315,17 @@ typeof ['a','b']
 typeof new Date()
 typeof {a: 1}
 ```
+### Creating an object
 ```javascript
 var obj = {
   prop: value,
   method: function(){ }
 }
+```
+### Deleting a property
+```javascript
+delete obj.prop;
+obj.prop = undefined;
 ```
 ### Properties
 - **prototype:** allows the addition of properties to all objects of type Object 
@@ -366,26 +411,140 @@ Note: The order is arbitrary and they aren't show in the order it was defined
 ```javascript
 for (var i obj) { obj[i] }
 ```
+# Functions
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### Declaration
+**Function constructor VS Function declarator**
+Function constructor do not create closures to their creation contexts; they always are created in the global scope.
+They will only be able to access their own local variables and global ones, not the ones from the scope in which the Function constructor was called.
+```javascript
+function constructor (){ }
+var declarator = function () { }
+```
+### Methods
+- **apply:** calls a function with a given this value and arguments provides as an array
+```javascript
+fn.prototype.apply(thisArg, [args, ...])
+```
+- **call:** calls a function with a given this value and arguments provided individually
+```javascript
+fn.prototype.call(thisArgs, args, ...)
+```
+- **bind:** creates a new function that has its this keyword set to the provided value
+```javascript
+fn.prototype.bind(thisArgs, args, ...)
+```
+- **isGenerator:** determines whether or not a function is a generator
+```javascript
+fn.prototype.isGenerator()
+```
+- **toSource:** returns a string representing the source code of the object
+```javascript
+fn.prototype.toSource()
+```
+# Arrays
+### Creating an array
+```javascript
+var array = []
+var array = [1, 2, 3]
+array[2] = 4
+```
+### Deleting an element
+```javascript
+delete array[2];
+array[2] = undefined
+```
+### Properties
+- **length:** sets or returns the number of elements in an array
+```javascript
+array.length
+```
+### Methods
+- **isArray:**  true if a variable is an array
+```javascript
+Array.isArray([obj])
+```
+- **from:** creates a new array instance from an array object
+```javascript
+Array.from([arr]);
+```
+### Array instance Methods
+- **toString/toLocalString:** returns an string representing the array and its elements
+```javascript
+arr.toString() | arr.toLocaleString()
+```
+- **shift:** removes the first element from an array and returns that element
+```javascript
+arr.shift()
+```
+- **pop:** removes the last element from an array and returns that element
+```javascript
+arr.pop()
+```
+- **unshift:** adds one or more element to the front of an array and returns the length of the array
+```javascript
+arr.unshift([elements])
+```
+- **push:** adds one or more elements to the end of the array
+```javascript
+arr.push([elements])
+```
+- **splice:** changes the contents of an array by removing elements and/or adding new elements. Returns the deleted elements.
+```javascript
+arr.splice(position, length, [elements])
+```
+- **slice:** returns a copy of a portion of the array into a new array. The original array will not be modified
+```javascript
+arr.slice([from], [to])
+```
+- **concat:** returns a merged array from two or more arrays
+```javascript
+arr.concat([array])
+```
+- **join:** joins all elements of an array into a stirng
+```javascript
+arr.join([string])
+```
+- **indexOf/lastIndexOf:** returns the first index of an element withing the array or -1 if none is found
+```javascript
+arr.indexOf([item]) | arr.lastIndexOf([item])
+```
+- **sort:** sorts the elements of an array in place and returns the array
+```javascript
+arr.sort()
+```
+- **reverse:** reverses an array in place
+```javascript
+arr.reverse()
+```
+- **forEach:** executes a function once for each element in the array
+```javascript
+arr.forEach(function(element, index, array))
+```
+- **map:** creates a new array with the results of calling a provided function on every element in this array
+```javascript
+arr.map(function(element)) 
+```
+- **some:** returns true if one element in the array satisfies the testing function
+```javascript
+arr.some(function(element, index, array))
+```
+- **every:** true if every element in this array satisfies the testing function
+```javascript
+arr.every(function(element, index, array)) 
+```
+- **filter:** creates a new array with the elements which the filtering function returns true
+```javascript
+arr.filter(function(element)) - 
+```
+- **reduce:** apply a function against an accumulator and each value of the array from left to right to reduce it to a single value
+```javascript
+arr.reduce(function(prev, actual, index, array))
+```
+- **reduceRight:** apply a function against an accumulator and each value of the array from right to left to reduce it to a single value
+```javascript
+arr.reduceRight(function(prev, actual, index, array))
+```
 # Math
 - **abs:** returns the absolute value of a number
 ```javascript
@@ -429,29 +588,16 @@ Math.max([number, ...])
 ```javascript
 Math.trunc([number])
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Dates
-- Constructor
+### Constructor
 ```javascript
 new Date()
 new Date(3600 * 24 * 1000)
 new Date('January 1, 1982')
-new Date(1982, 1, 1, 0, 0, 0)
+new Date([year], [month], [date], [hour], [minutes], [seconds], [milliseconds])
 new Date(Date.UTC(2016, 1, 1))
 ```
-- Getters
+### Getters
 ```javascript
 date.getFullYear() | date.getUTCFullYear()
 date.getMonth() | date.getUTCMonth()
@@ -464,15 +610,17 @@ date.getMilliseconds() | date.getUTCMilliseconds()
 date.getTime()
 date.getTimezoneOffset()
 ```
-- Setters
+### Setters
 ```javascript
 date.setFullYear() | date.setUTCFullYear()
 date.setMonth() | date.setUTCMonth()
 date.setDate() | date.setUTCDate()
 date.setHours() | date.setUTCHours()
-date.setMilliseconds() | date.setUTCMilliseconds() ...
+date.setSeconds() | date.setUTCSeconds()
+date.setMilliseconds() | date.setUTCMilliseconds()
+date.setTime() 
 ```
-- Formatting
+### Formatting
 ```javascript
 date.toString()
 date.toDateString()
@@ -480,114 +628,4 @@ date.toTimeString()
 date.toISOString()
 date.toUTCString()
 date.toLocaleString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-```
-
-
-
-
-
-
-
-
-# Arrays
-- Creation and delete
-```javascript
-var array = []
-var array = [1, 2, 3]
-array[2] = 4
-delete array[2] | array[2] = undefined
-```
-- Properties
-```javascript
-array.length
-```
-- Methods
-```javascript
-Array.isArray([obj])
-a.toString() | a.toLocaleString()
-a.push()
-a.pop()
-a.shift()
-a.unshift()
-a.splice(position, length)
-a.slice(from, [to])
-a.concat(args)
-a.join(string)
-a.indexOf(item) | a.lastIndexOf(item)
-a.sort()
-a.reverse()
-a.forEach(fn) - fn(element, index, array)
-a.map(fn) - fn(element)
-a.some(fn) - fn(element, index, array)
-a.every(fn) - fn(element, index, array)
-a.filter() - fn(element)
-a.reduce(fn) - fn(prev, actual, index, array)
-a.reduceRight(fn) - fn(prev, actual, index, array)
-```
-
-# Functions
-- Properties
-```javascript
-fn.caller
-fn.length
-fn.name
-fn.displayName
-fn.arguments
-fn.prototype.constructor
-```
-- Methods
-```javascript
-fn.prototype.apply()
-fn.prototype.bind()
-fn.prototype.call()
-fn.prototype.isGenerator()
-fn.prototype.toSource()
-fn.prototype.toString()
-```
-### Function constructor VS Function declarator
-Function constructor do not create closures to their creation contexts; they always are created in the global scope.
-They will only be able to access their own local variables and global ones, not the ones from the scope in which the Function constructor was called.
-```javascript
-function constructor (){ }
-var declarator = function () { }
-```
-### Callbacks
-```javascript
-var fn = function(param, callback) {
-  if ((callback) && (typeof callback === 'function') {
-    callback();
-  }
-}
-```
-### Prototypes
-In this example we have to create the method everytime the constructor is called
-```javascript
-function Obj(value) {
-  this.prop = value;
-  this.method = function() {
-    return this.prop;
-  };
-}
-```
-It's better to define the methods in the constructor, so the creation will be done once
-```javascript
-function Obj(value) {
-  this.prop = value;
-}
-Obj.prototype.method = function() {
-  return this.prop;
-};
-```
-### Auto-executing anonymous functions
-```javascript
-(function(){
-  ...
-})();
-```
-If we are going to reference an element from the outside will have a better performance if we pass it as parameter
-```javascript
-var app = app || {};
-(function(w, doc, ns){
-  ...
-})(window, document, app);
 ```

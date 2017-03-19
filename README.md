@@ -14,11 +14,12 @@
         - Web Workers
     - Patterns
         - IIFE --TODO FEM
-        - [Object-Oriented](JavaScript/_oop.md)
+        - [Object-Oriented](JavaScript/paterns/_oop.md)
         - OLOO --TODO FEM
         - Namespace --TODO fictizia
         - Module
         - Init-time branching
+        - Prototype
         - Lazy definition
         - Decorator
         - Singleton
