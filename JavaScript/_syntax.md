@@ -1,5 +1,5 @@
 # Console
-## Methods
+### Methods
 - **assert:** If the assertion is false the message is written to the console
 ```javascript
 console.assert(condition, message)
@@ -132,7 +132,7 @@ typeof Inifinity
 ```
 
 # Numbers
-- Properties
+### Properties
 ```javascript
 Number.MAX_VALUE
 Number.MIN_VALUE
@@ -140,27 +140,69 @@ Number.NEGATIVE_INFINITY
 Number.POSITIVE_INFINITY
 Number.NaN
 ```
-- Methods
+### Methods
+- **toExponential:** returns a string representing the number in exponential notation
 ```javascript
 num.toExponential([decimals])
+```
+- **toFixed:** formats a number using fixed-point notation
+```javascript
 num.toFixed([decimals])
+```
+- **toLocaleString:** returns a string with a language sensitive representation of the number
+```javascript
 num.toLocaleString('en-US')
+```
+- **toPrecision:** returns a string representing the number to the specified precision
+```javascript
 num.toPrecision()
+```
+- **toString:** returns a string representing the number
+```javascript
 num.toString([base])
+```
+- **valueOf:** returns the wrapped primitive value of the number
+```javascript
 num.valueOf()
+```
+- **isNan:** determines whether a value is NaN or not
+```javascript
 Number.isNaN(num)
+```
+- **parseFloat:** parses a string and returns a floating point number
+```javascript
 Number.parseFloat([string])
-Number.parseInt([string])
+```
+- **parseInt:** parses a string and returns an integer of the specified base
+```javascript
+Number.parseInt([string], [base: 2|8|10|16])
+```
+- **isFinite:** determines whether the value is a finite value
+```javascript
 Number.isFinite()
+```
+- **isInteger:** determines if the value is integer
+```javascript
 Number.isInteger()
+```
+- **isSafeInteger:** determines if the value is a safe integer (can be exactly represented as an IEEE-754 and cannot be the result of rounding any other integer to fit the IEEE-754 representation)
+```javascript
 Number.isSafeInteger()
 ```
 # Math
 ```javascript
 Math.random() * (max - min) + min;
+```
+```javascript
 Math.round()
+```
+```javascript
 Math.floor()
+```
+```javascript
 Math.max()
+```
+```javascript
 Math.min()
 ```
 # Dates
