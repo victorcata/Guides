@@ -34,7 +34,7 @@
   - [Getters](#getters)
   - [Setters](#setters)
   - [Formatting](#formatting)
-## Console
+# Console
 ### Methods
 - **assert:** If the assertion is false the message is written to the console
 ```javascript
