@@ -106,12 +106,6 @@ var output = prompt([content])
 - Function
 - Symbol
 - Object
-```javascript
-typeof null
-typeof ['a','b']
-typeof new Date()
-typeof {a: 1}
-```
 - boolean
 ```javascript
 Boolean("String") === true
@@ -275,6 +269,123 @@ str.repeat([count])
 ```javascript
 str.replace([regEx], [string])
 ```
+# Objects
+```javascript
+typeof null
+typeof ['a','b']
+typeof new Date()
+typeof {a: 1}
+```
+```javascript
+var obj = {
+  prop: value,
+  method: function(){ }
+}
+```
+### Properties
+- **prototype:** allows the addition of properties to all objects of type Object 
+```javascript
+Object.prototype
+```
+### Methods
+- **keys:** returns an array containing the names of all of the given object's own properties
+```javascript
+Object.keys(obj)
+```
+- **entries:** returns an array with the property pairs [key, value]
+```javascript
+Object.entries(obj)
+```
+- **defineProperty:** defines a new property on an object or modifies an existing property and returns the object
+```javascript
+Object.defineProperty(obj, prop, { enumerable: false, configurable: false, writable: flase, value: 'static'})
+```
+- **defineProperties:** defines new or modifies existing properties on an object
+```javascript
+Object.defineProperties(obj, { 'prop': { value: true, writable: true }})
+```
+- **getPrototypeOf:** returns the prototype of the specified object
+```javascript
+Object.getPrototypeOf(obj)
+```
+- **getOwnPropertyDescriptor:** returns a property descriptor for an own property
+```javascript
+Object.getOwnPropertyDescriptor(obj, 'prop')
+```
+- **getOwnPropertyNames:** returns an array of all properties
+```javascript
+Object.getOwnPropertyNames(obj)
+```
+- **seal/isSealed:** prevents other code from deleting properties of an object. isSealed determines if an object is sealed
+```javascript
+Object.seal(obj) | Object.isSealed(obj)
+```
+- **freeze/isFrozen:** other code can't delete or change any properties. isFrozen determines if the object is freeze
+```javascript
+Object.freeze(obj) | Object.isFrozen(obj)
+```
+- **isExtensible:** determines if extending an object is allowed
+```javascript
+Object.isExtensible(obj)
+```
+- **preventExtensions:** prevents any extensions of an object
+```javascript
+Object.preventExtensions(obj)
+```
+### Object instance Properties
+- **constructor:** specifies the function that creates an object's prototype
+```javascript
+Object.prototype.constructor
+```
+- **__proto__:** points to the object which was used as prototype when the object was instantiated
+```javascript
+Object.prototype.__proto__
+```
+### Object instance Methods
+- **hasOwnProperty:** determines whether an object contains the specified property of the object and not inherited through the prototype
+```javascript
+obj.hasOwnProperty('prop')
+```
+- **propertyIsEnumerable:** determines if the enumerable attribute is set
+```javascript
+obj.propertyIsEnumerable('prop')
+```
+- **toString/toLocaleString:** strings representation of the object
+```javascript
+obj.toString() | obj.toLocaleString()
+```
+- **isPrototypeOf:** determines whether the specified object is in the prototype chain of the object
+```javascript
+obj.isPrototypeOf(obj)
+```
+- **valueOf:** returns the primitive value of the specified object
+```javascript
+obj.valueOf()
+```
+Note: The order is arbitrary and they aren't show in the order it was defined
+```javascript
+for (var i obj) { obj[i] }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Math
 - **abs:** returns the absolute value of a number
 ```javascript
@@ -318,6 +429,19 @@ Math.max([number, ...])
 ```javascript
 Math.trunc([number])
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Dates
 - Constructor
 ```javascript
@@ -357,6 +481,14 @@ date.toISOString()
 date.toUTCString()
 date.toLocaleString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 ```
+
+
+
+
+
+
+
+
 # Arrays
 - Creation and delete
 ```javascript
@@ -392,41 +524,7 @@ a.filter() - fn(element)
 a.reduce(fn) - fn(prev, actual, index, array)
 a.reduceRight(fn) - fn(prev, actual, index, array)
 ```
-# Objects
-```javascript
-var obj = {
-  prop: value,
-  method: function(){ }
-}
-obj.prop;
-obj.method();
-```
-- Methods generic
-```javascript
-Object.defineProperties(obj, { 'prop': { value: true, writable: true }})
-Object.defineProperty(obj, prop, { enumerable: false, configurable: false, writable: flase, value: 'static'})
-Object.getPrototypeOf(obj)
-Object.getOwnPropertyDescriptor(obj, 'prop')
-Object.getOwnPropertyNames(obj)
-Object.seal(obj) | Object.isSealed(obj)
-Object.freeze(obj) | Object.isFrozen(obj)
-Object.isExtensible(obj)
-Object.preventExtensions(obj)
-Object.keys(obj)
-```
-- Methods of instances
-```javascript
-obj.hasOwnProperty('prop')
-obj.propertyIsEnumerable('prop')
-obj.toString() | obj.toLocaleString()
-obj.isPrototypeOf(obj)
-obj.valueOf()
-obj.constructor
-```
-Note: The order is arbitrary and they aren't show in the order it was defined
-```javascript
-for (var i obj) { obj[i] } // The order is arbitrary
-```
+
 # Functions
 - Properties
 ```javascript
