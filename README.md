@@ -1,7 +1,7 @@
 # Guides
 
 - [Git](Git/git.md)
-- HTML
+- [HTML](HTML/_html.md)
 - CSS
 - JavaScript
     - [Language syntax](JavaScript/_syntax.md)
