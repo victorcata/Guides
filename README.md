@@ -11,7 +11,7 @@
     - HTML5 APIs --TODO fictizia
         - [Web Sockets](JavaScript/apis/_websockets.md)
         - [Geolocation](JavaScript/apis/_geolocation.md)
-        - Web Storage
+        - [Web Storage](JavaScript/apis/_storage.md)
         - Offline
         - Web Workers
     - Patterns
