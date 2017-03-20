@@ -13,7 +13,7 @@
         - [Geolocation](JavaScript/apis/_geolocation.md)
         - [Web Storage](JavaScript/apis/_storage.md)
         - [Offline](JavaScript/apis/_offline.md)
-        - Web Workers
+        - [Web Workers](JavaScript/apis/_webworker.md)
     - Patterns
         - IIFE --TODO FEM
         - [Object-Oriented](JavaScript/paterns/_oop.md)
