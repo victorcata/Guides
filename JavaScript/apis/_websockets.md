@@ -1,5 +1,5 @@
-# Websockets
-- [Websockets](#websockets)
+# WebSockets
+- [WebSockets native](#websockets-native)
     - [Client/Server communication](#clientserver-communication)
     - [ReadyState constants](#readystate-constants)
     - [Open a connection](#open-a-connection)
@@ -7,6 +7,15 @@
     - [Sending a message](#sending-a-message)
     - [Closing the connection](#closing-the-connection)
     - [Example](#example)
+- [Socket.IO](#socketio)
+    - [Open a connection](#open-a-connection-1)
+    - [Reopen a connection](#reopen-a-connection)
+    - [Events](#events-1)
+    - [Sending a message](#sending-a-message-1)
+    - [Closing the connection](#closing-the-connection-1)
+    - [Client Example](#client-example)
+    - [Server Example](#server-example)
+# WebSockets native
 ### Client/Server communication
 - Client
 ```
