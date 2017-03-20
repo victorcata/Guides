@@ -8,6 +8,7 @@
   - [Cache events](#cache-events)
   - [Cache status](#cache-status)
   - [Forcing cache update](#forcing-cache-update)
+- [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/)
 ### Status of the browser
 - **navigator.onLine:** returns a boolean indicating if the browser is online or not
 ### Browser properties

@@ -8,7 +8,7 @@
     - [DOM (Document Object Model)](JavaScript/_dom.md)
     - [BOM (Browser Object Model)](JavaScript/_bom.md)
     - [AJAX](JavaScript/_ajax.md)
-    - HTML5 APIs --TODO fictizia
+    - HTML5 APIs
         - [Web Sockets](JavaScript/apis/_websockets.md)
         - [Geolocation](JavaScript/apis/_geolocation.md)
         - [Web Storage](JavaScript/apis/_storage.md)
