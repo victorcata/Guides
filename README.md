@@ -12,7 +12,7 @@
         - [Web Sockets](JavaScript/apis/_websockets.md)
         - [Geolocation](JavaScript/apis/_geolocation.md)
         - [Web Storage](JavaScript/apis/_storage.md)
-        - Offline
+        - [Offline](JavaScript/apis/_offline.md)
         - Web Workers
     - Patterns
         - IIFE --TODO FEM
