@@ -9,7 +9,7 @@
     - [BOM (Browser Object Model)](JavaScript/_bom.md)
     - [AJAX](JavaScript/_ajax.md)
     - HTML5 APIs --TODO fictizia
-        - Web Sockets
+        - [Web Sockets](JavaScript/apis/_websockets.md)
         - Geolocation
         - Web Storage
         - Offline
