@@ -10,7 +10,7 @@
     - [AJAX](JavaScript/_ajax.md)
     - HTML5 APIs --TODO fictizia
         - [Web Sockets](JavaScript/apis/_websockets.md)
-        - Geolocation
+        - [Geolocation](JavaScript/apis/_geolocation.md)
         - Web Storage
         - Offline
         - Web Workers
