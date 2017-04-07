@@ -137,22 +137,156 @@ var output = prompt([content])
 ```
 # Data Types
 - undefined
+- number
+- string
+- boolean
+- object
+- symbol
+### Special values
+- NaN        
+- undefined (void)
+- null
+- Inifinity, -Inifinity
+- 0, -0
+### Natives
+Like subtypes of an object, inheritance from a function
 - Number
 - String
-- Function
-- Symbol
+- Boolean
 - Object
-- boolean
+- Function
+- Array
+- RegExp
+- Data
+- Error
 ```javascript
-Boolean("String") === true
-Boolean("") === false
-Boolean(12) === true
-Boolean(0) === false
-Boolean({'a': 1}) === true
-Boolean([1, 2]) === true
-Boolean(null) === false
-Boolean(undefined) === false
-Boolean(NaN) === false
+typeof new String("foo")    // "object"
+typeof String("foo")        // "string"
+
+typeof new Number(37)       // "object"
+typeof Number(37)           // "number"
+Number("37") === 37         // true
+new Number("37") === 37     // false
+
+foo = new RegExp("a*b", "g")
+foo = /a*b/g;     // better option than the dynamic one above
+
+foo = new Date();
+```
+### Negative zero
+```javascript
+var foo = 0 / -1;
+foo === -0    // true
+foo === 0     // true
+0 === -0      // true
+```
+### Object.is
+```javascript
+Object.is("foo", NaN)   // false
+Object.is(NaN, NaN)     // true
+Object.is(0, -0)        // false
+Object.is(-0, -0)       // true
+```
+### typeof
+```javascript
+typeof foo            // "undefined"
+typeof "foo"          // "string"
+typeof 12             // "number"
+typeof { a: 12 }      // "object"
+typeof true           // "boolean"
+typeof function(){}   // "function": is not a primitive type, it's a subtype of object
+typeof undefined      // "undefined"
+typeof Infinity       // "number"
+typeof NaN            // "number"
+typeof null           // "object"
+```
+# Coercion
+- **To String**: do not use in arrays, objects, functions, etc.
+Using string coercion with arrays and objects
+```javascript
+[].toString()                 // ""
+[1, 2, 3].toString()          // "1,2,3"
+[null, undefined].toString()  // ","
+[,,,].toString()              // ",,"    
+{}.toString()                 // "[object Object]"
+{ a: 2 }.toString()           // "[object Object]"
+```
+Explicit coercion
+```javascript
+var foo = 123;
+var str = foo.toString();
+var num = String(foo);
+```
+Implicit coercion
+```javascript
+var foo = 123;
+var baz = foo + "";   // "123"
+```
+- **To Number**
+Explicit coercion
+```javascript
+var foo = "123";
+var num = Number(foo)
+var num = +foo
+```
+Implicit coercion
+```javascript
+var foo = "123";
+var baz = foo - 0;    // 123
+var baz = foo / 1;    // 123
+```
+~ operator: ~N equal to -(N + 1)
+```javascript
+var foo = "foo";
+if (~foo.indexOf("f")) {
+  // do something
+}
+```
+```javascript
+Number("")          // 0
+Number(" 009 ")     // 9
+Number(".")         // NaN
+Number("0xAF")      // 175
+Number(false)       // 0
+Number(true)        // 1
+Number(null)        // 0
+Number(undefined)   // NaN
+```
+- **To Boolean:** it's define the falsy values, if it's not a falsy value must be a truthy one
+Explicit coercion
+```javascript
+var foo = "123";
+var baz = Boolean(foo);
+var baz = !!foo;
+```
+Implicit coercion
+```javascript
+var foo = "123";
+if (foo) { }  //true
+foo = 0;
+if (foo) { }  // false
+```
+Logic operators used as coercion
+```javascript
+var a = "123";
+var b = a || "456";
+// Equivalent to
+var b = a ? a : "456";
+```
+```javascript
+var a = "123";
+var b = a && "456";
+// Equivalent to
+var b = a ? "456" : a;
+```
+```javascript
+// Falsy values
+Boolean("")
+Boolean(0)
+Boolean(null)
+Boolean(undefined)
+Boolean(NaN)
+Boolean(false)
 ```
 # Numbers
 ```javascript
@@ -244,6 +378,10 @@ str.include([string])
 - **indexOf/lastIndexOf:** returns the index of the first ocurrence of the specified valued
 ```javascript
 str.indexOf([string]) | str.lastIndexOf([string])
+```
+```javascript
+// ~N === -(N+1)
+if (~foo.indexOf("f")) { }
 ```
 - **split:** splits a string into an array of strings by a separator string
 ```javascript
@@ -373,6 +511,10 @@ Object.isExtensible(obj)
 - **preventExtensions:** prevents any extensions of an object
 ```javascript
 Object.preventExtensions(obj)
+```
+- **is:** Determines if two objects are identical
+```javascript
+Object.is(NaN, NaN)
 ```
 ### Object instance Properties
 - **constructor:** specifies the function that creates an object's prototype
