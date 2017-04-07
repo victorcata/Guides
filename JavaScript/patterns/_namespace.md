@@ -43,8 +43,6 @@ var myApp = myApp || {};
 ```javascript
 var myApp = myApp || {};
 
-myApp.data = {};
-
 myApp.data = {
     method: function() {
         
@@ -53,7 +51,8 @@ myApp.data = {
     property2: 2
 }
 ```
-## Extension method basic
+## Extension metod
+### Basic
 ```javascript
 var myApp = myApp || {};
 
@@ -71,9 +70,9 @@ myApp.createElement = function(name){
 myApp.createElement("one.two.three.anotherNode.levels");
 myApp.one.two.three.anotherNode.levels = "Bottom level";
 ```
-## Extension method complete
-Stoyan Stefanov (JavaScript Patterns book) solution updated by Addy Osmani
+### Complete
 ```javascript
+// written by Stoyan Stefanov, optimized by addy osmani
 var myApp = myApp || {};
 
 function extend(ns, ns_string) {
@@ -100,3 +99,44 @@ function extend(ns, ns_string) {
 var mod = extend(myApp, "myApp.modules.module2");
 extend(myApp, "moduleA.moduleB.moduleC.moduleD");
 ```
+## Dependency declaration
+Consists on using local references to objects
+```javascript
+myApp.utilities.math.fibonacci(25);
+
+var utils = myApp.utilities,
+    maths = utils.math;
+    
+maths.fibonacci(25);
+```
+## Object extension
+```javascript
+// written by andrew dupont, optimized by addy osmani
+function extend(destination, source) {
+    var toString = Object.prototype.toString,
+        objTest = toString.call({});
+    
+    for (var property in source) {
+        if (source[property] && objTest == toString.call(source[property]))
+        {
+            destination[property] = destination[property] || {};
+            extend(destination[property], source[property]);
+        } else {
+            destination[property] = source[property];
+        }
+    }
+    
+    return destination;
+}
+var myApp = myApp || {};
+extend(myApp, { 
+        utilities: {
+            math: {
+                fibonacci: function() {
+                    // ...
+                }
+            }
+        }
+});
+```
+https://addyosmani.com/blog/essential-js-namespacing/
