@@ -16,9 +16,9 @@
         - [Web Workers](JavaScript/apis/_webworker.md)
     - Patterns
         - IIFE --TODO FEM
-        - [Object-Oriented](JavaScript/paterns/_oop.md)
+        - [Object-Oriented](JavaScript/patterns/_oop.md)
         - OLOO --TODO FEM
-        - Namespace --TODO fictizia
+        - [Namespace](JavaScript/patterns/_namespace.md)
         - Module
         - Init-time branching
         - Prototype
