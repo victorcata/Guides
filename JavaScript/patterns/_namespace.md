@@ -9,12 +9,8 @@
 ## Namespace on an anonimous function
 ```javascript
 var myApp = (function(){
-    var privateMethod1 = function() {
-        
-    };
-    var privateMethod2 = function() {
-        
-    };
+    var privateMethod1 = function() { };
+    var privateMethod2 = function() { };
     var privateProperty = "prop1";
     return {
         publicMethod1: privateMethod1,
@@ -25,7 +21,6 @@ var myApp = (function(){
         other: {
             publicMethod2: privateMethod2
         }
-        // ...
     }
 })();
 ```
@@ -34,9 +29,7 @@ var myApp = (function(){
 var myApp = myApp || {};
 (function(namespace){
     namespace.property1 = "prop1";
-    namespace.method1 = function() {
-        
-    };
+    namespace.method1 = function() { };
 })(myApp);
 ```
 ## Using namespaces
@@ -44,9 +37,7 @@ var myApp = myApp || {};
 var myApp = myApp || {};
 
 myApp.data = {
-    method: function() {
-        
-    },
+    method: function() { },
     property1: 1,
     property2: 2
 }
@@ -139,4 +130,3 @@ extend(myApp, {
         }
 });
 ```
-https://addyosmani.com/blog/essential-js-namespacing/
