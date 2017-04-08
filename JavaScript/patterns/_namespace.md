@@ -1,5 +1,19 @@
 # Namespace pattern
 
+<!-- TOC -->
+
+- [Namespace pattern](#namespace-pattern)
+    - [Namespace in an anonimous function](#namespace-in-an-anonimous-function)
+    - [Namespace extension](#namespace-extension)
+    - [Using namespaces](#using-namespaces)
+    - [Extension metod](#extension-metod)
+        - [Basic](#basic)
+        - [Complete](#complete)
+    - [Dependency declaration](#dependency-declaration)
+    - [Object extension](#object-extension)
+
+<!-- /TOC -->
+
 - Avoid collisions with other objects or variables in the global namespace.
 - Organize blocks of functionality.
 - Reduces the number of global objects.
