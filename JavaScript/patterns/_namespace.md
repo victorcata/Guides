@@ -6,7 +6,7 @@
 - Everything is part of a unique object.
 - Served in several js files.
 
-## Namespace on an anonimous function
+## Namespace in an anonimous function
 ```javascript
 var myApp = (function(){
     var privateMethod1 = function() { };
