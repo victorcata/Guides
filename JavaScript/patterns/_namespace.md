@@ -139,4 +139,3 @@ extend(myApp, {
         }
 });
 ```
-https://addyosmani.com/blog/essential-js-namespacing/

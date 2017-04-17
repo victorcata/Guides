@@ -19,10 +19,10 @@
         - [Object-Oriented](JavaScript/patterns/_oop.md)
         - OLOO --TODO FEM
         - [Namespace](JavaScript/patterns/_namespace.md)
-        - Module
-        - Init-time branching
+        - [Module](JavaScript/patterns/_module.md)
+        - [Init-time branching](JavaScript/patterns/_inittime.md)
         - Prototype
-        - Lazy definition
+        - [Lazy definition](JavaScript/patterns/_lazy.md)
         - Decorator
         - Singleton
         - Factory
