@@ -1,3 +1,13 @@
+
+- [Namespace pattern](#namespace-pattern)
+    - [Namespace in an anonimous function](#namespace-in-an-anonimous-function)
+    - [Namespace extension](#namespace-extension)
+    - [Using namespaces](#using-namespaces)
+    - [Extension metod](#extension-metod)
+        - [Basic](#basic)
+        - [Complete](#complete)
+    - [Dependency declaration](#dependency-declaration)
+    - [Object extension](#object-extension)
 # Namespace pattern
 
 - Avoid collisions with other objects or variables in the global namespace.
@@ -6,15 +16,11 @@
 - Everything is part of a unique object.
 - Served in several js files.
 
-## Namespace on an anonimous function
+## Namespace in an anonimous function
 ```javascript
 var myApp = (function(){
-    var privateMethod1 = function() {
-        
-    };
-    var privateMethod2 = function() {
-        
-    };
+    var privateMethod1 = function() { };
+    var privateMethod2 = function() { };
     var privateProperty = "prop1";
     return {
         publicMethod1: privateMethod1,
@@ -25,7 +31,6 @@ var myApp = (function(){
         other: {
             publicMethod2: privateMethod2
         }
-        // ...
     }
 })();
 ```
@@ -34,9 +39,7 @@ var myApp = (function(){
 var myApp = myApp || {};
 (function(namespace){
     namespace.property1 = "prop1";
-    namespace.method1 = function() {
-        
-    };
+    namespace.method1 = function() { };
 })(myApp);
 ```
 ## Using namespaces
@@ -44,9 +47,7 @@ var myApp = myApp || {};
 var myApp = myApp || {};
 
 myApp.data = {
-    method: function() {
-        
-    },
+    method: function() { },
     property1: 1,
     property2: 2
 }
@@ -138,4 +139,8 @@ extend(myApp, {
             }
         }
 });
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 1c3d7c1cc2ffc26d5207d3599d57c253bbe1db21

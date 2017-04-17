@@ -1,53 +1,223 @@
+# Git
 <!-- TOC -->
 
-        - [Configuration](#configuration)
-            - [Identity](#identity)
-            - [Editor](#editor)
-            - [Settings](#settings)
-            - [Help](#help)
-        - [Initialize repository](#initialize-repository)
-        - [Cone repository](#cone-repository)
-        - [Initial commit](#initial-commit)
-        - [Checking the status](#checking-the-status)
-        - [Tracking new files and Staging modified files](#tracking-new-files-and-staging-modified-files)
-        - [Ignoring files](#ignoring-files)
-        - [View staged and unstaged changes](#view-staged-and-unstaged-changes)
-        - [Commiting changes](#commiting-changes)
-        - [Removing a file](#removing-a-file)
-        - [Moving a file](#moving-a-file)
+- [Git](#git)
+- [Configuration](#configuration)
+  - [List configuration](#list-configuration)
+  - [Credential cache](#credential-cache)
+  - [Identity](#identity)
+    - [Username](#username)
+    - [Email](#email)
+  - [Editor](#editor)
+- [Staging](#staging)
+- [Commit](#commit)
+- [Pushing](#pushing)
+- [Pulling](#pulling)
 - [Branching](#branching)
-    - [Staging and commit](#staging-and-commit)
-    - [Branch management](#branch-management)
-        - [List](#list)
-        - [Create](#create)
-        - [Delete](#delete)
-        - [Last commit on each branch](#last-commit-on-each-branch)
-        - [Branches merged](#branches-merged)
-        - [Branches not yet merged](#branches-not-yet-merged)
-    - [HEAD](#head)
-    - [Switching branches](#switching-branches)
-    - [New branch and switch](#new-branch-and-switch)
-    - [Merging](#merging)
-        - [Merge conflicts](#merge-conflicts)
+  - [Branch management](#branch-management)
+    - [List branches](#list-branches)
+    - [Create](#create)
+    - [Delete](#delete)
+    - [Last commit on each branch](#last-commit-on-each-branch)
+    - [Branches merged](#branches-merged)
+    - [Branches not yet merged](#branches-not-yet-merged)
+  - [HEAD](#head)
+  - [Switching branches](#switching-branches)
+  - [New branch and switch](#new-branch-and-switch)
+  - [Merging](#merging)
+    - [Merge conflicts](#merge-conflicts)
+  - [Remote branches](#remote-branches)
+    - [Syncronizing branches](#syncronizing-branches)
+    - [Multiple remote servers](#multiple-remote-servers)
+  - [Tracking branches](#tracking-branches)
+    - [List tracking branches](#list-tracking-branches)
+    - [Local branch with a different name](#local-branch-with-a-different-name)
+    - [Changing the name of the local branch](#changing-the-name-of-the-local-branch)
+  - [Rebasing](#rebasing)
+- [Server](#server)
+  - [Local protocol](#local-protocol)
+  - [HTTP protocol](#http-protocol)
+  - [SSH protocol](#ssh-protocol)
+  - [Git protocol](#git-protocol)
+      - [Help](#help)
+    - [Initialize repository](#initialize-repository)
+    - [Checking the status](#checking-the-status)
+    - [Ignoring files](#ignoring-files)
+    - [View staged and unstaged changes](#view-staged-and-unstaged-changes)
+    - [Commiting changes](#commiting-changes)
+    - [Removing a file](#removing-a-file)
+    - [Moving a file](#moving-a-file)
 
 <!-- /TOC -->
-### Configuration
-#### Identity
-- git config --system: Every user on the system and all their repositories
-- git config --global: Specific to your user
-- git config: Specific to that single repository
+# Configuration
+- **git config:** Specific to that single repository
+- **git config --system:** Every user on the system and all their repositories
+- **git config --global:** Specific to your user
+## List configuration
+```sh
+$ git config --list
 ```
-git config --global user.name
-git config --global user.email
+## Credential cache
+```sh
+$ git config --global credential.helper cache
 ```
-#### Editor
+## Identity
+### Username
+```sh
+$ git config --global user.name <USER_NAME>
 ```
-git config --global core.editor
+### Email
+```sh
+$ git config --global user.email <USER_EMAIL>
 ```
-#### Settings
+## Editor
 ```
-git config --list
+$ git config --global core.editor <EDITOR_NAME>
 ```
+# Staging
+```sh
+$ git add <FILE> <FILE> ...
+```
+# Commit 
+```sh
+$ git commit -m <COMMENT>
+```
+# Pushing
+```sh
+$ git push <REMOTE> <BRANCH>
+```
+# Pulling
+```sh
+$ git pull 
+```
+Equivalent to
+```sh
+$ git fetch
+$ git merge
+```
+# Branching
+## Branch management
+### List branches
+```sh
+$ git branch
+```
+### Create
+```sh
+$ git branch <BRANCH>
+```
+### Delete
+```sh
+$ git branch -d <BRANCH>
+```
+### Last commit on each branch
+```sh
+$ git branch -v
+```
+### Branches merged
+```sh
+$ git branch --merged
+```
+### Branches not yet merged
+```sh
+$ git branch --no-merged
+```
+## HEAD
+HEAD is a special pointer that let you know what branch you're currently on
+```sh
+$ git log --oneline --decorate
+$ git log --oneline --decorate --graph --all
+```
+## Switching branches
+```sh
+$ git checkout <BRANCH>
+```
+## New branch and switch
+```sh
+$ git checkout -b <BRANCH>
+```
+Equivalent to
+```sh
+$ git branch <BRANCH>
+$ git checkout <BRANCH>
+```
+## Merging
+- **Fast-forward:** when you try to merge one commit with a commit that can be reached by following the first commit's history
+- **Three-way:** creates a new snapshot that results fron this three-way merge and automatically creates a new commit that points to it
+```sh
+$ git merge <BRANCH>
+```
+### Merge conflicts
+```sh
+$ git mergetool
+```
+## Remote branches
+### Syncronizing branches
+```sh
+$ git fetch <REMOTE>
+```
+From all the remotes
+```sh
+$ git fetch --all 
+```
+### Multiple remote servers
+```sh
+$ git remote ad <REMOTE> <URL>
+```
+## Tracking branches
+Tracking branches are local branches that have a direct relationship to a remote branch
+```sh
+$ git checkout --track <REMOTE/BRANCH>
+```
+### List tracking branches
+```sh
+$ git branch -vv
+```
+### Local branch with a different name
+To set up a local branch with a different name than the remote one
+```sh
+$ git checkout -b <NEW_NAME> <REMOTE/BRANCH>
+```
+### Changing the name of the local branch
+If you already have a local branch and want to set it to a remote branch that you just pulled down
+```sh
+$ git branch -u <REMOTE/BRANCH>
+$ git branch --set-upstream-to <REMOTE/BRANCH>
+```
+## Rebasing
+```sh
+$ git checkout <BRANCH_DESINATION>
+$ git rebase <BRANCH_ORIGIN>
+```
+# Server
+## Local protocol
+The remote repository is in another directory on the disk
+```sh
+$ git clone /folder/project.git
+```
+To add a local repository to an existing Git project
+```sh
+$ git remote add <LOCAL_PROJECT> /folder/project.git
+```
+## HTTP protocol
+```sh
+$ git clone https://domain.com/project.git
+```
+## SSH protocol
+```sh
+$ git clone ssh://user@server:project.git
+```
+## Git protocol
+Git protocol listens to the specific port 9418. It's indicated for serving a ver large project that doesn't require user authentication for read access
+```sh
+$ git clone git://project.git
+```
+
+
+
+
+
+
+-----------------------------------------------------
 #### Help
 ```
 git help <verb>
@@ -58,27 +228,10 @@ man git-<verb>
 ```
 git init
 ```
-### Cone repository
-```
-git clone https://github.com/repository
-```
-### Initial commit
-```
-git add *.c
-git add [FILE]
-git commit -m <COMMENTS>
-```
 ### Checking the status
 ```
 git status
 git status -s | git status --short
-```
-### Tracking new files and Staging modified files
-- Tracking new files
-- Stage files
-- Merge-conflicted files as resolved
-```
-git add [FILE | DIRECTORY]
 ```
 ### Ignoring files
 .gitignore file
@@ -122,63 +275,4 @@ mv <FILE_FROM> <FILE_TO>
 git rm <FILE_FROM>
 git add <FILE_TO>
 ```
-# Branching
-## Staging and commit
-```sh
-$ git add <FILE> <FILE> ...
-$ git commit -m "my first commit"
-```
-## Branch management
-### List
-```sh
-$ git branch
-```
-### Create
-```sh
-$ git branch <BRANCH_NAME>
-```
-### Delete
-```sh
-$ git branch -d <BRANCH_NAME>
-```
-### Last commit on each branch
-```sh
-$ git branch -v
-```
-### Branches merged
-```sh
-$ git branch --merged
-```
-### Branches not yet merged
-```sh
-$ git branch --no-merged
-```
-## HEAD
-HEAD is a special pointer that let you know what branch you're currently on
-```sh
-$ git log --oneline --decorate
-$ git log --oneline --decorate --graph --all
-```
-## Switching branches
-```sh
-$ git checkout <BRANCH_NAME>
-```
-## New branch and switch
-```sh
-$ git checkout -b <BRANCH_NAME>
-```
-Equivalent to
-```sh
-$ git branch <BRANCH_NAME>
-$ git checkout <BRANCH_NAME>
-```
-## Merging
-- Fast-forward: when you try to merge one commit with a commit that can be reached by following the first commit's history
-- Three-way: creates a new snapshot that results fron this three-way merge and automatically creates a new commit that points to it
-```sh
-$ git merge <BRANCH_NAME>
-```
-### Merge conflicts
-```sh
-$ git mergetool
-```
+-----------------------------------------------------
