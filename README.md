@@ -21,7 +21,7 @@
         - [Namespace](JavaScript/patterns/_namespace.md)
         - [Module](JavaScript/patterns/_module.md)
         - [Init-time branching](JavaScript/patterns/_inittime.md)
-        - Prototype
+        - [Prototype](JavaScript/patterns/_prototype.md)
         - [Lazy definition](JavaScript/patterns/_lazy.md)
         - Decorator
         - Singleton
