@@ -52,6 +52,7 @@ We have to be careful when we choose base elements. Maybe at the beginning there
 - Changes the Look & Feel of a module or layout
 - Like a module variation (sub-module) but indicate a JavaScript dependency
 - States are !important
+- Avoid a state affecting more than one module at a time
 
 ### Themes
 - Only for on-the-fly style changes
