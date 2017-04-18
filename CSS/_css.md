@@ -4,8 +4,20 @@
 
 - [CSS](#css)
     - [Selectors](#selectors)
+        - [Child selectors](#child-selectors)
+        - [Sibling selectors](#sibling-selectors)
+        - [Attributes](#attributes)
+        - [Pseudo-classes](#pseudo-classes)
+        - [Text selector](#text-selector)
+        - [Pseudo-elements](#pseudo-elements)
+        - [Links](#links)
     - [Browser prefixes](#browser-prefixes)
     - [Box model](#box-model)
+        - [Margin](#margin)
+        - [Border](#border)
+        - [Padding](#padding)
+        - [Content](#content)
+        - [Outline](#outline)
     - [Dimensions](#dimensions)
     - [Positioning](#positioning)
     - [Visualization and visibility](#visualization-and-visibility)
@@ -15,7 +27,7 @@
     - [Text styles](#text-styles)
     - [Fonts](#fonts)
     - [Borders](#borders)
-    - [Links](#links)
+    - [Links](#links-1)
     - [Media queries](#media-queries)
     - [Exclusions](#exclusions)
     - [Regions](#regions)
@@ -31,14 +43,30 @@
 
 ## Selectors
 - **.class:** Busqueda por nombre de clase
-- **`#id:** Busqueda por identificador de elemento
-- **`*:** Selecciona todos los elementos
+- **#id:** Busqueda por identificador de elemento
+- ***:** Selecciona todos los elementos
 - **tag:** Busqueda por nombre de etiqueta (p.e: div, p, span,...)
 - **tag,tag:** Busqueda de varios elementos separados por comas
+
+### Child selectors
 - **elem1 elem2:** Selecciona los elementos 'elem2' que estan dentro de 'elem1'
 - **elem1 > elem2:** Selecciona los elementos 'elem2' cuyo padre directo es 'elem1'
+- **:first-child:** Selecciona todos los elementos que son el primer hijo
+- **:first-of-type:** Selecciona los elementos que son el primero de su tipo dentro de su padre
+- **:last-child:** Selecciona cada elemento que es el ultimo hijo de su padre
+- **:last-of-type:** Selecciona cada elemento que es el ultimo de su tipo dentro de su padre
+- **:nth-child(n):** Selecciona elementos hijos a partir de una formula de seleccion. (p.e: odd | even | number | an + b)
+- **:nth-last-child(n):** Igual que el selector anterior pero empezando a contar desde el final
+- **:nth-last-of-type(n):** Igual que el selector anterior pero contando solo elementos de un determinado tipo
+- **:nth-of-type(n):** Selecciona aquellos elementos hijos que ocupan una determinada posicion 'n' y son del tipo indicado
+- **:only-of-type:** Selecciona elementos que son el unico elemento hijo de un determinado tipo con respecto a su padre
+- **:only-child:** Selecciona elementos de un determinado tipo que son el unico hijo de su padre
+
+### Sibling selectors
 - **elem1 + elem2:** Selecciona todos los elementos 'elem2' que estan ubicados directamente despues del elemento 'elem1'
 - **elem1 ~ elem2:** Selecciona los elementos 'elem2' que estan precedidos de 'elem1'
+
+### Attributes
 - **[attr]:** Todos los elementos que tienen definido un determinado atributo
 - **[attr=value]:** Todos los elementos cuyo atributo es igual a un determinado valor
 - **[attr~=value]:** Todos los elementos cuyo atributo contiene un determinado valor
@@ -46,45 +74,42 @@
 - **[attr^=value]:** Todos los elementos cuyo atributo comienza con un determinado valor
 - **[attr$=value]:** Todos los elementos cuyo atributo termina con un determinado valor
 - **[attr*=value]:** Todos los elementos cuyo atributo contiene un subtring con el valor definido
-- **:active:** Selecciona todos los links activos ('<a>')
-- **:after:** Inserta contenido despues de cada elemento seleccionado
-- **:before:** Inserta contenido antes de cada elemento seleccionado
+
+### Pseudo-classes
 - **:checked:** Selecciona los elementos marcados (p.e: input[type="check"]:checked)
 - **:disabled:** Selecciona cada elemento deshabilitado
 - **:empty:** Selecciona cada elemento que no tiene nodos hijos
 - **:enabled:** Selecciona cada elemento que esta habilitado
-- **:first-child:** Selecciona todos los elementos que son el primer hijo
-- **:first-letter:** Selecciona la primera letra de los elementos indicados
-- **:first-line:** Selecciona la primera linea de los elementos indicados
-- **:first-of-type:** Selecciona los elementos que son el primero de su tipo dentro de su padre
 - **:focus:** Selecciona los elementos que tienen el foco
 - **:hover:** Selecciona elementos cuando el raton esta encima de ellos
 - **:in-range:** Selecciona elementos cuando estan dentro de un rango especifico. A partir de atributos min y max en inputs
 - **:invalid:** Selecciona los inputs que tienen un valor que no es valido
 - **:lang(language):** Selecciona los elementos que tienen un atributo de lenguaje especifico
-- **:last-child:** Selecciona cada elemento que es el ultimo hijo de su padre
-- **:last-of-type:** Selecciona cada elemento que es el ultimo de su tipo dentro de su padre
-- **:link:** Selecciona todos los links que no han sido visitados
 - **:not(selector):** Seleccion negativa de elementos, selecciona todos los que no cumplen un determinado selector
-- **:nth-child(n):** Selecciona elementos hijos a partir de una formula de seleccion. (p.e: odd | even | number | an + b)
-- **:nth-last-child(n):** Igual que el selector anterior pero empezando a contar desde el final
-- **:nth-last-of-type(n):** Igual que el selector anterior pero contando solo elementos de un determinado tipo
-- **:nth-of-type(n):** Selecciona aquellos elementos hijos que ocupan una determinada posicion 'n' y son del tipo indicado
-- **:only-of-type:** Selecciona elementos que son el unico elemento hijo de un determinado tipo con respecto a su padre
-- **:only-child:** Selecciona elementos de un determinado tipo que son el unico hijo de su padre
 - **:optional:** Selecciona elementos input que no tienen el atributo 'required'
 - **:out-of-range:** Selecciona elementos input cuyo valor de rango esta fuera del permitido por los atributos max y min
 - **:read-only:** Selecciona elementos que tienen el atributo 'readonly'
 - **:read-write:** Selecciona elementos que no tienen el atributo 'readonly'
 - **:required:** Selecciona elementos que tienen el atributo 'required' especificado
 - **:root:** Selecciona el elemento document raiz <html>
-- **::selection:** Selecciona la porcion de texto que el usuario esta seleccionando del documento
 - **:target:** Selecciona el elemento cuyo id corresponde con un target de una etiqueta <a> al marcar como activa dicha etiqueta
 - **:valid:** Selecciona todos los elementos input con un valor valido
+
+### Text selector
+- **:first-letter:** Selecciona la primera letra de los elementos indicados
+- **:first-line:** Selecciona la primera linea de los elementos indicados
+- **::selection:** Selecciona la porcion de texto que el usuario esta seleccionando del documento
+
+### Pseudo-elements
+- **:after:** Inserta contenido despues de cada elemento seleccionado
+- **:before:** Inserta contenido antes de cada elemento seleccionado
+
+### Links
+- **:link:** Selecciona todos los links que no han sido visitados
+- **:active:** Selecciona todos los links activos ('<a>')
 - **:visited:** Selecciona todos los links visitados
 
 ## Browser prefixes
-	
 - **-ms-:** Internet Explorer
 - **webkit-:** Google Chrome
 - **moz-:** Mozilla Firefox
@@ -92,79 +117,71 @@
 - **o- | -webkit-:** Opera
 
 ## Box model
-	
-margin			: Limpia el area en la parte exterior del borde. No se ve afectado por el 'background' y es completamente transparente
-border 			: El borde va alrededor del padding y del contenido. Hereda su color de la propiedad 'color' de la caja
-padding			: Limpia el area en la parte alrededor del contenido. Se ve afectado por el 'background'
-content 		: Indica el contenido de la caja donde el texto e imagenes aparecen
+- **Ancho Total:** width + left padding + right padding + left border + right border + left margin + right margin
+- **Alto Total:** height + top padding + bottom padding + top border + bottom border + top margin + bottom margin
 
-Ancho Total		: width + left padding + right padding + left border + right border + left margin + right margin
-Alto Total		: height + top padding + bottom padding + top border + bottom border + top margin + bottom margin
+### Margin
+Limpia el area en la parte exterior del borde. No se ve afectado por el 'background' y es completamente transparente
+- **margin:** *(length | auto | initial | inherit)* Establece el margen del elemento
+- **margin-(pos):** *(pos): top | left | right | bottom* Establece el margen del elemento para una determinada posicion
+					
+### Border
+El borde va alrededor del padding y del contenido. Hereda su color de la propiedad 'color' de la caja
 
-outline 		: Establece una linea alrededor del elemento y fuera del borde. No es parte del elemento y no afecta al ancho y alto total
-					(outline-color outline-style outline-width|initial|inherit)
-outline-color	: Establece el color de la linea exterior
-					(invert | color | initial | inherit)
-outline-style	: Establece el estilo de la linea exterior
-					(none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset | initial | inherit)
-outline-width	: Establece el ancho de la linea exterior
-					(medium | thin | thick | length | initial | inheri)
-margin			: Establece el margen del elemento
-					(length | auto | initial | inherit)
-margin-(pos)	: Establece el margen del elemento para una determinada posicion
-					(pos): top | left | right | bottom
-padding			: Establece el padding del elemento
-					(length | initial | inherit)
-padding-(pos)	: Establece el padding del elemento para una determinada posicion
-					(pos): top | left | right | bottom
+### Padding
+Limpia el area en la parte alrededor del contenido. Se ve afectado por el 'background'
+- **padding:** *(length | initial | inherit)* Establece el padding del elemento					
+- **padding-(pos):** *(pos): top | left | right | bottom* Establece el padding del elemento para una determinada posicion
+					
+### Content
+Indica el contenido de la caja donde el texto e imagenes aparecen
 
+### Outline
+- **outline:** *(outline-color outline-style outline-width|initial|inherit)* Establece una linea alrededor del elemento y fuera del borde. No es parte del elemento y no afecta al ancho y alto total					
+- **outline-color:** *(invert | color | initial | inherit)* Establece el color de la linea exterior					
+- **outline-style:** *(none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset | initial | inherit)* Establece el estilo de la linea exterior			
+- **outline-width:** *(medium | thin | thick | length | initial | inheri)* Establece el ancho de la linea exterior
+					
 ## Dimensions
-height 		: Establece la altura del elemento en su contenido
-max-height 	: Establece el alto maximo del elemento
-min-height 	: Establece el alto minimo del elemento
-width 		: Establece el ancho del elemento en su contenido
-max-width	: Establece el ancho maximo del elemento
-min-width 	: Establece el ancho minimo del elemento
+- **height:** Establece la altura del elemento en su contenido
+- **max-height:** Establece el alto maximo del elemento
+- **min-height:** Establece el alto minimo del elemento
+- **width:** Establece el ancho del elemento en su contenido
+- **max-width:** Establece el ancho maximo del elemento
+- **min-width:** Establece el ancho minimo del elemento
 
 ## Positioning
 	
-position: static
-			- Valor por defecto
-			- No le afecta top, left, right, bottom
-position: fixed
-			- Relativo a la ventana del navegador
-			- No se puede aunque se haga scroll
-			- Se puede posicionar encima de otros elementos
-position: relative
-			- Relativo a su posicion normal
-			- Se puede mover y solapar con otros elementos
-			- El espacio reservado para el elemento es preservado en el flujo normal del documento
-			- Posicionamiento a menudo usado como contenedor de otros elementos con posicionamiento absoluto
-position: absolute
-			- Se posiciona relativo al primer elemento padre que tiene una posicion distinta de static, sino en relacion al elemento html
-			- Son eliminados del flujo normal del documento
-			- El resto de elementos se comportan como si el elemento absoluto no existiera
-			- Puede solapar otros elementos
-z-index: valor
-			- Para controlar el solape de elementos que son sacados del flujo normal del documento (fixed y absolute)
-			- Especifica el orden de solape de elementos como una pila
-			- Puede tener valores positivos y negativos
+- **position:** 
+	- static
+		- Valor por defecto
+		- No le afecta top, left, right, bottom
+	- fixed
+		- Relativo a la ventana del navegador
+		- No se puede aunque se haga scroll
+		- Se puede posicionar encima de otros elementos
+	- relative
+		- Relativo a su posicion normal
+		- Se puede mover y solapar con otros elementos
+		- El espacio reservado para el elemento es preservado en el flujo normal del documento
+		- Posicionamiento a menudo usado como contenedor de otros elementos con posicionamiento absoluto
+	- absolute
+		- Se posiciona relativo al primer elemento padre que tiene una posicion distinta de static, sino en relacion al elemento html
+		- Son eliminados del flujo normal del documento
+		- El resto de elementos se comportan como si el elemento absoluto no existiera
+		- Puede solapar otros elementos
+- **z-index:**
+		- Para controlar el solape de elementos que son sacados del flujo normal del documento (fixed y absolute)
+		- Especifica el orden de solape de elementos como una pila
+		- Puede tener valores positivos y negativos
 
-top 			: Establece el margen respecto del borde superior de un elemento posicionado
-					(lenght | auto | % | inherit)
-bottom 			: Establece el margen respecto del borde inferior de un elemento posicionado
-					(lenght | auto | % | inherit)
-left 			: Establece el margen respecto del borde izquierdo de un elemento posicionado
-					(lenght | auto | % | inherit)
-right 			: Establece el margen respecto del borde derecho de un elemento posicionado
-					(lenght | auto | % | inherit)
-clip 			: Recorta un elemento con posicion absoluta
-					(shape | auto | inherit)
-cursor 			: Establece el tipo de cursor utilizado
-					(url | auto | crosshair | default | pointer | move | e-resize | ne-resize | nw-resize | n-resize | se-resize | 
-						sw-resize | s-resize | w-resize | text | wait | help)
-overflow 		: Especifica que ocurre si el contenido sobresale del elemento
-					(auto | hidden | scroll | visible | inherit)
+- **top:** *(lenght | auto | % | inherit)* Establece el margen respecto del borde superior de un elemento posicionado					
+- **bottom:** *(lenght | auto | % | inherit)* Establece el margen respecto del borde inferior de un elemento posicionado					
+- **left:** *(lenght | auto | % | inherit)* Establece el margen respecto del borde izquierdo de un elemento posicionado					
+- **right:** *(lenght | auto | % | inherit)* Establece el margen respecto del borde derecho de un elemento posicionado					
+- **clip:** *(shape | auto | inherit)* Recorta un elemento con posicion absoluta					
+- **cursor:** *(url | auto | crosshair | default | pointer | move | e-resize | ne-resize | nw-resize | n-resize | se-resize | sw-resize | s-resize | w-resize | text | wait | help)* Establece el tipo de cursor utilizado					
+- **overflow:** *(auto | hidden | scroll | visible | inherit)* Especifica que ocurre si el contenido sobresale del elemento					
 
 ## Visualization and visibility
 
