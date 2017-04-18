@@ -23,13 +23,14 @@
         - [Init-time branching](JavaScript/patterns/_inittime.md)
         - [Prototype](JavaScript/patterns/_prototype.md)
         - [Lazy definition](JavaScript/patterns/_lazy.md)
-        - Decorator
-        - Singleton
-        - Factory
-        - Iterator
-        - Façade
-        - Mixins
-        - Observer
+        - [Decorator](JavaScript/patterns/_decortaor.md)
+        - [Singleton](JavaScript/patterns/_singleton.md)
+        - [Factory](JavaScript/patterns/_factory.md)
+        - [Iterator](JavaScript/patterns/_iterator.md)
+        - [Facade](JavaScript/patterns/_facade.md)
+        - [Mediator](JavaScript/patterns/_mediator.md)
+        - [Mixins](JavaScript/patterns/_mixins.md)]
+        - [Observer](JavaScript/patterns/_observer.md)
         - Chain of responsability
         - MVC
     - Async patterns --TODO FEM
