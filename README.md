@@ -34,7 +34,7 @@
         - [Chain of responsability](JavaScript/patterns/_chain.md)
         - [MVC](JavaScript/patterns/_mvc.md)
     - Async patterns --TODO FEM
-        - Callbacks
-        - Promises
+        - [Callbacks](JavaScript/async/_callbacks.md)
+        - [Promises](JavaScript/async/_promises.md)
         - Asynquence
 - [Firebase](Firebase/firebase.md)
