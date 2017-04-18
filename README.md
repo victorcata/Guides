@@ -31,8 +31,8 @@
         - [Mediator](JavaScript/patterns/_mediator.md)
         - [Mixins](JavaScript/patterns/_mixins.md)]
         - [Observer](JavaScript/patterns/_observer.md)
-        - Chain of responsability
-        - MVC
+        - [Chain of responsability](JavaScript/patterns/_chain.md)
+        - [MVC](JavaScript/patterns/_mvc.md)
     - Async patterns --TODO FEM
         - Callbacks
         - Promises
