@@ -2,7 +2,8 @@
 
 - [Git](Git/git.md)
 - [HTML](HTML/_html.md)
-- CSS
+- [CSS](CSS/_css.md)
+    - [SMACSS](CSS/_smacss.md)
 - JavaScript
     - [Language syntax](JavaScript/_syntax.md)
     - [DOM (Document Object Model)](JavaScript/_dom.md)
