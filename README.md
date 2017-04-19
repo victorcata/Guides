@@ -1,7 +1,6 @@
 # Guides
 
 - [Git](Git/git.md)
-- [NPM](npm/_npm.md)
 - [HTML](HTML/_html.md)
 - [CSS](CSS/_css.md)
     - [SMACSS](CSS/_smacss.md)
@@ -43,3 +42,6 @@
         - Asynquence
 - [Firebase](Firebase/firebase.md)
 - [Regular Expressions](RegExp/_regexp.md)
+- Tools
+    - [NPM](Tools/_npm.md)
+    - [Bower](Tools/_bower.md) 
