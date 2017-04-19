@@ -15,6 +15,8 @@
         - [Web Storage](JavaScript/apis/_storage.md)
         - [Offline](JavaScript/apis/_offline.md)
         - [Web Workers](JavaScript/apis/_webworker.md)
+        - [Drag and drop](JavaScript/apis/_dragdrop.md)
+        - [Canvas](JavaScript/apis/_canvas.md)
     - Patterns
         - IIFE --TODO FEM
         - [Object-Oriented](JavaScript/patterns/_oop.md)

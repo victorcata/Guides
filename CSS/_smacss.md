@@ -45,6 +45,7 @@ We have to be careful when we choose base elements. Maybe at the beginning there
 - Can contain sub-modules or sub-components
 - Expands to fill layout
 - Every module has to be testeable
+- Include media queries with the modules they affect
 - Sub-modules: they are module variations. p.e: btn, btn-default, btn-large, etc.
 - Sub-components: they are the child elements of a module
 
