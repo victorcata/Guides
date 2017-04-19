@@ -41,3 +41,4 @@
         - [Promises](JavaScript/async/_promises.md)
         - Asynquence
 - [Firebase](Firebase/firebase.md)
+- [Regular Expressions](RegExp/_regexp.md)
