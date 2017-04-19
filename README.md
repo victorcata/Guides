@@ -45,3 +45,4 @@
 - Tools
     - [NPM](Tools/_npm.md)
     - [Bower](Tools/_bower.md) 
+    - [Gulp](Tools/_gulp.md)
