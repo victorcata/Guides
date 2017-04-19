@@ -1,6 +1,7 @@
 # Guides
 
 - [Git](Git/git.md)
+- [NPM](npm/_npm.md)
 - [HTML](HTML/_html.md)
 - [CSS](CSS/_css.md)
     - [SMACSS](CSS/_smacss.md)
