@@ -2,7 +2,7 @@
 <!-- TOC -->
 
 - [JavaScript Language Syntax](#javascript-language-syntax)
-- [Console](#console)
+    - [Console](#console)
         - [Methods](#methods)
         - [Console Formating](#console-formating)
         - [Special characters](#special-characters)
@@ -45,7 +45,7 @@
         - [Formatting](#formatting)
 
 <!-- /TOC -->
-# Console
+## Console
 ### Methods
 - **assert:** If the assertion is false the message is written to the console
 ```javascript
