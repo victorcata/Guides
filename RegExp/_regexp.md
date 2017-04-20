@@ -160,11 +160,11 @@ console.log(coincidences); // ["lo", " ipsum"]
 ```
 - **\\r:** Matches a return
 ```javascript
-/\r/.test("hi!\rReturn)
+/\r/.test("hi!\rReturn")
 ```
 - **\\t:** Matches a tabulation
 ```javascript
-/\t/.test("hi!\tTabulation)
+/\t/.test("hi!\tTabulation")
 ```
 - **\\xxx:** Character in octal
 ```javascript

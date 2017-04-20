@@ -14,6 +14,7 @@
         - [States](#states-1)
         - [Themes](#themes-1)
     - [Depth of applicability](#depth-of-applicability)
+    - [Folder structure](#folder-structure)
     - [References](#references)
 
 <!-- /TOC -->
@@ -109,6 +110,7 @@ Sub-components are defined in the same way we define sub-modules
 .theme-border {}
 .theme-background {}
 ```
+
 ## Depth of applicability
 - Use fewer selectors, preferably one
 - Use child selector to limit depth
@@ -123,6 +125,29 @@ we should use
 .comment-author {}
 .comment-number > a {}
 ```
+
+## Folder structure
+```
+/base
+    |_ base
+    |_ fonts
+    |_ icons
+/dependencies
+    |_ animations
+    |_ colors
+    |_ global
+    |_ mixins
+/layout
+    |_ grid
+    |_ layout
+/module
+    |_ module_1
+    |_ module_2
+    |_ ...
+    |_ module_n
+application.scss
+```
+
 ## References
 
 - [SMACSS Course Frontend Masters by Jonathan Snook](https://frontendmasters.com/courses/smacss/?u=83c5033cb7d4129b73f4255d154ceb45210e43e2)

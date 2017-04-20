@@ -286,7 +286,7 @@ import config from "./config.js"; // Unique
 import * as config from "./config.js"; // Multiple
 
 import configs from "./config.js"; // Combined
-import {config, config_details} from "./config.js;
+import {config, config_details} from "./config.js";
 ```
 - Asynchronous
 ```javascript
