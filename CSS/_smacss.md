@@ -15,6 +15,7 @@
         - [Themes](#themes-1)
     - [Depth of applicability](#depth-of-applicability)
     - [Folder structure](#folder-structure)
+    - [Advises](#advises)
     - [References](#references)
 
 <!-- /TOC -->
@@ -145,8 +146,18 @@ we should use
     |_ module_2
     |_ ...
     |_ module_n
-application.scss
+application
 ```
+
+## Advises
+- Place everything in their own files: base.css, layout.css, grid.css, button.css, carousel.css, modal.css, ...
+- Scripts are written for individual modules
+- States are modified, not inline styles
+- Avoid jQuery methods that add inline styles like .show() and .hide()
+- Identify areas to refactor
+- Code css for the system, not the page
+- Smaller rule sets make it easier on the browser
+- Separation of files allows members of the team to work on separate files
 
 ## References
 
