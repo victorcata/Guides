@@ -9,6 +9,7 @@
     - [DOM (Document Object Model)](JavaScript/_dom.md)
     - [BOM (Browser Object Model)](JavaScript/_bom.md)
     - [AJAX](JavaScript/_ajax.md)
+    - [ECMA 6](JavaScript/_ecma6.md)
     - HTML5 APIs
         - [Web Sockets](JavaScript/apis/_websockets.md)
         - [Geolocation](JavaScript/apis/_geolocation.md)
@@ -46,3 +47,4 @@
     - [NPM](Tools/_npm.md)
     - [Bower](Tools/_bower.md) 
     - [Gulp](Tools/_gulp.md)
+    - [Yeoman](Tools/_yeoman.md)

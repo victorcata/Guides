@@ -11,7 +11,7 @@ npm install --global gulp
 Including the dependency in the package.json
 ```
 npm install --save-dev gulp
-
+```
 ## Default tasks
 - Create *gulpfile.js* and add dependencies and the first default task
 ```javascript
