@@ -11,6 +11,21 @@
         - [Default values](#default-values)
         - [Additional parameters](#additional-parameters)
         - [Spread operators](#spread-operators)
+    - [Templates](#templates)
+    - [Computed properties](#computed-properties)
+    - [Asign properties in objects](#asign-properties-in-objects)
+    - [Search in strings](#search-in-strings)
+    - [Numbers](#numbers)
+    - [For...of](#forof)
+    - [Generators](#generators)
+    - [Maps](#maps)
+    - [Classes](#classes)
+        - [Extensions](#extensions)
+        - [Static methods](#static-methods)
+    - [Modules](#modules)
+        - [Export](#export)
+        - [Imports](#imports)
+    - [Resources](#resources)
 
 <!-- /TOC -->
 
@@ -139,7 +154,6 @@ function required() {
 }
 function foo(x = required()) { }
 ```
-
 ### Additional parameters
 ```javascript
 function foo() {
@@ -164,8 +178,7 @@ var y = [4, 5];
 var z = [0].concat(x, y, [6]);
 // Equivalent to
 var z = [0, ...x, ...y, 6];
-
-
+```
 ## Templates
 ```javascript
 var customer = { name: "Foo" }
