@@ -6,42 +6,50 @@
     - [Constants](#constants)
     - [let](#let)
     - [Arrow functions](#arrow-functions)
+        - [Variations](#variations)
     - [Parameters](#parameters)
-        - [Optional parameters](#optional-parameters)
+        - [Default values](#default-values)
         - [Additional parameters](#additional-parameters)
-    - [Templates](#templates)
-    - [Computed properties](#computed-properties)
-    - [Asign properties in objects](#asign-properties-in-objects)
-    - [Search in strings](#search-in-strings)
-    - [Numbers](#numbers)
-    - [For...of](#forof)
-    - [Generators](#generators)
-    - [Maps](#maps)
-    - [Classes](#classes)
-        - [Extensions](#extensions)
-        - [Static methods](#static-methods)
-    - [Modules](#modules)
-        - [Export](#export)
-        - [Imports](#imports)
+        - [Spread operators](#spread-operators)
 
 <!-- /TOC -->
 
 ## Constants
+Equivalent to *Object.freeze()*
 ```javascript
 const PI = 3.141593;
+```
+```javascript
+const x = 5;
+
+for (let i = 0; i < x; i++) {
+    // ...
+}
 ```
 
 ## let
 ```javascript
-for (let i = 0; i < a.length; i++) {
-    let el = a[i];
+function foo(x, y) {
+    var z = x * y;
+
+    if (x > y) {
+        let tmp = x;
+        x = y;
+        y = tmp;
+    }
+
+    for (let i = 0; i < a.length; i++) {
+        function bar() {
+            console.log(i); // i keeps the context because it's a new one every iteration
+        }
+    }
 }
 ```
 
 ## Arrow functions
 - Can't use yield
-- Are anonymous
-- return is implicit
+- They are anonymous
+- return is implicit except if it's wrapped inside {}
 - this contextual
 
 ```javascript
@@ -55,19 +63,108 @@ this.nums.forEach((v) => {
 });
 ```
 
+**The best places to write an arrow function**
+- Take advantage of the this context of the arrow function. In the next example we have to declare a new variable to keep a reference to the object context
+```javascript
+var obj = {
+    id: 4,
+    foo: function() {
+        var context = this;
+        setTimeout(function() {
+            console.log(context.id);
+        }, 100);
+    }
+}
+obj.foo() // undefined
+```
+- With an arrow function there is no need to declare previously a variable with the object context
+```javascript
+var obj = {
+    id: 4,
+    foo: function() {
+        setTimeout(() => console.log(this.id), 100);
+    }
+}
+obj.foo() // 4
+```
+### Variations
+Without parameters
+```javascript
+=> 2
+() => 2
+```
+With one parameter
+```javascript
+x => 2
+```
+With multiple parameters
+```javascript
+(x, y) => x * y
+(...x) => x[0]
+```
+In a statement
+```javascript
+x => { return x; }
+```
+Returning an object. It has to be wrapped in ()
+```javascript
+x => ({ y: x })
+```
+
 ## Parameters
-### Optional parameters
+### Default values
+```javascript
+function foo(x) {
+    x = x !== undefined : x : 20;
+}
+// Equivalent to
+function foo(x = 20) {   
+}
+```
 ```javascript
 function fn(x, y = 7, z = 23) {
     return x + y + z;
 }
 ```
+Lazy expressions
+```javascript
+function bar() { }
+function foo(x = bar()) {}
+foo()   // bar is executed
+foo(2)  // bar is not executed
+```
+```javascript
+function required() {
+    throw "Parameter required";
+}
+function foo(x = required()) { }
+```
+
 ### Additional parameters
+```javascript
+function foo() {
+    var args = [].slice.call(arguments);
+    args.unshift(20);
+    bar.apply(null, args);
+}
+// Equivalent to
+function foo(...args) {
+    bar(20, ...args);
+}
+```
 ```javascript
 function fn(x, y, ...a) {
     return (x + y) * a.length;
 }
 ```
+### Spread operators
+```javascript
+var x = [1, 2, 3];
+var y = [4, 5];
+var z = [0].concat(x, y, [6]);
+// Equivalent to
+var z = [0, ...x, ...y, 6];
+
 
 ## Templates
 ```javascript
@@ -299,3 +396,7 @@ System.import("module")
 Promise.all(["module1", "module2", "module3"].map(x => System.import(x)))
        .then(([module1, module2, module3]) => { });
 ```
+
+## Resources
+- [Curso JavaScript avanzado](https://github.com/Fictizia/Curso-JS-Avanzado-para-desarrolladores-Front-end_ed1/blob/master/teoria/clase23.md)
+- [Frontend masters - ES6: The right parts](https://frontendmasters.com/courses/es6-right-parts)
