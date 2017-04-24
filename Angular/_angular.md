@@ -1,5 +1,23 @@
 # Angular 2
 
+<!-- TOC -->
+
+- [Angular 2](#angular-2)
+    - [Modules](#modules)
+        - [@NgModule](#ngmodule)
+        - [Bootstrapping](#bootstrapping)
+    - [Routes](#routes)
+    - [Components](#components)
+        - [Templates](#templates)
+        - [Metadata](#metadata)
+            - [Data Binding](#data-binding)
+        - [Classes](#classes)
+    - [Directives](#directives)
+    - [Services](#services)
+    - [References](#references)
+
+<!-- /TOC -->
+
 ## Modules
 
 - Uses ES6 modules
@@ -183,6 +201,31 @@ export class Blinker {
 ```
 
 ## Services
+- Services are generally a class
+- Should only do one specific thing
+- Take the burden of business logic out of components
+- A best practice is use **@Injectabl** so that metadata is generated correctly
+- Consumes the data that it needs and serves to the template
+
+Example:
+```javascript
+import { Injectable } from "@angular/core";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/toPromise";
+
+const BASE_URL = "http://localhost:3000/items";
+
+@Injectable()
+export class ItemsService {
+    constructor(private http: Http) {}
+
+    loadItems() {
+        return this.http.get(BASE_URL)
+                        .map(res => res.json())
+                        .toPromise();
+    }
+}
+```
 
 ## References
 
