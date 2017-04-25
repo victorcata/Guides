@@ -3,6 +3,8 @@
 <!-- TOC -->
 
 - [Angular 2](#angular-2)
+    - [Angular CLI](#angular-cli)
+        - [AOT Compilation](#aot-compilation)
     - [Modules](#modules)
         - [@NgModule](#ngmodule)
         - [Bootstrapping](#bootstrapping)
@@ -17,6 +19,78 @@
     - [References](#references)
 
 <!-- /TOC -->
+
+## Angular CLI
+- Fully functional project generation
+- Code generator for components, directives, pipes, enums, classes, modules and services
+- Build generator
+- Unit test runner
+- End-to-end test runner
+- App deployment GitHub pages
+- Linting
+- CSS preprocessor support
+- AOT support
+- Lazy routes
+
+```bash
+$ npm install -g angular-cli
+$ ng new my-app
+$ cd my-app
+$ ng serve
+```
+
+### AOT Compilation
+- Smaller Angular framework download size
+- Fewer async request 
+- Faster rendering
+- Detect template errors earlier
+- Better security
+
+1. Needs to install an specific compiler
+```bash
+$ npm install @angular/compiler-cli @angular/platform-server --save
+```
+2. Copy the original *tsconfig.json* to a file called *tsconfig-aot.json* on the project root and modify it as follows:
+```json
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "es2015",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": [ "es2015", "dom" ],
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true
+    },
+    "files": [
+        "src/app/app.module.ts",
+        "src/main.ts"
+    ],
+    "angularCompilerOptions": {
+        "genDir": "aot",
+        "skipMetadataEmit": true
+    }
+}
+``` 
+- *genDi* tells the compiler to store the compiled output files in a new aot folder
+- *skipMetadataEmit* prevents the compiler from generating metadata files
+3. Compiles the application
+```bash
+$ node_modules/.bin/ngc -p tsconfig-aot.json
+```
+**Bootstrap**
+Instead of bootstrapping **AppModule** you bootstrap the application with the generated module factory **AppModuleNgFactory**
+
+JIT compilation
+```js
+platformBrowserDynamic().bootstrapModule(AppModule);
+```
+AOT compilation
+```js
+platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
+```
 
 ## Modules
 
@@ -230,3 +304,5 @@ export class ItemsService {
 ## References
 
 - [Building awesome Web Apps with Angular 2](https://frontendmasters.com/courses/web-apps-angular-2)
+- [Ahead-Of-Time compilation](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
+- [Ahead-of-Time Compilation in Angular](http://blog.mgechev.com/2016/08/14/ahead-of-time-compilation-angular-offline-precompilation/)
