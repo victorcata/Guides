@@ -32,11 +32,33 @@
 - AOT support
 - Lazy routes
 
+Installation:
 ```bash
 $ npm install -g angular-cli
 $ ng new my-app
 $ cd my-app
 $ ng serve
+```
+
+Generating a build:
+```bash
+ng build
+```
+
+Running tests:
+```bash
+ng test
+ng e2e
+```
+
+Linting:
+```bash
+ng lint
+```
+
+Deploying the app in GitHub pages:
+```bash
+ng github-pages:deploy -m "commit message"
 ```
 
 ### AOT Compilation
@@ -151,6 +173,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 
 ## Routes
+
 Allows to take a component and dinamically load it into the page
 - They are defined in a route definition table that contains a path and a component reference
 - Components are loaded into the **router-outlet** component
@@ -176,11 +199,20 @@ const routes: Routes = [
 });
 ```
 
+
+
 ## Components
+
 - Components are ES6 classes
 - Properties and methods of the component class are available to the template
 - Providers are injected in the constructor
 - Hook into the component lifecycle with hooks
+
+Generating a component:
+```bash
+$ ng generate component my-component
+$ ng g component my-component       # g is the alias
+```
 
 Example:
 ```javascript
@@ -197,7 +229,10 @@ export class ItemsComponent implements OnInit {
 }
 ```
 
+
+
 ### Templates
+
 - Is HTML that tells Angular how to render a component
 - Includes data bindings, other components and directives
 - Angular 2 leverages nativeDOM events, properties and shadow DOM
@@ -219,7 +254,9 @@ export class ItemsListComponent {
 ```
 
 
+
 ### Metadata
+
 - Allows Angular to process a class
 - We can attach metadata with TypeScript using decorators (functions)
 - The most common decorator is **@Component()**
@@ -236,7 +273,10 @@ Example:
 export class ItemsComponent implements OnInit { }
 ```
 
+
+
 #### Data Binding
+
 - Enables data to flow from the component to template and vice-versa
 - Includes interpolation, property binding, event binding and two-way binding (property and event combined)
 
@@ -254,10 +294,15 @@ Example:
 <button type="submit" class="btn" (click)="updateMessage(message)">Update Message</button>
 ```
 
+
+
 ### Classes
+TODO
+
 
 
 ## Directives
+
 - A directive is a class decorate with **@Directive**
 - A component is just a directive with added template features
 - Built-in directives include structural directives and attribute directives
@@ -274,12 +319,21 @@ export class Blinker {
 }
 ```
 
+
+
 ## Services
+
 - Services are generally a class
 - Should only do one specific thing
 - Take the burden of business logic out of components
 - A best practice is use **@Injectabl** so that metadata is generated correctly
 - Consumes the data that it needs and serves to the template
+
+Generating a service:
+```bash
+ng generate service my-service
+ng g service my-service         # g is the alias
+```
 
 Example:
 ```javascript
@@ -300,6 +354,8 @@ export class ItemsService {
     }
 }
 ```
+
+
 
 ## References
 
