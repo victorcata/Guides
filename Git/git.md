@@ -3,50 +3,51 @@
 
 - [Git](#git)
 - [Configuration](#configuration)
-  - [List configuration](#list-configuration)
-  - [Credential cache](#credential-cache)
-  - [Identity](#identity)
-    - [Username](#username)
-    - [Email](#email)
-  - [Editor](#editor)
+    - [List configuration](#list-configuration)
+    - [Credential cache](#credential-cache)
+    - [Identity](#identity)
+        - [Username](#username)
+        - [Email](#email)
+    - [Editor](#editor)
 - [Staging](#staging)
 - [Commit](#commit)
 - [Pushing](#pushing)
 - [Pulling](#pulling)
+- [Undo changes](#undo-changes)
 - [Branching](#branching)
-  - [Branch management](#branch-management)
-    - [List branches](#list-branches)
-    - [Create](#create)
-    - [Delete](#delete)
-    - [Last commit on each branch](#last-commit-on-each-branch)
-    - [Branches merged](#branches-merged)
-    - [Branches not yet merged](#branches-not-yet-merged)
-  - [HEAD](#head)
-  - [Switching branches](#switching-branches)
-  - [New branch and switch](#new-branch-and-switch)
-  - [Merging](#merging)
-    - [Merge conflicts](#merge-conflicts)
-  - [Remote branches](#remote-branches)
-    - [Syncronizing branches](#syncronizing-branches)
-    - [Multiple remote servers](#multiple-remote-servers)
-  - [Tracking branches](#tracking-branches)
-    - [List tracking branches](#list-tracking-branches)
-    - [Local branch with a different name](#local-branch-with-a-different-name)
-    - [Changing the name of the local branch](#changing-the-name-of-the-local-branch)
-  - [Rebasing](#rebasing)
+    - [Branch management](#branch-management)
+        - [List branches](#list-branches)
+        - [Create](#create)
+        - [Delete](#delete)
+        - [Last commit on each branch](#last-commit-on-each-branch)
+        - [Branches merged](#branches-merged)
+        - [Branches not yet merged](#branches-not-yet-merged)
+    - [HEAD](#head)
+    - [Switching branches](#switching-branches)
+    - [New branch and switch](#new-branch-and-switch)
+    - [Merging](#merging)
+        - [Merge conflicts](#merge-conflicts)
+    - [Remote branches](#remote-branches)
+        - [Syncronizing branches](#syncronizing-branches)
+        - [Multiple remote servers](#multiple-remote-servers)
+    - [Tracking branches](#tracking-branches)
+        - [List tracking branches](#list-tracking-branches)
+        - [Local branch with a different name](#local-branch-with-a-different-name)
+        - [Changing the name of the local branch](#changing-the-name-of-the-local-branch)
+    - [Rebasing](#rebasing)
 - [Server](#server)
-  - [Local protocol](#local-protocol)
-  - [HTTP protocol](#http-protocol)
-  - [SSH protocol](#ssh-protocol)
-  - [Git protocol](#git-protocol)
-      - [Help](#help)
-    - [Initialize repository](#initialize-repository)
-    - [Checking the status](#checking-the-status)
-    - [Ignoring files](#ignoring-files)
-    - [View staged and unstaged changes](#view-staged-and-unstaged-changes)
-    - [Commiting changes](#commiting-changes)
-    - [Removing a file](#removing-a-file)
-    - [Moving a file](#moving-a-file)
+    - [Local protocol](#local-protocol)
+    - [HTTP protocol](#http-protocol)
+    - [SSH protocol](#ssh-protocol)
+    - [Git protocol](#git-protocol)
+            - [Help](#help)
+        - [Initialize repository](#initialize-repository)
+        - [Checking the status](#checking-the-status)
+        - [Ignoring files](#ignoring-files)
+        - [View staged and unstaged changes](#view-staged-and-unstaged-changes)
+        - [Commiting changes](#commiting-changes)
+        - [Removing a file](#removing-a-file)
+        - [Moving a file](#moving-a-file)
 
 <!-- /TOC -->
 # Configuration
@@ -94,6 +95,15 @@ Equivalent to
 ```sh
 $ git fetch
 $ git merge
+```
+# Undo changes
+Removes stages and working directories changes
+```sh
+$ git reset --hard
+```
+```sh
+$ git clean -f -d # Remove untracked
+$ git clean -fxd  # Include ignored files
 ```
 # Branching
 ## Branch management

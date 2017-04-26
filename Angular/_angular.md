@@ -10,10 +10,11 @@
         - [Bootstrapping](#bootstrapping)
     - [Routes](#routes)
     - [Components](#components)
+        - [Classes](#classes)
+        - [Lifecycle Hooks](#lifecycle-hooks)
         - [Templates](#templates)
         - [Metadata](#metadata)
             - [Data Binding](#data-binding)
-        - [Classes](#classes)
     - [Directives](#directives)
     - [Services](#services)
     - [References](#references)
@@ -230,6 +231,139 @@ export class ItemsComponent implements OnInit {
 ```
 
 
+### Classes
+
+- Create the component as an ES6 class
+- Properties and method on our component class will be available for binding in our template
+
+1. Define a class
+```javascript
+export class ItemComponent {}
+```
+2. Import the dependencies
+```javascript
+import { Component } from "@angular/core";
+export class ItemComponent {}
+```
+3. Decorate the class with Angular specific metadata
+- **@Component** to decorate the class
+- **@Input** and **@Output** are the most common member decorators
+```js
+import { Component } from "@angular/core";
+
+@Component({
+    selector: "app-item",
+    templateUrl: "./items.component.html",
+    styleUrls: [ "./items.component.css" ]
+});
+
+export class ItemComponent {}
+``` 
+4. Properties and methods
+```js
+
+import { Component } from "@angular/core";
+import { Item } from "./shared";
+
+@Component({
+    selector: "app-item",
+    templateUrl: "./items.component.html",
+    styleUrls: [ "./items.component.css" ]
+});
+
+export class ItemComponent {
+    items: Array<Item>;
+    selectedItem: Item;
+
+    constructor() {}
+
+    resetItem() {
+        let emptyItem: Item = { id: null, name: "", description: "" };
+        this.selectedItem = emptyItem;
+    }
+
+    selectItem(item: Item) {
+        this.selectedItem = item;
+    }
+}
+```
+5. Dependency Injection
+```js
+
+import { Component } from "@angular/core";
+import { ItemService, Item } from "./shared";
+
+@Component({
+    selector: "app-item",
+    templateUrl: "./items.component.html",
+    styleUrls: [ "./items.component.css" ]
+});
+
+export class ItemComponent {
+    items: Array<Item>;
+    selectedItem: Item;
+
+    constructor(private itemsService: ItemService) {}
+
+    ngOnInit(){
+        this.itemsService.loadItems()
+                         .then(items => this.items = items);
+    }
+    
+    resetItem() {
+        let emptyItem: Item = { id: null, name: "", description: "" };
+        this.selectedItem = emptyItem;
+    }
+
+    selectItem(item: Item) {
+        this.selectedItem = item;
+    }
+}
+```
+
+
+
+### Lifecycle Hooks
+
+- Allows us to perform custom logic at various stages of a component's life
+- Data isn't always available in the constructor
+- Implemented as class methods on the component class
+
+Lifecycle calls:
+- **ngOnChanges:** when an input or output binding value changes
+- **ngOnInit:** afgter the first ngOnChanges
+- **ngDoCheck:** handles developer's custom change detection
+- **ngAfterContentInit:** after component content initialized
+- **ngAfterContentChecked:** after every check of component content
+- **ngAfterViewInit:** after component's view are initialized
+- **ngAfterViewChecked:** after every check of a component's view
+- **ngOnDestroy:** just before the directive is destroyed
+
+```js
+import { Component, OnInit } from "@angular/core";
+import { ItemService, Item } from "./shared";
+
+@Component({
+    selector: "app-item",
+    templateUrl: "./items.component.html",
+    styleUrls: [ "./items.component.css" ]
+});
+
+export class ItemComponent implements OnInit {
+    items: Array<Item>;
+    selectedItem: Item;
+
+    constructor(private itemsService: ItemService) {}
+
+    ngOnInit(){
+        this.itemsService.loadItems()
+                         .then(items => this.items = items);
+    }
+}
+```
+
+
+
 
 ### Templates
 
@@ -293,11 +427,6 @@ Example:
 <input type="text" [(ngModel)]="message" />
 <button type="submit" class="btn" (click)="updateMessage(message)">Update Message</button>
 ```
-
-
-
-### Classes
-TODO
 
 
 
