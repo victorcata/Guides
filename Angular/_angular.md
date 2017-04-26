@@ -10,11 +10,13 @@
         - [Bootstrapping](#bootstrapping)
     - [Routes](#routes)
     - [Components](#components)
-        - [Classes](#classes)
+        - [Classes and Metadata](#classes-and-metadata)
         - [Lifecycle Hooks](#lifecycle-hooks)
         - [Templates](#templates)
-        - [Metadata](#metadata)
             - [Data Binding](#data-binding)
+                - [Property Binding](#property-binding)
+                - [Event Binding](#event-binding)
+                - [Two-way Binding](#two-way-binding)
     - [Directives](#directives)
     - [Services](#services)
     - [References](#references)
@@ -231,10 +233,18 @@ export class ItemsComponent implements OnInit {
 ```
 
 
-### Classes
 
+### Classes and Metadata
+
+Classes:
 - Create the component as an ES6 class
 - Properties and method on our component class will be available for binding in our template
+
+Metadata:
+- Allows Angular to process a class
+- We can attach metadata with TypeScript using decorators (functions)
+- The most common decorator is **@Component()**
+- Takes a config option with the **selector, templateUrl, styles, styleUrl, animations, etc**
 
 1. Define a class
 ```javascript
@@ -389,26 +399,6 @@ export class ItemsListComponent {
 
 
 
-### Metadata
-
-- Allows Angular to process a class
-- We can attach metadata with TypeScript using decorators (functions)
-- The most common decorator is **@Component()**
-- Takes a config option with the **selector, templateUrl, styles, styleUrl, animations, etc**
-
-Example:
-```javascript
-@Component({
-    selector: "app-items",
-    templateUrl: "./items.component.html",
-    styleUrls: [ "./items.component.css" ]
-});
-
-export class ItemsComponent implements OnInit { }
-```
-
-
-
 #### Data Binding
 
 - Enables data to flow from the component to template and vice-versa
@@ -428,7 +418,32 @@ Example:
 <button type="submit" class="btn" (click)="updateMessage(message)">Update Message</button>
 ```
 
+##### Property Binding
+- Flows data from the component to an element
+- Created with brackets
+- The canonical form is **bind-property**
+- Binding to specific attributes, clases and styles look like **[attr.property], [class.className] or [style.styleName]**
+```html
+<span [style.color]="componentStyle">Colored text</span>
+```
 
+##### Event Binding
+- Flows data from an element to the component
+- Created with parentheses
+- The canonical form is **on-even**
+- Information about the target event is carried in the $event parameter
+```html
+<button (click)="alerting($event)">Alert</button>
+```
+
+##### Two-way Binding
+- A combination of property and event binding
+- Used in conjunction with **ngModel**
+```html
+<h1 [style.color]="myColor">Colored text</h1>
+<input type="text" [(ngModel)]="myColor" />
+{{myColor}}
+``` 
 
 ## Directives
 
