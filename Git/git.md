@@ -164,8 +164,8 @@ $ git mergetool
 ## Remote branches
 ### Fetching remote branch
 ```sh
-git checkout --track origin/<REMOTE>
-git checkout --track -b <LOCAL_NAME> origin/<REMOTE>
+$ git checkout --track origin/<REMOTE>
+$ git checkout --track -b <LOCAL_NAME> origin/<REMOTE>
 ```
 ### Syncronizing branches
 ```sh
