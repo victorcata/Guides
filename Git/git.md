@@ -28,6 +28,7 @@
     - [Merging](#merging)
         - [Merge conflicts](#merge-conflicts)
     - [Remote branches](#remote-branches)
+        - [See remote branches](#see-remote-branches)
         - [Fetching remote branch](#fetching-remote-branch)
         - [Syncronizing branches](#syncronizing-branches)
         - [Multiple remote servers](#multiple-remote-servers)
@@ -162,6 +163,10 @@ $ git merge <BRANCH>
 $ git mergetool
 ```
 ## Remote branches
+### See remote branches
+```sh
+$ git branch -a
+```
 ### Fetching remote branch
 ```sh
 $ git checkout --track origin/<REMOTE>

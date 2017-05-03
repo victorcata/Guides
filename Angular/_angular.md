@@ -8,17 +8,21 @@
     - [Modules](#modules)
         - [@NgModule](#ngmodule)
         - [Bootstrapping](#bootstrapping)
-    - [Routes](#routes)
     - [Components](#components)
         - [Classes and Metadata](#classes-and-metadata)
         - [Lifecycle Hooks](#lifecycle-hooks)
         - [Templates](#templates)
+            - [Structural directives](#structural-directives)
+            - [Navigation Operator](#navigation-operator)
             - [Data Binding](#data-binding)
                 - [Property Binding](#property-binding)
                 - [Event Binding](#event-binding)
                 - [Two-way Binding](#two-way-binding)
     - [Directives](#directives)
     - [Services](#services)
+        - [Exposing a service](#exposing-a-service)
+        - [Consuming a service](#consuming-a-service)
+    - [Routes](#routes)
     - [References](#references)
 
 <!-- /TOC -->
@@ -172,36 +176,6 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
-
-
-
-## Routes
-
-Allows to take a component and dinamically load it into the page
-- They are defined in a route definition table that contains a path and a component reference
-- Components are loaded into the **router-outlet** component
-- We can navigate to routes using the **routerLink** directive
-- The router uses **history.pushState** which means we need to set a **base-ref** tag to our index.html file
-
-Example:
-```javascript
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { ItemsComponent } from "./items/items.component";
-
-const routes: Routes = [
-    { path: "", component: ItemsComponent },
-    { path: "items", component: ItemsComponent },
-    { path: "*", component: ItemsComponent }
-];
-
-@NgModule({
-    imports: [ RouterModule.forRoot(routes) ],
-    exports: [ RouterModule ],
-    providers: []
-});
-```
-
 
 
 ## Components
@@ -374,7 +348,6 @@ export class ItemComponent implements OnInit {
 
 
 
-
 ### Templates
 
 - Is HTML that tells Angular how to render a component
@@ -397,6 +370,37 @@ export class ItemsListComponent {
 }
 ```
 
+#### Structural directives 
+- A structural directive changes the DOM layout by adding or removing DOM elements
+- Asterisk indicate a directive that modifies the HTML
+- To avoid having to use templates elements directly
+
+With asterisk
+```html
+<span [ngSwitch]="toeChoice">
+    <span *ngSwitchCase="'A'">A</span>
+    <span *ngSwitchCase="'B'">B</span>
+    <span *ngSwitchCase="'C'">C</span>
+    <span *ngSwitchDefault>other</span>
+</span>
+```
+With templates
+```html
+<span [ngSwitch]="toeChoice">
+    <template [ngSwitchCase]="'A'"><span>A</span></template>
+    <template [ngSwitchCase]="'B'"><span>B</span></template>
+    <template [ngSwitchCase]="'C'"><span>C</span></template>
+    <template [ngSwitchDefault]><span>other</span></template>
+</span>
+```
+
+#### Navigation Operator
+- Denoted by a question mark immediately followed by a period
+- If you reference a property in your template that does not exist, you will throwan exception
+- Is a guard against null and undefined properties
+```html
+The null hero's name is {{nullHero?.firstName}}
+```
 
 
 #### Data Binding
@@ -478,27 +482,82 @@ Generating a service:
 ng generate service my-service
 ng g service my-service         # g is the alias
 ```
-
 Example:
 ```javascript
-import { Injectable } from "@angular/core";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/toPromise";
-
-const BASE_URL = "http://localhost:3000/items";
-
 @Injectable()
 export class ItemsService {
     constructor(private http: Http) {}
 
-    loadItems() {
-        return this.http.get(BASE_URL)
-                        .map(res => res.json())
-                        .toPromise();
-    }
+    loadItems() { }
+    loadItem(id) { }
+    saveItem(item: Item) { }
 }
 ```
 
+### Exposing a service
+```js
+@NgModule({
+    declarations: [
+        AppComponent,
+        ItemsComponent,
+        ItemsListComponent,
+        ItemDetailComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        Ng2RestAppRoutingModule
+    ],
+    providers: [ItemsService],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+### Consuming a service
+```js
+// ...
+import { ItemsService, Item } from "../shared";
+
+@Component({
+    // ...
+})
+export classItemsComponent implements OnInit {
+    // ...
+    constructor(private itemsService: ItemsService) {}
+    // ...
+}
+```
+
+
+
+## Routes
+
+Allows to take a component and dinamically load it into the page
+- They are defined in a route definition table that contains a path and a component reference
+- Components are loaded into the **router-outlet** component
+- We can navigate to routes using the **routerLink** directive
+- The router uses **history.pushState** which means we need to set a **base-ref** tag to our index.html file
+
+Example:
+```javascript
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { ItemsComponent } from "./items/items.component";
+
+const routes: Routes = [
+    { path: "", component: ItemsComponent },
+    { path: "items", component: ItemsComponent },
+    { path: "*", component: ItemsComponent }
+];
+
+@NgModule({
+    imports: [ RouterModule.forRoot(routes) ],
+    exports: [ RouterModule ],
+    providers: []
+});
+```
 
 
 ## References
