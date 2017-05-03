@@ -185,95 +185,72 @@ Indica el contenido de la caja donde el texto e imagenes aparecen
 
 ## Visualization and visibility
 
-visibility: hidden | visible | collapse| initial | inherit
+- **visibility:** *(hidden | visible | collapse | initial | inherit)*
 			- Esconde el elemento
 			- Ocupa el mismo espacio que si fuera visible
-display: none
-			- Esconde el elemento
-			- La pagina sera visualizada como si el elemento no existiera
+- **display:**
+	- none
+		- Esconde el elemento
+		- La pagina sera visualizada como si el elemento no existiera
 
-display: block
-			- Toma todo el ancho disponible
-			- Tiene un salto de linea antes y despues del elemento
-			- ej: <h1>, <p>, <div>
-display: inline
-			- Toma tanto ancho como el elemento necesite
-			- No fuerza los saltos de linea
-			- ej: <span>, <a>
+	- block
+		- Toma todo el ancho disponible
+		- Tiene un salto de linea antes y despues del elemento
+		- ej: h1, p, div
+	- inline
+		- Toma tanto ancho como el elemento necesite
+		- No fuerza los saltos de linea
+		- ej: span, a
 
-display: inline | block | flex | inline-block | inline-flex | inline-table | list-item | run-in | table | table-caption | table-column-group | table-header-group | 
-			table-footer-group | table-row-group | table-cell | table-column | table-row | none | initial | inherit
+	- Values: *inline | block | flex | inline-block | inline-flex | inline-table | list-item | run-in | table | table-caption | table-column-group | table-header-group | table-footer-group | table-row-group | table-cell | table-column | table-row | none | initial | inherit*
 
 ## Box styles
 	
-background 					: Establece de una sola vez todas las propiedades del background
-								(color position size repeat origin clip attachment image | initial | inherit)
-background-attachment		: Establece si la imagen de fondo esta fija o hace scroll con el resto de la imagen
-								(scroll | fixed | local | initial | inherit)
-background-color			: Indica el color de la imagen de fondo de un elemento
-								(color | transparent | initial | inherit)
-background-imagen			: Indica la imagen a establece como background en un elemento
-								(url | none | initial | inherit)
-background-position 		: Establece el punto de inicio de una imagen de fondo
-								(value)
-background-repeat 			: Indica como debe repetir la imagen a lo largo de todo el elemento
-								(repeat | repeat-x | repeat-y | no-repeat | initial | inherit)
-background-clip 			: Establece el area sobre la que aplicara el color o la imagen de fondo
-								(border-box | padding-box | content-box | initial | inherit)
-background-origin			: Indica la posicion del fondo de imagen relativo al contenido de la caja
-								(border-box | padding-box | content-box | initial | inherit)
-background-size				: Especifica el tamaño del fondo de imagen
-								(auto | length | cover | contain | intial | inherit)
-box-sizing 					: Indica como debe tomar el ancho y alto del elemento, considerando los padding o margin, por defecto solo es contenido
-								(content-box | border-box | initial | inherit)
-opacity						: Establece el nivel de transparencia, toma un valor entre 0.0 y 1
-filter:alpha(opacity=val)	: Establece el nivel de transparencia para <=IE8, val toma un valor entre 0 y 100
+- **background:** *(color position size repeat origin clip attachment image | initial | inherit)* Establece de una sola vez todas las propiedades del background.								
+- **background-attachment:** *(scroll | fixed | local | initial | inherit)* Establece si la imagen de fondo esta fija o hace scroll con el resto de la imagen.
+- **background-color:** *(color | transparent | initial | inherit)* Indica el color de la imagen de fondo de un elemento.
+- **background-imagen:** *(url | none | initial | inherit)* Indica la imagen a establece como background en un elemento.
+- **background-position:** *(value)* Establece el punto de inicio de una imagen de fondo.
+- **background-repeat:** *(repeat | repeat-x | repeat-y | no-repeat | initial | inherit)* Indica como debe repetir la imagen a lo largo de todo el elemento.
+- **background-clip:** *(border-box | padding-box | content-box | initial | inherit)* Establece el area sobre la que aplicara el color o la imagen de fondo.				
+- **background-origin:** *(border-box | padding-box | content-box | initial | inherit)* Indica la posicion del fondo de imagen relativo al contenido de la caja.
+- **background-size:** *(auto | length | cover | contain | intial | inherit)* Especifica el tamaño del fondo de imagen.
+- **box-sizing:** *(content-box | border-box | initial | inherit)* Indica como debe tomar el ancho y alto del elemento, considerando los padding o margin, por defecto solo es contenido.
+- **opacity:** Establece el nivel de transparencia, toma un valor entre 0.0 y 1.
+- **filter:alpha(opacity=val):** Establece el nivel de transparencia para <=IE8, val toma un valor entre 0 y 100.
 
 ### Background gradients
 
-background: linear-gradient(direction, color-stop1, color-stop2, ...)
-						(direction) : top | right | bottom | left | top right | top bottom (por defecto) | ...
-background: linear-gradient(angle, color-stop1, color-stop2, ...)
-						(angle) : Para mas precision se establece un angulo en grados en sentido de las agujas del reloj
-background: repeating-linear-gradient(direction, color-stop1 pos, color-stop2 pos, ...)
-						Repite el gradiente hasta alcanzar el tamaño total del elemento. (pos): Posicion final del color
-background: radial-gradient(center, shape size, start-color, ..., last-color)
-						(shape size): closest-side | farthest-side | closest-corner | farthest-corner
-background: repeating-radial-gradient(center, shape size, start-color, ..., last-color)
+- **background:** linear-gradient(direction, color-stop1, color-stop2, ...)
+						*(direction) : top | right | bottom | left | top right | top bottom (por defecto) | ..*
+- **background:** linear-gradient(angle, color-stop1, color-stop2, ...)
+						*(angle):* Para mas precision se establece un angulo en grados en sentido de las agujas del reloj
+- **background:** repeating-linear-gradient(direction, color-stop1 pos, color-stop2 pos, ...)
+						Repite el gradiente hasta alcanzar el tamaño total del elemento. *(pos):* Posicion final del color
+- **background:** radial-gradient(center, shape size, start-color, ..., last-color)
+						*(shape size):* closest-side | farthest-side | closest-corner | farthest-corner
+- **background:** repeating-radial-gradient(center, shape size, start-color, ..., last-color)
 
 ## Flexbox
 	
-display: box 		: Establece el modelo de caja flexible y aplica a todos sus hijos
-box-flex			: Especifica si los elementos hijos de una caja deben ser flexibles o no y en cuanta proporcion
-						(value) : El valor indica la flexibilidad del hijo, p.e: un valor de 2 indica que es el doble de flexible que otro hijo
-box-orient			: Indica si los hijos de una caja flexible debe ser desplegados horizontal o verticalmente
-						(horizontal | vertical | inline-axis | block-axis | inherit)
-box-pack			: Especifica donde son ubicados los hijos de una caja flexible cuando esta es mas larga que el tamaño del hijo
-						(start | end | center | justify)
-box-align			: Especifica como se deben alinear verticalmente los hijos de una caja
-						(start | end | center | baseline | stretch)
-box-ordinal-group	: Indica el orden en que se deben mostrar los hijos de una caja
-						(integer)
-box-direction		: Indica en que direccion debe ser desplegados los hijos de una caja
-						(normal | reverse | inherit)
-column-count 		: Especifica el numero de columnas en las que se divide un elemento
-						(number | auto | initial | inherit)
-column-gap			: Indica el espacio entre columnas
-						(length | normal | initial | inherit)
-column-rule			: Establece todas las propiedades del separador de columnas a la vez
-						(column-rule-width column-rule-style column-rule-color | initial | inherit)
-column-rule-color	: Indica el color del separador entre columnas
-						(color | initial | inherit)
-column-rule-style 	: Indica el estilo del separador
-						(none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset | initial | inherit)
-column-rule-width	: Establece el ancho del separador de columnas
-						(medium | thin | thick | length | initial | inherit)
-column-span			: Indica cuantas columnas debe ocupar un determinado elemento
-						(1 | all | initial | inherit)
-column-width 		: Establece el ancho de las columnas
-						(auto | length | initial | inherit)
-columns 			: Permite establecer las propiedades de 'column-width' y 'column-count' a la vez
-						(auto | column-width column-count | initial | inherit)
+- **display: box** Establece el modelo de caja flexible y aplica a todos sus hijos
+- **box-flex:** Especifica si los elementos hijos de una caja deben ser flexibles o no y en cuanta proporcion
+				*(value):* El valor indica la flexibilidad del hijo, p.e: un valor de 2 indica que es el doble de flexible que otro hijo
+- **box-orient:** *(horizontal | vertical | inline-axis | block-axis | inherit)* Indica si los hijos de una caja flexible debe ser desplegados horizontal o verticalmente.
+- **box-pack:** *(start | end | center | justify)* Especifica donde son ubicados los hijos de una caja flexible cuando esta es mas larga que el tamaño del hijo.
+- **box-align:** *(start | end | center | baseline | stretch)* Especifica como se deben alinear verticalmente los hijos de una caja.
+- **box-ordinal-group:** *(integer)* Indica el orden en que se deben mostrar los hijos de una caja.
+- **box-direction:** *(normal | reverse | inherit)* Indica en que direccion debe ser desplegados los hijos de una caja.
+- **column-count:** *(number | auto | initial | inherit)* Especifica el numero de columnas en las que se divide un elemento.
+- **column-gap:** *(length | normal | initial | inherit)* Indica el espacio entre columnas.
+- **column-rule:** *(column-rule-width column-rule-style column-rule-color | initial | inherit)* Establece todas las propiedades del separador de columnas a la vez.
+- **column-rule-color:** *(color | initial | inherit)* Indica el color del separador entre columnas.
+- **column-rule-style:** *(none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset | initial | inherit)* Indica el estilo del separador.
+- **column-rule-width:** *(medium | thin | thick | length | initial | inherit)* Establece el ancho del separador de columnas.
+- **column-span:** *(1 | all | initial | inherit)* Indica cuantas columnas debe ocupar un determinado elemento.
+- **column-width:** *(auto | length | initial | inherit)* Establece el ancho de las columnas.
+- **columns:** *(auto | column-width column-count | initial | inherit)* Permite establecer las propiedades de 'column-width' y 'column-count' a la vez.
+						
 ## Text styles
 
 color 			: Establece el color del texto
