@@ -18,6 +18,7 @@
                 - [Property Binding](#property-binding)
                 - [Event Binding](#event-binding)
                 - [Two-way Binding](#two-way-binding)
+        - [Contracts](#contracts)
     - [Directives](#directives)
     - [Services](#services)
         - [Exposing a service](#exposing-a-service)
@@ -27,6 +28,8 @@
 
 <!-- /TOC -->
 
+
+<!---------------------------------------------------------- ANGULAR CLI ---------------------------------------------------------->
 ## Angular CLI
 - Fully functional project generation
 - Code generator for components, directives, pipes, enums, classes, modules and services
@@ -121,6 +124,8 @@ AOT compilation
 platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 ```
 
+
+<!---------------------------------------------------------- MODULES ---------------------------------------------------------->
 ## Modules
 
 - Uses ES6 modules
@@ -178,6 +183,7 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
 
+<!---------------------------------------------------------- COMPONENT ---------------------------------------------------------->
 ## Components
 
 - Components are ES6 classes
@@ -449,6 +455,87 @@ Example:
 {{myColor}}
 ``` 
 
+### Contracts
+- **@Input**
+    - Class --> Template
+    - Allows data to flow from a parent component to a child component
+    - Defined via the *@Input* decorator: *@Input() someValue: String = value*
+    - Bind in parent template *<component [someValue]="value"></component>*
+    - We can alias inputs: *@Input("alias") someValue: string;*
+
+In the child component
+```js
+import { Component, Input } from "@angular/core";
+
+@Component({
+    selector: "my-component",
+    template: `
+        <div>Greeting from parent:</div>
+        <div>{{greeting}}</div>
+    `
+})
+export class MyComponent {
+    @Input() greeting: String = "Default Greeting";
+}
+```
+In the parent component
+```js
+@Component({
+    selector: "app",
+    template: `
+        <my-component [greeting]="greeting"></my-component>
+        <my-component></my-component>
+    `
+})
+export class App {
+    greeting: String = "Hello child!";
+}
+```
+
+- **@Output**
+    - Template --> Class 
+    - Exposes an *EventEmitter* property that emits events to the parent component
+    - Defined via the *@Output* decorator: *@Output() showValue = new EventEmitter();*
+    - Bind in parent template: *<cmp (someValue)="handleValue()"></cmp>*
+
+In the child component
+```js
+import { Component, Output, EventEmitter } from "@angular/core";
+
+@Component({
+    selector: "my-component",
+    template: `<button (click)="greet()">Greet Me</button>`
+})
+export class MyComponent {
+    @Output() greeter = new EventEmitter();
+
+    greet() {
+        this.greeter.emit("Child greeting emitted!");
+    }
+}
+```
+
+In the parent component
+```js
+@Component({
+    selector: "app",
+    template: `
+        <div>
+            <h1>{{greeting}}</h1>
+            <my-component (greeter)="greet($event)"></my-component>
+        </div>
+    `
+})
+export class App {
+    private greeting;
+
+    greet(event) {
+        this.greeting = event;
+    }
+}
+```
+
+<!---------------------------------------------------------- DIRECTIVES ---------------------------------------------------------->
 ## Directives
 
 - A directive is a class decorate with **@Directive**
@@ -468,7 +555,7 @@ export class Blinker {
 ```
 
 
-
+<!---------------------------------------------------------- SERVICES ---------------------------------------------------------->
 ## Services
 
 - Services are generally a class
@@ -532,6 +619,7 @@ export classItemsComponent implements OnInit {
 
 
 
+<!---------------------------------------------------------- ROUTES ---------------------------------------------------------->
 ## Routes
 
 Allows to take a component and dinamically load it into the page
@@ -560,6 +648,7 @@ const routes: Routes = [
 ```
 
 
+<!---------------------------------------------------------- REFERENCES ---------------------------------------------------------->
 ## References
 
 - [Building awesome Web Apps with Angular 2](https://frontendmasters.com/courses/web-apps-angular-2)
