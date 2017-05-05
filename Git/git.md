@@ -9,11 +9,19 @@
         - [Username](#username)
         - [Email](#email)
     - [Editor](#editor)
-- [Staging](#staging)
-- [Commit](#commit)
-- [Pushing](#pushing)
-- [Pulling](#pulling)
-- [Undo changes](#undo-changes)
+    - [Help](#help)
+    - [Ignoring files](#ignoring-files)
+- [Commands](#commands)
+    - [Initialize repository](#initialize-repository)
+    - [Checking the status](#checking-the-status)
+    - [Staging](#staging)
+        - [View staged and unstaged changes](#view-staged-and-unstaged-changes)
+    - [Commit](#commit)
+    - [Pushing](#pushing)
+    - [Pulling](#pulling)
+    - [Undo changes](#undo-changes)
+    - [Removing a file](#removing-a-file)
+    - [Moving a file](#moving-a-file)
 - [Branching](#branching)
     - [Branch management](#branch-management)
         - [List branches](#list-branches)
@@ -42,16 +50,12 @@
     - [HTTP protocol](#http-protocol)
     - [SSH protocol](#ssh-protocol)
     - [Git protocol](#git-protocol)
-            - [Help](#help)
-        - [Initialize repository](#initialize-repository)
-        - [Checking the status](#checking-the-status)
-        - [Ignoring files](#ignoring-files)
-        - [View staged and unstaged changes](#view-staged-and-unstaged-changes)
-        - [Commiting changes](#commiting-changes)
-        - [Removing a file](#removing-a-file)
-        - [Moving a file](#moving-a-file)
+- [GitHub](#github)
+    - [Upload project to existing repository](#upload-project-to-existing-repository)
 
 <!-- /TOC -->
+
+<!----------------------------- CONFIGURATION ----------------------------->
 # Configuration
 - **git config:** Specific to that single repository
 - **git config --system:** Every user on the system and all their repositories
@@ -77,19 +81,60 @@ $ git config --global user.email <USER_EMAIL>
 ```
 $ git config --global core.editor <EDITOR_NAME>
 ```
-# Staging
+## Help
+```
+$ git help <verb>
+$ git <verb> --help
+$ man git-<verb>
+```
+## Ignoring files
+.gitignore file
+```
+# a comment - this is ignored
+*.a             # no .a files
+!lib.a          # but do track lib.a, even though you're ignoring .a files above
+/TODO           # only ignore the root TODO file, not subdir/TODO
+build           # ignore all files in the build/ directory
+doc/*.txt       # ignore doc/notes.txt, but not doc/server/arch.txt
+```
+
+
+<!----------------------------- COMMANDS ----------------------------->
+# Commands
+## Initialize repository
+```
+$ git init
+```
+## Checking the status
+```
+$ git status
+$ git status -s | git status --short
+```
+## Staging
 ```sh
 $ git add <FILE> <FILE> ...
 ```
-# Commit 
+### View staged and unstaged changes
+Show changes made since the last commit, only changes that are still unstaged
+- What have you changed but not yet staged
+- What have you staged that you are about to commit
 ```sh
-$ git commit -m <COMMENT>
+$ git diff
+$ git diff --staged       # What you've staged that will go into your next commit
+$ git diff --cached
 ```
-# Pushing
+## Commit 
+```sh
+$ git commit
+$ git commit -v         # You can see exactly what changes you're commiting, like with git diff
+$ git commit -m <COMMENT>
+$ git commit -a         # Skip the staging area
+```
+## Pushing
 ```sh
 $ git push <REMOTE> <BRANCH>
 ```
-# Pulling
+## Pulling
 ```sh
 $ git pull 
 ```
@@ -98,7 +143,7 @@ Equivalent to
 $ git fetch
 $ git merge
 ```
-# Undo changes
+## Undo changes
 Removes stages and working directories changes
 ```sh
 $ git reset --hard
@@ -107,6 +152,26 @@ $ git reset --hard
 $ git clean -f -d # Remove untracked
 $ git clean -fxd  # Include ignored files
 ```
+## Removing a file
+```
+$ git rm <FILE>
+$ git rm -f <FILE>    If you modified the file and added it to the index already, you must force the removal with the -f
+$ git rm --cached <FILE>  Keep the file in the working tree but remove it from the staging area
+```
+## Moving a file
+```
+$ git mv <FILE_FROM> <FILE_TO>
+```
+Equivalent to
+```
+$ mv <FILE_FROM> <FILE_TO>
+$ git rm <FILE_FROM>
+$ git add <FILE_TO>
+```
+
+
+
+<!----------------------------- BRANCHING ----------------------------->
 # Branching
 ## Branch management
 ### List branches
@@ -209,6 +274,10 @@ $ git branch --set-upstream-to <REMOTE/BRANCH>
 $ git checkout <BRANCH_DESINATION>
 $ git rebase <BRANCH_ORIGIN>
 ```
+
+
+
+<!----------------------------- SERVER ----------------------------->
 # Server
 ## Local protocol
 The remote repository is in another directory on the disk
@@ -235,65 +304,13 @@ $ git clone git://project.git
 
 
 
-
-
-
------------------------------------------------------
-#### Help
+<!----------------------------- GITHUB ----------------------------->
+# GitHub
+## Upload project to existing repository
+```sh
+$ git init
+$ git add .
+$ git commit -m <COMMENT>
+$ git remote add origin <REMOTE_REPOSITORY>
+$ git push origin master
 ```
-git help <verb>
-git <verb> --help
-man git-<verb>
-```
-### Initialize repository
-```
-git init
-```
-### Checking the status
-```
-git status
-git status -s | git status --short
-```
-### Ignoring files
-.gitignore file
-```
-# a comment - this is ignored
-*.a             # no .a files
-!lib.a          # but do track lib.a, even though you're ignoring .a files above
-/TODO           # only ignore the root TODO file, not subdir/TODO
-build           # ignore all files in the build/ directory
-doc/*.txt       # ignore doc/notes.txt, but not doc/server/arch.txt
-```
-### View staged and unstaged changes
-Show changes made since the last commit, only changes that are still unstaged
-- What have you changed but not yet staged
-- What have you staged that you are about to commit
-```
-git diff
-git diff --staged > What you've staged that will go into your next commit
-git diff --cached
-```
-### Commiting changes
-```
-git commit
-git commit -v > You can see exactly what changes you're commiting, like with git diff
-git commit -m <MESSAGE>
-git commit -a  > Skip the staging area
-```
-### Removing a file
-```
-git rm <FILE>
-git rm -f <FILE>    If you modified the file and added it to the index already, you must force the removal with the -f
-git rm --cached <FILE>  Keep the file in the working tree but remove it from the staging area
-```
-### Moving a file
-```
-git mv <FILE_FROM> <FILE_TO>
-```
-Equivalent to
-```
-mv <FILE_FROM> <FILE_TO>
-git rm <FILE_FROM>
-git add <FILE_TO>
-```
------------------------------------------------------
