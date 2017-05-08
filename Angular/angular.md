@@ -1,34 +1,38 @@
-# Angular 2
+<style href="../styles.css"></style>
+<h1 style="background-color: #333; color: white; padding-bottom: 0; text-align: center">ANGULAR 2</h1>
 
 <!-- TOC -->
 
-- [Angular 2](#angular-2)
-    - [Angular CLI](#angular-cli)
-        - [AOT Compilation](#aot-compilation)
-    - [Modules](#modules)
-        - [@NgModule](#ngmodule)
-        - [Bootstrapping](#bootstrapping)
-    - [Components](#components)
-        - [Classes and Metadata](#classes-and-metadata)
-        - [Lifecycle Hooks](#lifecycle-hooks)
-        - [Templates](#templates)
-            - [Structural directives](#structural-directives)
-            - [Navigation Operator](#navigation-operator)
-            - [Data Binding](#data-binding)
-                - [Property Binding](#property-binding)
-                - [Event Binding](#event-binding)
-                - [Two-way Binding](#two-way-binding)
-        - [Contracts](#contracts)
-    - [Directives](#directives)
-    - [Services](#services)
-        - [Exposing a service](#exposing-a-service)
-        - [Consuming a service](#consuming-a-service)
-    - [Routes](#routes)
-    - [Forms](#forms)
-        - [ngModel](#ngmodel)
-        - [Form Controls](#form-controls)
-        - [State mutations](#state-mutations)
-    - [References](#references)
+- [Angular CLI](#angular-cli)
+    - [AOT Compilation](#aot-compilation)
+- [Modules](#modules)
+    - [@NgModule](#ngmodule)
+    - [Bootstrapping](#bootstrapping)
+- [Components](#components)
+    - [Classes and Metadata](#classes-and-metadata)
+    - [Lifecycle Hooks](#lifecycle-hooks)
+    - [Templates](#templates)
+        - [Structural directives](#structural-directives)
+        - [Navigation Operator](#navigation-operator)
+        - [Data Binding](#data-binding)
+            - [Property Binding](#property-binding)
+            - [Event Binding](#event-binding)
+            - [Two-way Binding](#two-way-binding)
+    - [Contracts](#contracts)
+- [Directives](#directives)
+- [Services](#services)
+    - [Exposing a service](#exposing-a-service)
+    - [Consuming a service](#consuming-a-service)
+- [Routes](#routes)
+- [Forms](#forms)
+    - [ngModel](#ngmodel)
+    - [Form Controls](#form-controls)
+    - [State mutations](#state-mutations)
+- [Server Communication](#server-communication)
+    - [HTTP Module](#http-module)
+    - [Observables](#observables)
+    - [Headers](#headers)
+- [References](#references)
 
 <!-- /TOC -->
 
@@ -705,6 +709,99 @@ selectedItem: Item;
         this.originalName = value.name;
     }
     this.selectedItem = Object.assign({}, value);
+}
+```
+
+<!---------------------------------------------------------- SERVER ---------------------------------------------------------->
+## Server Communication
+
+### HTTP Module
+- Simplifies usage of the XHR APIs
+- Matches RESTful verbs
+- Returns an observable
+
+**Methods**<br/>
+- *request* Any type of HTTP request
+- *get | post | put | delete | patch | head*
+
+```js
+import { HttpModule } from "@angular/http";
+```
+```js
+loadItems() {
+    return this.http.get(URL)
+                    .map(res => res.json())
+                    .toPromise();
+}
+createItem() {
+    return this.http.post(URL, JSON.stringify(item), HEADER)
+                    .map(res => res.json())
+                    .toPromise();
+}
+updateItem() {
+    return this.http.put(`${URL}${item.id}`, JSON.stringify(item), HEADER)
+                    .map(res => res.json())
+                    .toPromise();
+}
+deleteItem() {
+    return this.http.delete(`${URL}${item.id}`)
+                    .map(res => res.json())
+                    .toPromise();
+}
+```
+
+### Observables
+- We can chain any HTTP method or any observable with *toPromise*
+- We can use *.then* and *.catch* to resolve the promise
+```js
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/toPromise";
+
+loadItems() {
+    return this.http.get(URL)
+                    .map(res => res.json())
+                    toPromise();
+}
+```
+```js
+constructor(private itemsService: ItemsService){}
+
+ngOnInit() {
+    this.itemsService.loadItems()
+                     .then(items => this.items = items);
+}
+```
+**Observable.subscribe**<br/>
+- We finalize an observable stream by substribing to it
+- Accepts three event handlers: **onNext, onError** and **onComplete**
+```js
+loadItems() {
+    return this.http.get(URL)
+                    .map(res => res.json())
+                    .catch(error => Observable.throw(error.json().error || "Server error"));
+}
+```
+```js
+constructor(private itemsService: ItemsService){}
+
+ngOnInit() {
+    this.itemsService.loadItems()
+                     .subscribe(items => this.items = items);
+}
+```
+
+### Headers
+- HTTP Module methods have an optional second parameter which is a *RequestOptions* object
+- **RequestOptions** object has a headers property which is a Headers object
+```js
+import { Http, Headers, RequestOptions } from "@angular/http";
+// ...
+const headers = new Headers({ "Content-Type": "application/json"});
+const options = new RequestOptions({ headers: headers });
+// ...
+createItem(item: Item) {
+    return this.http.post(URL, JSON.stringify(item), options)
+                    .map(res => res.json());
 }
 ```
 
