@@ -1,4 +1,4 @@
-<style href="../styles.css"></style>
+<link href="../styles.css" rel="stylesheet"></style>
 <h1 style="background-color: #333; color: white; padding-bottom: 0; text-align: center">ANGULAR 2</h1>
 
 <!-- TOC -->
