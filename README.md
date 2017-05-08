@@ -43,7 +43,7 @@
         - Asynquence
 - [Firebase](Firebase/firebase.md)
 - [Regular Expressions](RegExp/_regexp.md)
-- [Angular 2](Angular/_angular.md)
+- [Angular 2](Angular/angular.md)
 - Tools
     - [NPM](Tools/_npm.md)
     - [Bower](Tools/_bower.md) 

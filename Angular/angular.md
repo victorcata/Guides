@@ -24,6 +24,10 @@
         - [Exposing a service](#exposing-a-service)
         - [Consuming a service](#consuming-a-service)
     - [Routes](#routes)
+    - [Forms](#forms)
+        - [ngModel](#ngmodel)
+        - [Form Controls](#form-controls)
+        - [State mutations](#state-mutations)
     - [References](#references)
 
 <!-- /TOC -->
@@ -185,6 +189,8 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 
 <!---------------------------------------------------------- COMPONENT ---------------------------------------------------------->
 ## Components
+
+(component.png)
 
 - Components are ES6 classes
 - Properties and methods of the component class are available to the template
@@ -647,6 +653,60 @@ const routes: Routes = [
 });
 ```
 
+
+
+<!---------------------------------------------------------- FORMS ---------------------------------------------------------->
+## Forms
+```js
+import { FormsModule } from "@angular/forms";
+```
+
+###  ngModel
+- Enables two-way data binding within a form
+- Creates a **FormControl** instance from a domain model and binds it to a form element
+
+```html
+<input type="text" required [(ngModel)]="title" #myInput="ngModel" />
+<pre>{{ myInput.value | json }}</pre>
+```
+
+### Form Controls
+- **ngControl** binds a DOM element to a FormControl
+- **FormControl** is responsible for tracking value and validation status of a single form element
+- You can group FormControls together with **FormGroup**
+- **ngForm** binds an HTML form to a top-level FormGroup
+- **ngModelGroup** creates and binds a FormGroup instance to a DOM element
+```html
+<form novalidate #myForm="ngForm">
+    <input type="text" name="title" required [(ngModel)]="title" />
+    <input type="text" name="description" [(ngModel)="description" />
+</form>
+<pre>{{myForm.value | json}}</pre>
+<pre>{{myForm.valid | json}}</pre>
+```
+```html
+<form novalidate #myForm="ngForm">
+    <input type="text" name="title" required [(ngModel)]="title" />
+    <div ngModelGroup="details">
+        <input type="text" name="description" [(ngModel)="description" />
+        <input type="text" name="status" [(ngModel)="status" />
+    </div>
+</form>
+<pre>{{myForm.value | json}}</pre>
+<pre>{{myForm.valid | json}}</pre>
+```
+
+### State mutations
+```js
+originalName: string;
+selectedItem: Item;
+@Input() set item(value: Item) {
+    if (value) {
+        this.originalName = value.name;
+    }
+    this.selectedItem = Object.assign({}, value);
+}
+```
 
 <!---------------------------------------------------------- REFERENCES ---------------------------------------------------------->
 ## References
