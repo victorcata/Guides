@@ -1,5 +1,6 @@
 # Guides
 
+- [Bash](Unix/bash.md)
 - [Git](Git/git.md)
 - [HTML](HTML/_html.md)
 - [CSS](CSS/_css.md)
@@ -10,18 +11,8 @@
     - [BOM (Browser Object Model)](JavaScript/_bom.md)
     - [AJAX](JavaScript/_ajax.md)
     - [ECMA 6](JavaScript/_ecma6.md)
-    - HTML5 APIs
-        - [Web Sockets](JavaScript/apis/_websockets.md)
-        - [Geolocation](JavaScript/apis/_geolocation.md)
-        - [Web Storage](JavaScript/apis/_storage.md)
-        - [Offline](JavaScript/apis/_offline.md)
-        - [Web Workers](JavaScript/apis/_webworker.md)
-        - [Drag and drop](JavaScript/apis/_dragdrop.md)
-        - [Canvas](JavaScript/apis/_canvas.md)
     - Patterns
-        - IIFE --TODO FEM
         - [Object-Oriented](JavaScript/patterns/_oop.md)
-        - OLOO --TODO FEM
         - [Namespace](JavaScript/patterns/_namespace.md)
         - [Module](JavaScript/patterns/_module.md)
         - [Init-time branching](JavaScript/patterns/_inittime.md)
@@ -37,10 +28,17 @@
         - [Observer](JavaScript/patterns/_observer.md)
         - [Chain of responsability](JavaScript/patterns/_chain.md)
         - [MVC](JavaScript/patterns/_mvc.md)
-    - Async patterns --TODO FEM
+    - Async patterns
         - [Callbacks](JavaScript/async/_callbacks.md)
         - [Promises](JavaScript/async/_promises.md)
-        - Asynquence
+- HTML5 APIs
+    - [Web Sockets](JavaScript/apis/_websockets.md)
+    - [Geolocation](JavaScript/apis/_geolocation.md)
+    - [Web Storage](JavaScript/apis/_storage.md)
+    - [Offline](JavaScript/apis/_offline.md)
+    - [Web Workers](JavaScript/apis/_webworker.md)
+    - [Drag and drop](JavaScript/apis/_dragdrop.md)
+    - [Canvas](JavaScript/apis/_canvas.md)
 - [Firebase](Firebase/firebase.md)
 - [Regular Expressions](RegExp/_regexp.md)
 - [Angular 2](Angular/angular.md)
@@ -49,3 +47,4 @@
     - [Bower](Tools/_bower.md) 
     - [Gulp](Tools/_gulp.md)
     - [Yeoman](Tools/_yeoman.md)
+    - [Webpack](Tools/webpack.md)
