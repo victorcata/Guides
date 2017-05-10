@@ -21,6 +21,7 @@
     - [fold](#fold)
     - [grep](#grep)
     - [head](#head)
+    - [history](#history)
     - [ls](#ls)
     - [man](#man)
     - [mkdir](#mkdir)
@@ -190,6 +191,12 @@ Shows the first [number] lines of a file
 $ head -n 5 file.txt
 $ head --lines=5 file.txt
 ```
+<!---------------------------------------------------------- history ---------------------------------------------------------->
+### history
+Lists the last commands executed
+```bash
+$ history
+```
 <!---------------------------------------------------------- ls ---------------------------------------------------------->
 ### ls
 Lists directory content
@@ -273,6 +280,11 @@ Shows the last [number] lines of a file
 $ tail -n 5 file.txt
 $ tail --lines=5 file.txt
 ```
+**tail -f** <br/>
+Keeps waiting for additional data
+```bash
+$ tail -f file.txt
+``` 
 <!---------------------------------------------------------- wc ---------------------------------------------------------->
 ### sed
 Mades substitutions
