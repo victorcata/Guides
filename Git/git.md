@@ -40,6 +40,7 @@
         - [Fetching remote branch](#fetching-remote-branch)
         - [Syncronizing branches](#syncronizing-branches)
         - [Multiple remote servers](#multiple-remote-servers)
+        - [Update remote branch](#update-remote-branch)
     - [Tracking branches](#tracking-branches)
         - [List tracking branches](#list-tracking-branches)
         - [Local branch with a different name](#local-branch-with-a-different-name)
@@ -208,6 +209,10 @@ $ git log --oneline --decorate --graph --all
 ```sh
 $ git checkout <BRANCH>
 ```
+Discarding local changes from the actual branch
+```sh
+$ git checkout -f <BRANCH>
+```
 ## New branch and switch
 ```sh
 $ git checkout -b <BRANCH>
@@ -248,6 +253,10 @@ $ git fetch --all
 ### Multiple remote servers
 ```sh
 $ git remote ad <REMOTE> <URL>
+```
+### Update remote branch
+```sh
+$ git remote set-url origin git@<URL>
 ```
 ## Tracking branches
 Tracking branches are local branches that have a direct relationship to a remote branch

@@ -13,6 +13,13 @@
 - [Bundling](#bundling)
 - [Transpiling](#transpiling)
 - [CSS and Style loader](#css-and-style-loader)
+- [Testing](#testing)
+- [Code coverage](#code-coverage)
+- [Code splitting](#code-splitting)
+- [Chunking code](#chunking-code)
+- [Extract CSS](#extract-css)
+- [Offline with Service Workers](#offline-with-service-workers)
+- [Deployment to Surge.sh](#deployment-to-surgesh)
 - [References](#references)
 
 <!-- /TOC -->
@@ -239,6 +246,16 @@ modules: {
     "presets": ["es2015", "es2016", "stage-2"]
 }
 ```
+For example, we can avoid to transpile modules in ES6
+```js
+{
+  "presets": [
+    ["es2015", {"modules": false} ],
+    "es2016", 
+    "stage-2"
+  ]
+}
+```
 3. Add dependencies to *package.json*
 ```json
 // package.json
@@ -282,9 +299,295 @@ modules: {
 })();
 ``` 
 
+<!-------------------------------------------- TESTING -------------------------------------------->
+## Testing
+Adding Karma testing in Webpack
+1. Add dependencies and scripts
+```js
+// package.json
+"devDependencies": {
+    //...
+    "karma": "",
+    "karma-chrome-launcher": "",
+    "karma-mocha": "",
+    "mocha": ""
+    //...
+},
+"scripts": {
+    //...
+    "test": "karma test",
+    "test:watch": "npm test -- --auto-watch --no-single-run",
+    //...
+}
+```
+2. Add the *karma.conf.js* file
+```js
+module.exports = config => {
+    config.set({
+        basePath: '',
+        frameworks: ['mocha', 'chai'],
+        files: [
+        'src/**/*.test.js',
+        ],
+        reporters: ['progress'],
+        port: 9876,
+        colors: true,
+        logLevel: config.LOG_INFO,
+        autoWatch: false,
+        browsers: ['Chrome'],
+        singleRun: true,
+        concurrency: Infinity
+    })
+}
+```
+3. Add tests
+```js
+describe("test", () => {
+    //...
+});
+```
+4. Integrate Webpack in Karma
+```js
+// package.json
+"devDependencies": {
+    //...
+    "karma-webpack": "",
+    //...
+},
+```
+```js
+// karma.conf.js
+const webpackConfig = require("./webpack.config.babel")({env: "test"});
+const fileGlob = "src/**/*.test.js";
+
+module.exports = config => {
+    config.set({
+        basePath: '',
+        frameworks: ['mocha', 'chai'],
+        files: [
+            fileGlob,
+        ],
+        preprocessors: {
+            [fileGlob]: ["webpack"]
+        },
+        webpack: webpackConfig,
+        reporters: ['progress'],
+        port: 9876,
+        colors: true,
+        logLevel: config.LOG_INFO,
+        autoWatch: false,
+        browsers: ['Chrome'],
+        singleRun: true,
+        concurrency: Infinity
+    })
+}
+```
+
+
+
+<!-------------------------------------------- CODE COVERAGE -------------------------------------------->
+## Code coverage
+When testing gives data about the code lines
+1. Add dependencies
+```js
+"devDependencies": {
+    //...
+    "babel-plugin-__coverage__": "",
+    "karma-coverage": "",
+    //...
+}
+```
+2. Modify *.babelrc* file
+```js
+{
+    "presets": ["es2015", "es2016", "stage-2"],
+    "env": {
+        "test": {
+            "plugins": [
+                ["__coverage__", {"ignore": "*.+(test|stub).*"}] // This avoid to take in consideration the tests
+            ]
+        }
+    }
+}
+```
+3. Modify *karma.conf.js* to add the following lines
+```js
+process.env.BABEL_ENV = "test";
+//...
+webpackMiddleware: {noInfo: true},
+reporters: ['progress', 'coverage'],
+converageReporter: {
+    reporters: [
+        { type: "lcov", dir: "coverage/", subdir: "." },
+        { type: "json", dir: "coverage/", subdir: "." },
+        { type: "text-summary" }
+    ]
+}
+```
+4. To add every file we should modify karma.conf.js
+```js
+const testGlob = "src/**/*.test.js",
+      srcGlob = "src/**/!(*.test|*.stub).js";
+
+module.exports = config => {
+    config.set({
+        //...
+        files: [ testGlob, srcGlob ],
+        exclude: ["src/bootstrap.js"],
+        preprocessors: {
+            [testGlob]: ["webpack"],
+            [srcGlob]: ["webpack"]
+        },
+        //...
+    })
+}
+```
+
+
+
+<!-------------------------------------------- CODE SPLITTING -------------------------------------------->
+## Code splitting
+Loads the code in the moment it's needed
+1. Remove imports that we are not going to need right now
+```js
+import myCriticalFunction from '../criticalfile'
+//import myFunction from './file'
+```
+2. Substitute the function call for **System.import()**
+```js
+function ImportCode(param) {
+  System.import("./file").then(({ default: myFunction}) => {
+    myFunction(param);
+  });
+}
+```
+
+
+
+<!-------------------------------------------- CHUNKING CODE -------------------------------------------->
+## Chunking code
+Allows to cache files that does not change often
+```js
+//package.json
+// This plugins allow us to generate the html with the script references
+"devDependencies": {
+    "html-webpack-plugin": ""
+}
+```
+```js
+//webpack.config.js
+const webpack = require("webpack");
+const htmlWebpackPugin = require("html-webpack-plugin");
+//...
+entry: {
+    app: "./bootstrap.js",
+    vendor: [ "vendor-file.js", "vendor-styles.css" ]
+},
+output: {
+    filename: "bundle[name][chunkhash].js"
+    //...
+}
+// The tests can fail so this must be loaded only in Prod mode
+plugins: [
+    new ProgressBarPlugin(),
+    env.prod ? new webpack.optimize.CommonsChunkPlugin({
+        name: "vendor"
+    }) : undefined,
+    new htmlWebpackPlugin({
+        template: "./index.html",
+        inject: "head"  // Indicates where to inject the scripts
+    })
+]
+//...
+```
+
+
+
+<!-------------------------------------------- EXTRACT CSS -------------------------------------------->
+## Extract CSS
+1. Install dependencies
+```js
+"devDependencies": {
+    "extract-text-webpack-plugin": ""
+}
+```
+2. Modify the *webpack.config.js* file
+```js
+const extractTextPlugin = require("extract-text-webpack-plugin");
+//...
+module: {
+    loaders: [
+        {
+            test: /\.css$/,
+            loader: extractTextPlugin.extract({
+                fallbackLoader: "style",
+                loader: "css"
+            })
+        }
+    ]
+},
+plugins: [
+    new extractTextPlugin(env.prod ? "styles.[name].[chunkhash].css" : "styles.[name].css"),
+    //...
+]
+```
+
+
+<!-------------------------------------------- OFFLINE -------------------------------------------->
+## Offline with Service Workers
+1. Install dependencies
+```js
+"devDependencies": {
+    "offline-plugin": ""
+}
+```
+2. Modify the *webpack.config.js* file
+```js
+const OfflinePlugin = require("offline-plugin");
+//...
+plugins: {
+    //...
+    new OfflinePlugin(),
+    new webpack.DefinePlugin({
+        "process.env": {
+            NODE_ENV: env.prod ? "production" : "development"
+        }
+    })
+}
+```
+3. In the bootstrap file
+```js
+if (process.env.NODE_ENV === "production") {
+    offlineInstall();
+}
+```
+
+
+
+<!-------------------------------------------- DEPLOYMENT -------------------------------------------->
+## Deployment to Surge.sh
+1. Install dependencies and add scripts
+```js
+// package.json
+"devDependencies": {
+    "surge": ""
+},
+"scripts": {
+    "predeploy": "npm run build", 
+    "deploy": "./scripts/deploy"
+}
+```
+2. Create a deploy file
+```bash
+export SURGE_LOGIN=<email>
+export SURGE_TOKEN=<token>
+node_modules/.bin/surge --project dist --domain https://APP-<name>.surge.sh
+```
+
 
 <!-------------------------------------------- REFERENCES -------------------------------------------->
 ## References
 
 - [Webpack Concepts](https://webpack.js.org/concepts)
 - [Webpack 2 Deep dive from Frontend Masters](https://frontendmasters.com/courses/webpack/)
+- [Awesome Webpack](https://github.com/webpack-contrib/awesome-webpack)
