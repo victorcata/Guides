@@ -8,6 +8,7 @@
 - [Characters](#characters)
 - [Grouping and ranges](#grouping-and-ranges)
 - [JavaScript Methods](#javascript-methods)
+- [Dave Child Regular Expressions Cheatsheet](#dave-child-regular-expressions-cheatsheet)
 
 <!-- /TOC -->
 
@@ -224,5 +225,6 @@ var coincidences = content.split(/rem/);
 console.log(coincidences); // ["lo", " ipsum"]
 ```
 
+## Dave Child Regular Expressions Cheatsheet
 
 ![Dave Child Regular Expressions](./davechild_regular-expressions.jpg)
