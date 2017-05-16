@@ -40,7 +40,7 @@
     - [Drag and drop](JavaScript/apis/_dragdrop.md)
     - [Canvas](JavaScript/apis/_canvas.md)
 - [Firebase](Firebase/firebase.md)
-- [Regular Expressions](RegExp/_regexp.md)
+- [Regular Expressions](RegExp/regexp.md)
 - [Angular 2](Angular/angular.md)
 - Tools
     - [NPM](Tools/_npm.md)
