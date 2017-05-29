@@ -591,3 +591,4 @@ node_modules/.bin/surge --project dist --domain https://APP-<name>.surge.sh
 - [Webpack Concepts](https://webpack.js.org/concepts)
 - [Webpack 2 Deep dive from Frontend Masters](https://frontendmasters.com/courses/webpack/)
 - [Awesome Webpack](https://github.com/webpack-contrib/awesome-webpack)
+- [Webpack 2 with PUG and SASS](https://webcodr.de/2017/01/webpack-2-with-pug-and-sass/)
