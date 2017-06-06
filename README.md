@@ -39,6 +39,7 @@
     - [Web Workers](JavaScript/apis/_webworker.md)
     - [Drag and drop](JavaScript/apis/_dragdrop.md)
     - [Canvas](JavaScript/apis/_canvas.md)
+- [Accessibility](HTML/accessibility.md)
 - [Firebase](Firebase/firebase.md)
 - [Regular Expressions](RegExp/regexp.md)
 - [Angular 2](Angular/angular.md)
