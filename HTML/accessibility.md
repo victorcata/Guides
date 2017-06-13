@@ -22,6 +22,9 @@
 
 <!-- /TOC -->
 
+**WAI (Web Accessibility Initiative)**: Group equivalent to W3C <br/>
+**WCAG (Web Content Accessibility Guidelines)**: Book with all the documentation about accessibility
+
 <!------------------------------------------- KEYBOARD ------------------------------------------->
 # Keyboard
 
@@ -208,3 +211,7 @@ It's used to indicate the IDs of the elements that describe the object.
 [WebAIM Guidelines](http://webaim.org/standards/wcag/checklist)
 [Skip links](webaim.org/techniques/skipnav)
 [Frontend Masters - Web Accessibility by Jon Kuperman](https://frontendmasters.com/courses/web-accessibility/?u=83c5033cb7d4129b73f4255d154ceb45210e43e2)
+[NoCoffee vision simulator](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl)
+[Accessibility Developer Tool extension](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb/related?hl=en)
+[Tenon: Analyze website accessibility](https://tenon.io/)
+[tota11y: Accessibility visualization toolkit](http://khan.github.io/tota11y/)
