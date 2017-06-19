@@ -6,7 +6,7 @@
 - [Git](Git/git.md)
 
 ### HTML
-- [HTML](HTML/_html.md)
+- [HTML5](HTML/_html.md)
 - [Accessibility](HTML/accessibility.md)
 
 ### HTML5 APIs
@@ -19,7 +19,7 @@
 - [Canvas](JavaScript/apis/_canvas.md)
 
 ### CSS
-- [CSS](CSS/_css.md)
+- [CSS3](CSS/_css.md)
 - [SMACSS](CSS/_smacss.md)
 
 ### JAVASCRIPT
