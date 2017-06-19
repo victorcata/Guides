@@ -1,15 +1,14 @@
-# Drag and Drop
+<h1>Drag and Drop</h1>
 
 <!-- TOC -->
 
-- [Drag and Drop](#drag-and-drop)
-    - [Draggable content](#draggable-content)
-    - [Dragging events](#dragging-events)
-    - [DataTransfer](#datatransfer)
-        - [Object](#object)
-    - [Properties](#properties)
-    - [Dragging files](#dragging-files)
-    - [References](#references)
+- [Draggable content](#draggable-content)
+- [Dragging events](#dragging-events)
+- [DataTransfer](#datatransfer)
+    - [Object](#object)
+- [Properties](#properties)
+- [Dragging files](#dragging-files)
+- [References](#references)
 
 <!-- /TOC -->
 

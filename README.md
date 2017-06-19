@@ -1,66 +1,66 @@
 ### GENERAL
-- [Bash](Unix/bash.md)
-- [Regular Expressions](RegExp/regexp.md)
+- [Bash](guides/Global/bash.md)
+- [Regular Expressions](guides/Global/regexp.md)
 
 ### CONTROL VERSION
-- [Git](Git/git.md)
+- [Git](guides/Git/git.md)
 
 ### HTML
-- [HTML5](HTML/_html.md)
-- [Accessibility](HTML/accessibility.md)
+- [HTML5](guides/HTML/HTML.md)
+- [Accessibility](guides/HTML/accessibility.md)
 
 ### HTML5 APIs
-- [Web Sockets](JavaScript/apis/_websockets.md)
-- [Geolocation](JavaScript/apis/_geolocation.md)
-- [Web Storage](JavaScript/apis/_storage.md)
-- [Offline](JavaScript/apis/_offline.md)
-- [Web Workers](JavaScript/apis/_webworker.md)
-- [Drag and drop](JavaScript/apis/_dragdrop.md)
-- [Canvas](JavaScript/apis/_canvas.md)
+- [Web Sockets](guides/HTML/APIs/websockets.md)
+- [Geolocation](guides/HTML/APIs/geolocation.md)
+- [Web Storage](guides/HTML/APIs/storage.md)
+- [Offline](guides/HTML/APIs/offline.md)
+- [Web Workers](guides/HTML/APIs/webworker.md)
+- [Drag and drop](guides/HTML/APIs/dragdrop.md)
+- [Canvas](guides/HTML/APIs/canvas.md)
 
 ### CSS
-- [CSS3](CSS/_css.md)
-- [SMACSS](CSS/_smacss.md)
+- [CSS3](guides/CSS/CSS.md)
+- [SMACSS](guides/CSS/SMACSS.md)
 
 ### JAVASCRIPT
-- [Language syntax](JavaScript/_syntax.md)
-- [DOM (Document Object Model)](JavaScript/_dom.md)
-- [BOM (Browser Object Model)](JavaScript/_bom.md)
-- [AJAX](JavaScript/_ajax.md)
-- [ECMA 6](JavaScript/_ecma6.md)
+- [Language syntax](guides/JavaScript/syntax.md)
+- [DOM (Document Object Model)](guides/JavaScript/DOM.md)
+- [BOM (Browser Object Model)](guides/JavaScript/BOM.md)
+- [AJAX](guides/JavaScript/AJAX.md)
+- [ECMA 6](guides/JavaScript/ECMA6.md)
 
 ### JAVASCRIPT PATTERNS
-- [Object-Oriented](JavaScript/patterns/_oop.md)
-- [Namespace](JavaScript/patterns/_namespace.md)
-- [Module](JavaScript/patterns/_module.md)
-- [Init-time branching](JavaScript/patterns/_inittime.md)
-- [Prototype](JavaScript/patterns/_prototype.md)
-- [Lazy definition](JavaScript/patterns/_lazy.md)
-- [Decorator](JavaScript/patterns/_decorator.md)
-- [Singleton](JavaScript/patterns/_singleton.md)
-- [Factory](JavaScript/patterns/_factory.md)
-- [Iterator](JavaScript/patterns/_iterator.md)
-- [Facade](JavaScript/patterns/_facade.md)
-- [Mediator](JavaScript/patterns/_mediator.md)
-- [Mixins](JavaScript/patterns/_mixins.md)
-- [Observer](JavaScript/patterns/_observer.md)
-- [Chain of responsability](JavaScript/patterns/_chain.md)
-- [MVC](JavaScript/patterns/_mvc.md)
+- [Object-Oriented](guides/JavaScript/patterns/oop.md)
+- [Namespace](guides/JavaScript/patterns/namespace.md)
+- [Module](guides/JavaScript/patterns/module.md)
+- [Init-time branching](guides/JavaScript/patterns/inittime.md)
+- [Prototype](guides/JavaScript/patterns/prototype.md)
+- [Lazy definition](guides/JavaScript/patterns/lazy.md)
+- [Decorator](guides/JavaScript/patterns/decorator.md)
+- [Singleton](guides/JavaScript/patterns/singleton.md)
+- [Factory](guides/JavaScript/patterns/factory.md)
+- [Iterator](guides/JavaScript/patterns/iterator.md)
+- [Facade](guides/JavaScript/patterns/facade.md)
+- [Mediator](guides/JavaScript/patterns/mediator.md)
+- [Mixins](guides/JavaScript/patterns/mixins.md)
+- [Observer](guides/JavaScript/patterns/observer.md)
+- [Chain of responsability](guides/JavaScript/patterns/chain.md)
+- [MVC](guides/JavaScript/patterns/mvc.md)
 
 ### JAVASCRIPT ASYNC PATTERNS
-- [Callbacks](JavaScript/async/_callbacks.md)
-- [Promises](JavaScript/async/_promises.md)
+- [Callbacks](guides/JavaScript/async/callbacks.md)
+- [Promises](guides/JavaScript/async/promises.md)
 
 ### JAVASCRIPT FRAMEWORKS
-- [Angular 2](Angular/angular.md)
+- [Angular 2](guides/Frameworks/angular.md)
 
 ### JAVASCRIPT LIBRARIES
-- [Firebase](Firebase/firebase.md)
+- [Firebase](guides/Libraries/firebase.md)
 
 ### JAVASCRIPT MODERN TOOLS
-- [NPM](Tools/_npm.md)
-- [Bower](Tools/_bower.md) 
-- [Gulp](Tools/gulp.md) 
-- [Yeoman](Tools/_yeoman.md)
-- [Webpack](Tools/webpack.md)
+- [NPM](guides/Tools/npm.md)
+- [Bower](guides/Tools/bower.md) 
+- [Gulp](guides/Tools/gulp.md) 
+- [Yeoman](guides/Tools/yeoman.md)
+- [Webpack](guides/Tools/webpack.md)
 

@@ -1,22 +1,21 @@
-# SMACSS
+<h1>SMACSS</h1>
 <!-- TOC -->
 
-- [SMACSS](#smacss)
-    - [Categorization](#categorization)
-        - [Base](#base)
-        - [Layout](#layout)
-        - [Module](#module)
-        - [States](#states)
-        - [Themes](#themes)
-    - [Naming convention](#naming-convention)
-        - [Layout](#layout-1)
-        - [Module](#module-1)
-        - [States](#states-1)
-        - [Themes](#themes-1)
-    - [Depth of applicability](#depth-of-applicability)
-    - [Folder structure](#folder-structure)
-    - [Advises](#advises)
-    - [References](#references)
+- [Categorization](#categorization)
+    - [Base](#base)
+    - [Layout](#layout)
+    - [Module](#module)
+    - [States](#states)
+    - [Themes](#themes)
+- [Naming convention](#naming-convention)
+    - [Layout](#layout-1)
+    - [Module](#module-1)
+    - [States](#states-1)
+    - [Themes](#themes-1)
+- [Depth of applicability](#depth-of-applicability)
+- [Folder structure](#folder-structure)
+- [Advises](#advises)
+- [References](#references)
 
 <!-- /TOC -->
 ## Categorization

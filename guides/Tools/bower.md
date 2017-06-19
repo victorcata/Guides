@@ -1,23 +1,22 @@
-# Bower
+<h1>Bower</h1>
 
 <!-- TOC -->
 
-- [Bower](#bower)
-    - [Installing Bower globally](#installing-bower-globally)
-    - [Dependencies](#dependencies)
-    - [Initializing](#initializing)
-    - [Package commands](#package-commands)
-        - [Search](#search)
-        - [Install](#install)
-        - [Install a specific version](#install-a-specific-version)
-        - [Install and save in Bower](#install-and-save-in-bower)
-        - [Uninstall](#uninstall)
-        - [Verify packages and dependencies](#verify-packages-and-dependencies)
-        - [Update all](#update-all)
-        - [Update a package](#update-a-package)
-        - [Using Bower](#using-bower)
-    - [bower.json](#bowerjson)
-    - [.bowerrc](#bowerrc)
+- [Installing Bower globally](#installing-bower-globally)
+- [Dependencies](#dependencies)
+- [Initializing](#initializing)
+- [Package commands](#package-commands)
+    - [Search](#search)
+    - [Install](#install)
+    - [Install a specific version](#install-a-specific-version)
+    - [Install and save in Bower](#install-and-save-in-bower)
+    - [Uninstall](#uninstall)
+    - [Verify packages and dependencies](#verify-packages-and-dependencies)
+    - [Update all](#update-all)
+    - [Update a package](#update-a-package)
+    - [Using Bower](#using-bower)
+- [bower.json](#bowerjson)
+- [.bowerrc](#bowerrc)
 
 <!-- /TOC -->
 

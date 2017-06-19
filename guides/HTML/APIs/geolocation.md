@@ -1,4 +1,5 @@
-# Geolocation
+<h1>Geolocation</h1>
+
 - [Geolocation](#geolocation)
     - [Properties](#properties)
     - [Methods](#methods)
@@ -11,6 +12,7 @@
     - [Center the map](#center-the-map)
     - [Markers](#markers)
     - [Information window](#information-window)
+    
 ### Properties
 - **latitude:** position's latitude in decimal degrees
 ```javascript

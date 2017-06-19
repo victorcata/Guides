@@ -1,7 +1,6 @@
-# Git
+<h1>GIT</h1>
 <!-- TOC -->
 
-- [Git](#git)
 - [Configuration](#configuration)
     - [List configuration](#list-configuration)
     - [Credential cache](#credential-cache)

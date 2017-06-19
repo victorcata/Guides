@@ -1,4 +1,6 @@
 # Offline
+
+
 - [Status of the browser](#status-of-the-browser)
 - [Browser properties](#browser-properties)
 - [Events](#events)

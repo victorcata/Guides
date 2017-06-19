@@ -1,4 +1,21 @@
-# Firebase
+<h1>Firebase</h1>
+<!-- TOC -->
+
+- [Dependencies](#dependencies)
+- [Database reference](#database-reference)
+- [Child](#child)
+- [Set](#set)
+- [Update](#update)
+- [Push](#push)
+- [Transaction](#transaction)
+- [Events](#events)
+- [Queries](#queries)
+- [Working offline](#working-offline)
+- [Authentication](#authentication)
+- [Arrays](#arrays)
+
+<!-- /TOC -->
+
 
 ## Dependencies
 ```javascript

@@ -1,18 +1,17 @@
-# Canvas
+<h1>Canvas</h1>
 <!-- TOC -->
 
-- [Canvas](#canvas)
-    - [Declaration](#declaration)
-    - [Colors, styles and shadows](#colors-styles-and-shadows)
-    - [Lines](#lines)
-    - [Rectangle](#rectangle)
-    - [Paths](#paths)
-    - [Transformations](#transformations)
-    - [Text](#text)
-    - [Images](#images)
-    - [Pixels](#pixels)
-    - [Composition](#composition)
-    - [Others](#others)
+- [Declaration](#declaration)
+- [Colors, styles and shadows](#colors-styles-and-shadows)
+- [Lines](#lines)
+- [Rectangle](#rectangle)
+- [Paths](#paths)
+- [Transformations](#transformations)
+- [Text](#text)
+- [Images](#images)
+- [Pixels](#pixels)
+- [Composition](#composition)
+- [Others](#others)
 
 <!-- /TOC -->
 
