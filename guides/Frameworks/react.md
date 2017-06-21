@@ -6,6 +6,11 @@
 - [ReactDOM](#reactdom)
 - [Methods](#methods)
 - [JSX](#jsx)
+- [Routing](#routing)
+- [State Management](#state-management)
+- [Iterating](#iterating)
+- [Props](#props)
+- [JSX -> Spread Operators](#jsx---spread-operators)
 - [References](#references)
 
 <!-- /TOC -->
@@ -156,6 +161,24 @@ var app = React.createClass({
   }
 })
 ```
+
+<!--------------- ROUTING --------------->
+# Routing
+- HashRouter: encapsulates behavior
+- Match
+- BrowserRouter
+- Link
+
+# State Management
+- getInitialState()
+- setState()
+- forceUpdate(): know it but not used it
+
+# Iterating
+
+# Props
+
+# JSX -> Spread Operators
 
 <!--------------- REFERENCES --------------->
 # References

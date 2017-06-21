@@ -12,9 +12,12 @@
 - [Webpack Dev Server](#webpack-dev-server)
 - [Development vs Production](#development-vs-production)
 - [Bundling](#bundling)
-- [Transpiling](#transpiling)
-- [CSS and Style loader](#css-and-style-loader)
-- [Testing](#testing)
+- [Loaders](#loaders)
+  - [Babel](#babel)
+  - [ESLint](#eslint)
+  - [JSON](#json)
+  - [CSS](#css)
+  - [Karma](#karma)
 - [Code coverage](#code-coverage)
 - [Code splitting](#code-splitting)
 - [Chunking code](#chunking-code)
@@ -245,9 +248,10 @@ output: {
 ```
 
 
-
-<!-------------------------------------------- TRANSPILING -------------------------------------------->
-## Transpiling
+<!--------------- LOADERS --------------->
+## Loaders
+<!--------------- BABEL --------------->
+### Babel
 1. Add loaders to the *webpack.config.js* file
 ```js
 modules: {
@@ -264,18 +268,6 @@ module: {
 			test: /\.js$/,
 			loader: 'babel-loader'
 		},
-	]
-}
-```
-```js
-module: {
-	rules: [
-		{
-			enforce: 'pre',
-			test: /\.js$/,
-			loader: 'eslint-loader',
-			exclude: /node_modules/
-		}
 	]
 }
 ```
@@ -301,26 +293,58 @@ For example, we can avoid to transpile modules in ES6
 // package.json
 //...
 "devDependencies": {
-    "babel-core": "version",
-    "babel-loader": "version", 
-    "babel-preset-es2015": "version",
-    "babel-preset-es2016": "version",
-    "babel-preset-stage-2": "version",
-    //...
+  "babel-core": "version",
+  "babel-loader": "version", 
+  "babel-preset-es2015": "version",
+  "babel-preset-es2016": "version",
+  "babel-preset-stage-2": "version",
+  //...
 }
 //...
 ```
 
-<!-------------------------------------------- CSS LOADER -------------------------------------------->
-## CSS and Style loader
+<!--------------- ESLINT --------------->
+### ESLint
+```js
+module: {
+	rules: [
+		{
+			enforce: 'pre',
+			test: /\.js$/,
+			loader: 'eslint-loader',
+			exclude: /node_modules/
+		}
+	]
+}
+```
+
+<!--------------- JSON --------------->
+### JSON
+```js
+module: {
+  rules: [
+    {
+      test: /\.json$/,
+      loader: 'json-loader'
+    }
+  ]
+}
+```
+
+<!--------------- CSS --------------->
+### CSS
 1. Add loaders to the *webpack.config.js* file
 ```js
 modules: {
-    loaders: [
-        { test: /\.css$/, loaders: ["style", "css"]}
-    ]
+  loaders: [
+    { 
+      test: /\.css$/, 
+      loaders: ["style", "css"]
+    }
+  ]
 }
 ```
+Another way
 ```js
 module: {
 	rules: [
@@ -343,16 +367,16 @@ module: {
 3. Add require to the entry point file
 ```js
 (function(){
-    require("styles/index.css")
-    //...
-    require("./app");
-    require("./helpers");
-    //...
+  require("styles/index.css")
+  //...
+  require("./app");
+  require("./helpers");
+  //...
 })();
 ``` 
 
-<!-------------------------------------------- TESTING -------------------------------------------->
-## Testing
+<!--------------- KARMA--------------->
+### Karma
 Adding Karma testing in Webpack
 1. Add dependencies and scripts
 ```js
@@ -434,8 +458,6 @@ module.exports = config => {
     })
 }
 ```
-
-
 
 <!-------------------------------------------- CODE COVERAGE -------------------------------------------->
 ## Code coverage
