@@ -3,10 +3,11 @@
 <!-- TOC -->
 
 - [Initialization](#initialization)
-    - [1. Installation](#1-installation)
-    - [2. Update package.json](#2-update-packagejson)
-    - [3. Webpack configuration file](#3-webpack-configuration-file)
-    - [4. Config validator](#4-config-validator)
+  - [1. Installation](#1-installation)
+  - [2. Update package.json](#2-update-packagejson)
+  - [3. Webpack configuration file](#3-webpack-configuration-file)
+  - [4. Config validator](#4-config-validator)
+- [Resolve extensions](#resolve-extensions)
 - [Minifying the bundle and Source maps](#minifying-the-bundle-and-source-maps)
 - [Webpack Dev Server](#webpack-dev-server)
 - [Development vs Production](#development-vs-production)
@@ -121,6 +122,25 @@ module.exports = wpValidator({
 });
 ```
 
+## Resolve extensions
+If I don't specified the extension of a file in the import/export section it's going to find the files with the extensions defined in the resolve property.
+```js
+const path = require("path");
+
+module.exports = {
+    context: __dirname,
+    entry: "./bootstrap",
+    output: {
+        path: path.join(__dirname, '/public'),
+        filename: "bundle.js"
+    },
+    devTool: "eval",
+    resolve: {
+        extensions: ['.js', '.json']
+    }
+}
+```
+
 ## Minifying the bundle and Source maps
 **Minification** <br/>
 With the flag **-p** we can specify that It's gonna be for production so It has to be minified.
@@ -230,14 +250,34 @@ output: {
 ## Transpiling
 1. Add loaders to the *webpack.config.js* file
 ```js
-// webpack.config.js
-//...
 modules: {
     loaders: [
         { test: /\.js$/, loaders: ["babel"], exclude: /node_modules/}
     ]
 }
-//...
+```
+```js
+module: {
+	rules: [
+		{
+			include: path.resolve(__dirname, 'js'),
+			test: /\.js$/,
+			loader: 'babel-loader'
+		},
+	]
+}
+```
+```js
+module: {
+	rules: [
+		{
+			enforce: 'pre',
+			test: /\.js$/,
+			loader: 'eslint-loader',
+			exclude: /node_modules/
+		}
+	]
+}
 ```
 2. Create a Babel file **.babelrc** 
 ```js
@@ -271,21 +311,33 @@ For example, we can avoid to transpile modules in ES6
 //...
 ```
 
-
-
 <!-------------------------------------------- CSS LOADER -------------------------------------------->
 ## CSS and Style loader
 1. Add loaders to the *webpack.config.js* file
 ```js
-// webpack.config.js
-//...
 modules: {
     loaders: [
-        //...
         { test: /\.css$/, loaders: ["style", "css"]}
     ]
 }
-//...
+```
+```js
+module: {
+	rules: [
+		{
+			test: /\.css$/,
+			use: [
+				'style-loader',
+				{
+					loader: 'css-loader',
+					options: {
+						url: false // Don't import images
+					}
+				}
+			]
+		}
+	]
+}
 ```
 2. Remove the link tag with the css file reference
 3. Add require to the entry point file
