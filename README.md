@@ -53,6 +53,7 @@
 
 ### JAVASCRIPT FRAMEWORKS
 - [Angular 2](guides/Frameworks/angular.md)
+- [React](guides/Frameworks/react.md)
 
 ### JAVASCRIPT LIBRARIES
 - [Firebase](guides/Libraries/firebase.md)
