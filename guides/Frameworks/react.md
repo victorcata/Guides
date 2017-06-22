@@ -16,7 +16,7 @@
 - [State Management](#state-management)
     - [Methods](#methods)
     - [Stateless Functional Component](#stateless-functional-component)
-- [Share state](#share-state)
+    - [Share state](#share-state)
 - [Testing](#testing)
     - [Snapshot test with Jest](#snapshot-test-with-jest)
     - [Shallow test with Enzyme](#shallow-test-with-enzyme)
@@ -278,7 +278,7 @@ const App = React.createClass({
   }
 })
 ```
--- **\<Match\>**: Contains information about how a Route path matched the URL.match objects.
+- **\<Match\>**: Contains information about how a Route path matched the URL.match objects.
 ```js
 const App = React.createClass({
   render: function () {
@@ -433,7 +433,7 @@ const Title = (props) => {
 }
 ```
 <!---- SHARE STATE ---->
-# Share state
+## Share state
 Describes the way we can pass data from a component to the next one
 ```js
 import data from '../data.json'

@@ -145,7 +145,7 @@ we should use
     |_ module_2
     |_ ...
     |_ module_n
-application
+app
 ```
 
 ## Advises
