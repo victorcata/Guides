@@ -62,7 +62,7 @@
 ### JAVASCRIPT MODERN TOOLS
 - [NPM](guides/Tools/npm.md)
 - [Bower](guides/Tools/bower.md) 
-- [Gulp](guides/Tools/gulp.md) 
+- [Gulp](guides/Tools/gulp.md)
 - [Yeoman](guides/Tools/yeoman.md)
 - [Webpack](guides/Tools/webpack.md)
 
