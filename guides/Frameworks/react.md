@@ -21,6 +21,8 @@
     - [Snapshot test with Jest](#snapshot-test-with-jest)
     - [Shallow test with Enzyme](#shallow-test-with-enzyme)
     - [Coverage report with Jest](#coverage-report-with-jest)
+- [Lifecycle](#lifecycle)
+- [Ajax](#ajax)
 - [References](#references)
 
 <!-- /TOC -->
@@ -340,6 +342,33 @@ const ShowCard = React.createClass({
   }
 })
 ```
+With ES6 classes. We have to bind *this* because ES6 classes don't do it
+```js
+class Header extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      // ...
+    }
+  }
+  someMethod () {
+    this.setState({prop: 'string'})
+  }
+  render () {
+    return (
+      // ...
+    )
+  }
+}
+
+const { func, bool, string } = React.PropTypes
+Header.propTypes = {
+  onChange: func,
+  show: bool,
+  search: string
+}
+
+```
 
 <!--------------- ITERATIONS --------------->
 # Iterating
@@ -508,9 +537,50 @@ test('Search snapshot test', () => {
 ```bash
 $ jest --coverage
 ```
+<!--------------- LIFECYCLE --------------->
+# Lifecycle
+1. **getInitialState** or **constructor** with ES6 classes
+2. **componentWillMount**: called before the component gets put into the DOM
+3. **componentDidMount**: called after the component gets put into the DOM
+4. **componentWillUnmount**: called before leave the DOM
 
+<!--------------- AJAX CALLS --------------->
+# Ajax
+We usually do the Ajax calls inside *componentDidMount*
+```js
+// ...
+const Details = React.createClass({
+  getInitialState () {
+    return {
+      omdbData: {}
+    }
+  },
+  componentdidMount () {
+    axios.get(`http://www.ombdapi.com/?i=${this.props.show.imdbID}`)
+         .then((response) => {
+           this.setState({ombdbData: response.data})
+         })
+         .catch((error) => console.error('axios error', error))
+  },
+  render () {
+    const { title, year, description, poster, trailer } = this.props.show
+    let rating
+    if (this.state.omdbData.imdbRating) {
+      rating = <h3>{this.state.omdbData.imdbRating}</h3>
+    } else {
+      rating = <img src='/public/img/loading.png' alt='' />
+    }
+    return (
+      // ...
+    )
+  }
+})
+
+export default Details
+```
 <!--------------- REFERENCES --------------->
 # References
 - [React](https://facebook.github.io/react/)
 - [Complete Intro to React v2 (feat. Router v4 and Redux) - Frontend Masters](https://frontendmasters.com/courses/complete-intro-react/)
 - [React Router](https://reacttraining.com/react-router/)
+- [Component Lifecycle](https://facebook.github.io/react/docs/react-component.html)
